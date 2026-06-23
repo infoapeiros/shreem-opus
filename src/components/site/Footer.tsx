@@ -1,5 +1,7 @@
 import { Link } from "@tanstack/react-router";
-import { Leaf, Mail, Phone, MapPin, Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
+import { Leaf, Mail, Phone, MapPin, Globe, Send, Share2, AtSign } from "lucide-react";
+
+const socials = [Globe, Share2, AtSign, Send];
 
 export function Footer() {
   return (
@@ -19,7 +21,7 @@ export function Footer() {
             Manufacturers of eco-friendly areca tablewares and trusted suppliers of premium tea, cleaning products, ready-to-eat gravies and catering solutions across India and global markets.
           </p>
           <div className="flex gap-2 mt-5">
-            {[Facebook, Instagram, Linkedin, Twitter].map((Icon, i) => (
+            {socials.map((Icon, i) => (
               <a key={i} href="#" aria-label="social" className="grid h-9 w-9 place-items-center rounded-full bg-white/10 hover:bg-secondary transition-colors">
                 <Icon className="h-4 w-4" />
               </a>
