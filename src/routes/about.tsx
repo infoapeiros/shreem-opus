@@ -7,9 +7,9 @@ import aboutImg from "@/assets/about.jpg";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Shreem Industries LLP — Manufacturing Excellence in Ahmedabad" },
-      { name: "description", content: "Learn the story, vision and values behind Shreem Industries LLP — manufacturer of eco-friendly areca tableware and premium B2B supplier from Ahmedabad, India." },
-      { property: "og:title", content: "About Shreem Industries LLP" },
+      { title: "About Shreem Eco Ventures LLP — Manufacturing Excellence in Ahmedabad" },
+      { name: "description", content: "Learn the story, vision and values behind Shreem Eco Ventures LLP — manufacturer of eco-friendly areca tableware and premium B2B supplier from Ahmedabad, India." },
+      { property: "og:title", content: "About Shreem Eco Ventures LLP" },
       { property: "og:description", content: "Our story, vision and commitment to sustainable manufacturing." },
       { property: "og:url", content: "/about" },
     ],
@@ -44,21 +44,21 @@ function AboutPage() {
       <PageHero
         eyebrow="About us"
         title="Quality you can trust. Partnerships that last."
-        subtitle="Shreem Industries LLP is a family-owned manufacturer and B2B supplier headquartered in Ahmedabad, Gujarat — proudly serving hospitality and retail leaders across India and abroad."
+        subtitle="Shreem Eco Ventures LLP is a family-owned manufacturer and B2B supplier headquartered in Ahmedabad, Gujarat — proudly serving hospitality and retail leaders across India and abroad."
       />
 
       <section className="py-20 bg-background">
         <div className="container-px mx-auto max-w-7xl grid lg:grid-cols-2 gap-14 items-center">
           <motion.img
             initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}
-            src={aboutImg} alt="Shreem Industries production floor" loading="lazy" width={1024} height={768}
+            src={aboutImg} alt="Shreem Eco Ventures LLP production floor" loading="lazy" width={1024} height={768}
             className="rounded-2xl shadow-elegant w-full"
           />
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <span className="text-xs font-semibold tracking-[0.25em] uppercase text-secondary">Our story</span>
             <h2 className="mt-3 font-display text-3xl md:text-4xl font-bold text-primary">From a small Ahmedabad workshop to a multi-segment manufacturer.</h2>
             <p className="mt-5 text-muted-foreground leading-relaxed">
-              Shreem Industries LLP was founded with a simple promise — to deliver the kind of consistent quality that builds long-term B2B relationships. A decade in, that promise has scaled across five business segments and dozens of cities, but the discipline behind every order remains unchanged.
+              Shreem Eco Ventures LLP was founded with a simple promise — to deliver the kind of consistent quality that builds long-term B2B relationships. A decade in, that promise has scaled across five business segments and dozens of cities, but the discipline behind every order remains unchanged.
             </p>
             <p className="mt-4 text-muted-foreground leading-relaxed">
               Today, our 67-shed facility in Pushkar Industrial Hub serves hotels, restaurants, retail chains, distributors and global export buyers who care equally about quality, ethics and supply reliability.

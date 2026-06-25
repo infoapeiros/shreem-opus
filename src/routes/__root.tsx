@@ -10,6 +10,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+import faviconUrl from "../assets/website logo/Plantin.jpeg";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
@@ -77,20 +78,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "shreem-opus" },
-      { name: "description", content: "A premium corporate website for Shreem Industries LLP, showcasing products and generating B2B leads." },
+      { title: "Shreem Eco Ventures LLP" },
+      { name: "description", content: "A premium corporate website for Shreem Eco Ventures LLP, showcasing products and generating B2B leads." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "shreem-opus" },
-      { property: "og:description", content: "A premium corporate website for Shreem Industries LLP, showcasing products and generating B2B leads." },
+      { property: "og:title", content: "Shreem Eco Ventures LLP" },
+      { property: "og:description", content: "A premium corporate website for Shreem Eco Ventures LLP, showcasing products and generating B2B leads." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "shreem-opus" },
-      { name: "twitter:description", content: "A premium corporate website for Shreem Industries LLP, showcasing products and generating B2B leads." },
+      { name: "twitter:title", content: "Shreem Eco Ventures LLP" },
+      { name: "twitter:description", content: "A premium corporate website for Shreem Eco Ventures LLP, showcasing products and generating B2B leads." },
       { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/8dd2a41e-357e-4cf7-8b03-be67a833351c/id-preview-f6ebe6cd--20470bac-146d-4565-99e4-ff52308557b0.lovable.app-1782195521912.png" },
       { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/8dd2a41e-357e-4cf7-8b03-be67a833351c/id-preview-f6ebe6cd--20470bac-146d-4565-99e4-ff52308557b0.lovable.app-1782195521912.png" },
     ],
     links: [
+      { rel: "icon", type: "image/jpeg", href: faviconUrl },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {

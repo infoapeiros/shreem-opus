@@ -1,12 +1,14 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Menu, X, Leaf } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import logo from "@/assets/website logo/Plantin.jpeg";
 
 const links = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
   { to: "/products", label: "Products" },
+  { to: "/distributorship", label: "Distributorship" },
   { to: "/services", label: "Services" },
   { to: "/gallery", label: "Gallery" },
   { to: "/export-inquiry", label: "Export" },
@@ -31,14 +33,12 @@ export function Header() {
       }`}
     >
       <div className="container-px mx-auto flex h-18 max-w-7xl items-center justify-between py-3">
-        <Link to="/" className="flex items-center gap-2.5 group">
-          <div className="grid h-10 w-10 place-items-center rounded-xl gradient-primary shadow-glow transition-transform group-hover:scale-105">
-            <Leaf className="h-5 w-5 text-white" />
-          </div>
-          <div className="flex flex-col leading-tight">
-            <span className="font-display text-base font-bold text-primary">Shreem Industries</span>
-            <span className="text-[10px] tracking-[0.25em] text-muted-foreground uppercase">LLP · Ahmedabad</span>
-          </div>
+        <Link to="/" className="flex items-center group" aria-label="Shreem Eco Ventures LLP — Home">
+          <img
+            src={logo}
+            alt="Shreem Eco Ventures LLP"
+            className="h-12 w-auto object-contain transition-transform group-hover:scale-105"
+          />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-1">

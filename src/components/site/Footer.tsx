@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { Leaf, Mail, Phone, MapPin, Globe, Send, Share2, AtSign } from "lucide-react";
+import { Mail, Phone, MapPin, Globe, Send, Share2, AtSign } from "lucide-react";
+import logo from "@/assets/website logo/Plantin.jpeg";
 
 const socials = [Globe, Share2, AtSign, Send];
 
@@ -8,13 +9,9 @@ export function Footer() {
     <footer className="mt-24 bg-primary text-primary-foreground">
       <div className="container-px mx-auto max-w-7xl py-16 grid gap-12 md:grid-cols-2 lg:grid-cols-4">
         <div>
-          <div className="flex items-center gap-2.5 mb-5">
-            <div className="grid h-10 w-10 place-items-center rounded-xl gradient-primary">
-              <Leaf className="h-5 w-5 text-white" />
-            </div>
-            <div>
-              <div className="font-display font-bold text-lg">Shreem Industries</div>
-              <div className="text-[10px] tracking-[0.25em] uppercase opacity-70">LLP · Ahmedabad</div>
+          <div className="mb-5">
+            <div className="inline-flex rounded-lg bg-white p-2.5 shadow-soft">
+              <img src={logo} alt="Shreem Eco Ventures LLP" className="h-12 w-auto object-contain" />
             </div>
           </div>
           <p className="text-sm opacity-80 leading-relaxed">
@@ -35,6 +32,7 @@ export function Footer() {
             {[
               ["/about", "About Us"],
               ["/products", "Products"],
+              ["/distributorship", "Distributorship"],
               ["/services", "Services"],
               ["/gallery", "Gallery"],
               ["/export-inquiry", "Export Inquiry"],
@@ -70,7 +68,7 @@ export function Footer() {
 
       <div className="border-t border-white/10">
         <div className="container-px mx-auto max-w-7xl py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs opacity-70">
-          <p>© {new Date().getFullYear()} Shreem Industries LLP. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Shreem Eco Ventures LLP. All rights reserved.</p>
           <p>Crafted with care · Made in India</p>
         </div>
       </div>

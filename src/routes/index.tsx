@@ -17,9 +17,9 @@ import aboutImg from "@/assets/about.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Shreem Industries LLP — Areca Tableware, Premium Tea & Catering" },
+      { title: "Shreem Eco Ventures LLP — Areca Tableware, Premium Tea & Catering" },
       { name: "description", content: "Manufacturers of eco-friendly areca tableware and trusted suppliers of premium Amrutey tea, cleaning products, ready-to-eat gravies and outdoor catering — Ahmedabad, India. Export ready." },
-      { property: "og:title", content: "Shreem Industries LLP — Quality Products for Hospitality, Retail & Global Markets" },
+      { property: "og:title", content: "Shreem Eco Ventures LLP — Quality Products for Hospitality, Retail & Global Markets" },
       { property: "og:description", content: "Eco-friendly areca tableware, premium tea, ready-to-eat gravies, cleaning supplies & catering — built for hotels, restaurants and exporters." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
@@ -61,7 +61,7 @@ function HomePage() {
       <section className="relative min-h-[92vh] flex items-center overflow-hidden">
         <img
           src={heroImg}
-          alt="Shreem Industries manufacturing facility producing areca tableware"
+          alt="Shreem Eco Ventures LLP manufacturing facility producing areca tableware"
           width={1920}
           height={1280}
           className="absolute inset-0 h-full w-full object-cover"
@@ -134,7 +134,7 @@ function HomePage() {
             transition={{ duration: 0.7 }}
             className="relative"
           >
-            <img src={aboutImg} alt="Shreem Industries manufacturing team" loading="lazy" width={1024} height={768} className="rounded-2xl shadow-elegant w-full h-auto object-cover" />
+            <img src={aboutImg} alt="Shreem Eco Ventures LLP manufacturing team" loading="lazy" width={1024} height={768} className="rounded-2xl shadow-elegant w-full h-auto object-cover" />
             <div className="absolute -bottom-6 -right-6 rounded-2xl gradient-primary p-6 text-white shadow-elegant hidden sm:block">
               <div className="font-display text-3xl font-bold">15+</div>
               <div className="text-xs uppercase tracking-widest opacity-80">Years of Trust</div>
@@ -150,7 +150,7 @@ function HomePage() {
               Built on quality. Trusted by hospitality leaders.
             </h2>
             <p className="mt-5 text-base md:text-lg text-muted-foreground leading-relaxed">
-              From our Ahmedabad facility, Shreem Industries LLP manufactures and supplies a curated portfolio of eco-friendly tableware, premium tea, gravies and cleaning solutions — engineered for restaurants, retailers and exporters who refuse to compromise.
+              From our Ahmedabad facility, Shreem Eco Ventures LLP manufactures and supplies a curated portfolio of eco-friendly tableware, premium tea, gravies and cleaning solutions — engineered for restaurants, retailers and exporters who refuse to compromise.
             </p>
             <ul className="mt-6 grid sm:grid-cols-2 gap-3 text-sm">
               {["ISO-grade quality control", "End-to-end private labeling", "International packaging norms", "Pan-India distribution network"].map((i) => (

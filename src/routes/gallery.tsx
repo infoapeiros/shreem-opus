@@ -3,21 +3,29 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import { SiteLayout, PageHero } from "@/components/site/SiteLayout";
-import heroImg from "@/assets/hero.jpg";
-import arecaImg from "@/assets/areca.jpg";
-import teaImg from "@/assets/tea.jpg";
-import cleaningImg from "@/assets/cleaning.jpg";
-import gravyImg from "@/assets/gravy.jpg";
-import cateringImg from "@/assets/catering.jpg";
-import aboutImg from "@/assets/about.jpg";
+import factory1Img from "@/assets/factory1.JPG";
+import factory2Img from "@/assets/fectory2.JPG";
+import factory3Img from "@/assets/factory3.JPG";
+import arecaRoundPlates1 from "@/assets/areca round plates.JPG";
+import arecaRoundPlates2 from "@/assets/areca round plates2.JPG";
+import arecaRoundPlates3 from "@/assets/areca round plates3.JPG";
+import arecaRoundPlates4 from "@/assets/areca round plates4.JPG";
+import arecaBowls1 from "@/assets/areca bowls.JPG";
+import arecaBowls2 from "@/assets/areca bowls2.JPG";
+import arecaTrays1 from "@/assets/areca trays and platters.JPG";
+import arecaTrays2 from "@/assets/areca trays and platters2.JPG";
+import arecaTrays3 from "@/assets/areca trays and platters3.JPG";
+import amruteyTeaImg from "@/assets/Amrutey Premium Tea.jpeg";
+import plantinDisposable1 from "@/assets/plantin disposable.JPG";
+import plantinDisposable2 from "@/assets/plantin disposable2.JPG";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
     meta: [
-      { title: "Gallery — Factory, Products & Events | Shreem Industries" },
-      { name: "description", content: "Inside the Shreem Industries facility: factory floor, products, packaging, infrastructure and catering events." },
-      { property: "og:title", content: "Photo Gallery — Shreem Industries LLP" },
-      { property: "og:description", content: "Tour our factory, products and catering events." },
+      { title: "Gallery — Factory, Products & Events | Shreem Eco Ventures LLP" },
+      { name: "description", content: "Inside the Shreem Eco Ventures LLP facility: factory floor, products, packaging lines and areca tableware production." },
+      { property: "og:title", content: "Photo Gallery — Shreem Eco Ventures LLP" },
+      { property: "og:description", content: "Tour our factory, areca products and packaging lines." },
       { property: "og:url", content: "/gallery" },
     ],
     links: [{ rel: "canonical", href: "/gallery" }],
@@ -26,18 +34,24 @@ export const Route = createFileRoute("/gallery")({
 });
 
 const items = [
-  { src: heroImg, cat: "Factory", alt: "Manufacturing facility" },
-  { src: arecaImg, cat: "Products", alt: "Areca tableware" },
-  { src: teaImg, cat: "Products", alt: "Amrutey premium tea" },
-  { src: cleaningImg, cat: "Products", alt: "Cleaning product range" },
-  { src: gravyImg, cat: "Products", alt: "Ready to eat gravies" },
-  { src: cateringImg, cat: "Catering", alt: "Outdoor catering setup" },
-  { src: aboutImg, cat: "Infrastructure", alt: "Production team" },
-  { src: heroImg, cat: "Factory", alt: "Production floor" },
-  { src: arecaImg, cat: "Packaging", alt: "Areca packaging" },
+  { src: factory1Img,        cat: "Factory",   alt: "Manufacturing facility" },
+  { src: factory2Img,        cat: "Factory",   alt: "Factory floor" },
+  { src: factory3Img,        cat: "Factory",   alt: "Production area" },
+  { src: arecaRoundPlates1,  cat: "Products",  alt: "Areca round plates" },
+  { src: arecaRoundPlates2,  cat: "Products",  alt: "Areca round plates" },
+  { src: arecaRoundPlates3,  cat: "Products",  alt: "Areca round plates" },
+  { src: arecaRoundPlates4,  cat: "Products",  alt: "Areca round plates" },
+  { src: arecaBowls1,        cat: "Products",  alt: "Areca bowls" },
+  { src: arecaBowls2,        cat: "Products",  alt: "Areca bowls" },
+  { src: arecaTrays1,        cat: "Products",  alt: "Areca trays and platters" },
+  { src: arecaTrays2,        cat: "Products",  alt: "Areca trays and platters" },
+  { src: arecaTrays3,        cat: "Products",  alt: "Areca trays and platters" },
+  { src: amruteyTeaImg,      cat: "Products",  alt: "Amrutey premium tea" },
+  { src: plantinDisposable1, cat: "Packaging", alt: "Plantin disposable packaging" },
+  { src: plantinDisposable2, cat: "Packaging", alt: "Plantin disposable packaging" },
 ];
 
-const cats = ["All", "Factory", "Products", "Catering", "Packaging", "Infrastructure"];
+const cats = ["All", "Factory", "Products", "Packaging"];
 
 function GalleryPage() {
   const [filter, setFilter] = useState("All");

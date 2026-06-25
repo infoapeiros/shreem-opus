@@ -7,9 +7,9 @@ import { SiteLayout, PageHero } from "@/components/site/SiteLayout";
 export const Route = createFileRoute("/export-inquiry")({
   head: () => ({
     meta: [
-      { title: "Export Inquiry — Bulk B2B & International Orders | Shreem Industries" },
-      { name: "description", content: "Send an export inquiry to Shreem Industries LLP — bulk orders of areca tableware, premium tea, cleaning products and ready gravies for international buyers." },
-      { property: "og:title", content: "Export Inquiry — Shreem Industries LLP" },
+      { title: "Export Inquiry — Bulk B2B & International Orders | Shreem Eco Ventures LLP" },
+      { name: "description", content: "Send an export inquiry to Shreem Eco Ventures LLP — bulk orders of areca tableware, premium tea, cleaning products and ready gravies for international buyers." },
+      { property: "og:title", content: "Export Inquiry — Shreem Eco Ventures LLP" },
       { property: "og:description", content: "Bulk orders, international shipping and private label support." },
       { property: "og:url", content: "/export-inquiry" },
     ],

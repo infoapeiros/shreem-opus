@@ -1,14 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { Factory, Warehouse, Truck, Tag, Globe2, UtensilsCrossed, ArrowRight } from "lucide-react";
+import { Factory, Warehouse, Truck, Tag, Globe2, UtensilsCrossed, Megaphone, Users, Building2, ArrowRight } from "lucide-react";
 import { SiteLayout, PageHero } from "@/components/site/SiteLayout";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
       { title: "Services — Manufacturing, Wholesale, Private Label & Catering" },
-      { name: "description", content: "Shreem Industries offers manufacturing, wholesale supply, distribution, private label solutions, export support and outdoor catering services." },
-      { property: "og:title", content: "Our Services — Shreem Industries LLP" },
+      { name: "description", content: "Shreem Eco Ventures LLP offers manufacturing, wholesale supply, distribution, private label solutions, export support and outdoor catering services." },
+      { property: "og:title", content: "Our Services — Shreem Eco Ventures LLP" },
       { property: "og:description", content: "Manufacturing, distribution, private label, export support and catering." },
       { property: "og:url", content: "/services" },
     ],
@@ -18,12 +18,15 @@ export const Route = createFileRoute("/services")({
 });
 
 const services = [
+  { Icon: UtensilsCrossed, title: "Outdoor Catering (Minimum 50 Pax)", text: "Full-service outdoor catering for corporate, social and large-scale events across Gujarat — minimum 50 pax." },
+  { Icon: Megaphone, title: "On-Ground Promotion Activities", text: "End-to-end on-ground promotional campaigns that put your brand directly in front of customers." },
+  { Icon: Users, title: "Promoter Provider for Promotional Activities", text: "Trained, professional promoters supplied for your brand activations, sampling drives and promotional events." },
+  { Icon: Building2, title: "Society Marketing Activities across Ahmedabad", text: "Targeted residential society marketing and activation campaigns reaching households across Ahmedabad." },
   { Icon: Factory, title: "Manufacturing", text: "In-house manufacturing of biodegradable areca tableware with strict quality control at every stage." },
   { Icon: Warehouse, title: "Wholesale Supply", text: "Bulk supply for distributors, hospitality chains and large retail accounts with predictable lead times." },
   { Icon: Truck, title: "Distribution", text: "Pan-India distribution network with reliable cold-chain and dry-goods logistics partners." },
   { Icon: Tag, title: "Private Label Solutions", text: "Build your own brand on our products — custom packaging, branding and MOQs to fit your scale." },
   { Icon: Globe2, title: "Export Support", text: "Documentation, certifications and packaging that meets international compliance requirements." },
-  { Icon: UtensilsCrossed, title: "Outdoor Catering", text: "Full-service catering for corporate, social and large-scale events across Gujarat." },
 ];
 
 function ServicesPage() {
@@ -31,7 +34,7 @@ function ServicesPage() {
     <SiteLayout>
       <PageHero
         eyebrow="Our services"
-        title="Six ways we power your business."
+        title="Nine ways we power your business."
         subtitle="From production lines to plated meals — a single partner across your supply chain."
       />
 

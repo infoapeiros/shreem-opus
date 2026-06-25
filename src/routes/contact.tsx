@@ -7,9 +7,9 @@ import { SiteLayout, PageHero } from "@/components/site/SiteLayout";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact Shreem Industries LLP — Ahmedabad, India" },
-      { name: "description", content: "Get in touch with Shreem Industries LLP — Pushkar Industrial Hub, Ahmedabad. Phone: +91 96620 78551 / +91 87803 08763. Email: shreem0222@gmail.com." },
-      { property: "og:title", content: "Contact Us — Shreem Industries LLP" },
+      { title: "Contact Shreem Eco Ventures LLP — Ahmedabad, India" },
+      { name: "description", content: "Get in touch with Shreem Eco Ventures LLP — Pushkar Industrial Hub, Ahmedabad. Phone: +91 96620 78551 / +91 87803 08763. Email: shreem0222@gmail.com." },
+      { property: "og:title", content: "Contact Us — Shreem Eco Ventures LLP" },
       { property: "og:description", content: "Reach our Ahmedabad office for quotes, samples and B2B partnerships." },
       { property: "og:url", content: "/contact" },
     ],
@@ -58,7 +58,7 @@ function ContactPage() {
 
             <div className="rounded-2xl overflow-hidden border border-border shadow-soft h-72">
               <iframe
-                title="Shreem Industries location"
+                title="Shreem Eco Ventures LLP location"
                 src="https://www.google.com/maps?q=Pushkar+Industrial+Hub+Ahmedabad&output=embed"
                 className="w-full h-full"
                 loading="lazy"

@@ -14,6 +14,7 @@ import { Route as ServicesRouteImport } from './routes/services'
 import { Route as ProductsRouteImport } from './routes/products'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as ExportInquiryRouteImport } from './routes/export-inquiry'
+import { Route as DistributorshipRouteImport } from './routes/distributorship'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
@@ -43,6 +44,11 @@ const ExportInquiryRoute = ExportInquiryRouteImport.update({
   path: '/export-inquiry',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DistributorshipRoute = DistributorshipRouteImport.update({
+  id: '/distributorship',
+  path: '/distributorship',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
@@ -63,6 +69,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/distributorship': typeof DistributorshipRoute
   '/export-inquiry': typeof ExportInquiryRoute
   '/gallery': typeof GalleryRoute
   '/products': typeof ProductsRoute
@@ -73,6 +80,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/distributorship': typeof DistributorshipRoute
   '/export-inquiry': typeof ExportInquiryRoute
   '/gallery': typeof GalleryRoute
   '/products': typeof ProductsRoute
@@ -84,6 +92,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/distributorship': typeof DistributorshipRoute
   '/export-inquiry': typeof ExportInquiryRoute
   '/gallery': typeof GalleryRoute
   '/products': typeof ProductsRoute
@@ -96,6 +105,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/distributorship'
     | '/export-inquiry'
     | '/gallery'
     | '/products'
@@ -106,6 +116,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/distributorship'
     | '/export-inquiry'
     | '/gallery'
     | '/products'
@@ -116,6 +127,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/distributorship'
     | '/export-inquiry'
     | '/gallery'
     | '/products'
@@ -127,6 +139,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
+  DistributorshipRoute: typeof DistributorshipRoute
   ExportInquiryRoute: typeof ExportInquiryRoute
   GalleryRoute: typeof GalleryRoute
   ProductsRoute: typeof ProductsRoute
@@ -171,6 +184,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ExportInquiryRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/distributorship': {
+      id: '/distributorship'
+      path: '/distributorship'
+      fullPath: '/distributorship'
+      preLoaderRoute: typeof DistributorshipRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
@@ -199,6 +219,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
+  DistributorshipRoute: DistributorshipRoute,
   ExportInquiryRoute: ExportInquiryRoute,
   GalleryRoute: GalleryRoute,
   ProductsRoute: ProductsRoute,
@@ -208,3 +229,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
