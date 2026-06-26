@@ -38,7 +38,7 @@
 
   --shadow-soft: 0 4px 24px -8px oklch(0.2 0.05 260 / 0.10);
   --shadow-elegant: 0 20px 50px -20px oklch(0.2 0.05 260 / 0.18);
-  --shadow-glow: 0 0 40px oklch(0.65 0.18 145 / 0.25);
+  --shadow-glow: 0 0 40px oklch(0.42 0.145 17 / 0.25);
 }
 
 :root {
@@ -57,7 +57,7 @@
   --primary: oklch(0.205 0.04 265);                /* Dark Navy #0F172A */
   --primary-foreground: oklch(0.99 0.003 247);
 
-  --secondary: oklch(0.62 0.17 145);               /* Premium Green #16A34A */
+  --secondary: oklch(0.42 0.145 17);               /* Logo Maroon #8B1A2E */
   --secondary-foreground: oklch(0.99 0 0);
 
   --accent: oklch(0.78 0.16 75);                   /* Golden Amber #F59E0B */
@@ -71,10 +71,10 @@
 
   --border: oklch(0.92 0.012 255);
   --input: oklch(0.92 0.012 255);
-  --ring: oklch(0.62 0.17 145);
+  --ring: oklch(0.42 0.145 17);
 
   --gradient-hero: linear-gradient(135deg, oklch(0.205 0.04 265 / 0.92), oklch(0.205 0.04 265 / 0.65));
-  --gradient-primary: linear-gradient(135deg, oklch(0.62 0.17 145), oklch(0.55 0.16 155));
+  --gradient-primary: linear-gradient(135deg, oklch(0.42 0.145 17), oklch(0.35 0.14 19));
   --gradient-accent: linear-gradient(135deg, oklch(0.78 0.16 75), oklch(0.72 0.18 60));
   --gradient-subtle: linear-gradient(180deg, oklch(1 0 0), oklch(0.984 0.005 247));
 }
@@ -117,7 +117,7 @@
   background-image: var(--gradient-subtle);
 }
 @utility text-gradient-accent {
-  background-image: linear-gradient(135deg, oklch(0.78 0.16 75), oklch(0.62 0.17 145));
+  background-image: linear-gradient(135deg, oklch(0.78 0.16 75), oklch(0.42 0.145 17));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

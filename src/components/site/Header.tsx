@@ -37,7 +37,7 @@ export function Header() {
           <img
             src={logo}
             alt="Shreem Eco Ventures LLP"
-            className="h-12 w-auto object-contain transition-transform group-hover:scale-105"
+            className="h-12 w-auto object-contain rounded-lg transition-transform group-hover:scale-105"
           />
         </Link>
 

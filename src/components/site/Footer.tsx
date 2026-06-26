@@ -10,9 +10,7 @@ export function Footer() {
       <div className="container-px mx-auto max-w-7xl py-16 grid gap-12 md:grid-cols-2 lg:grid-cols-4">
         <div>
           <div className="mb-5">
-            <div className="inline-flex rounded-lg bg-white p-2.5 shadow-soft">
-              <img src={logo} alt="Shreem Eco Ventures LLP" className="h-12 w-auto object-contain" />
-            </div>
+            <img src={logo} alt="Shreem Eco Ventures LLP" className="h-12 w-auto object-contain rounded-lg" />
           </div>
           <p className="text-sm opacity-80 leading-relaxed">
             Manufacturers of eco-friendly areca tablewares and trusted suppliers of premium tea, cleaning products, ready-to-eat gravies and catering solutions across India and global markets.
