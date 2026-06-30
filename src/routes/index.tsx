@@ -32,8 +32,8 @@ export const Route = createFileRoute("/")({
 const segments = [
   { title: "Areca Tablewares", desc: "100% biodegradable plates, bowls, trays & food packaging crafted from naturally fallen areca leaves.", img: arecaImg, to: "/products" },
   { title: "Amrutey Premium Tea", desc: "Hand-picked, full-bodied tea blends for hotels, retailers and discerning households.", img: teaImg, to: "/products" },
-  { title: "Cleaning Products", desc: "High-performance commercial and industrial cleaners that meet hospitality standards.", img: cleaningImg, to: "/products" },
-  { title: "Ready-to-Eat Gravies", desc: "Restaurant-quality Punjabi, Mughlai, South Indian and Chinese base sauces.", img: gravyImg, to: "/products" },
+  { title: "Cleaning Products", desc: "High-performance commercial and industrial cleaners that meet hospitality standards.", img: cleaningImg, to: "/distributorship" },
+  { title: "Ready-to-Eat Gravies", desc: "Restaurant-quality Punjabi, Mughlai, South Indian and Chinese base sauces.", img: gravyImg, to: "/distributorship" },
   { title: "Outdoor Catering", desc: "Full-service catering for corporate, social and large-scale events across Gujarat.", img: cateringImg, to: "/services" },
 ];
 

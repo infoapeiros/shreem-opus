@@ -29,8 +29,8 @@ export function Footer() {
           <ul className="space-y-2.5 text-sm opacity-80">
             {[
               ["/about", "About Us"],
-              ["/products", "Products"],
-              ["/distributorship", "Distributorship"],
+              ["/products", "Own Brand Products"],
+              ["/distributorship", "Distribution"],
               ["/services", "Services"],
               ["/gallery", "Gallery"],
               ["/export-inquiry", "Export Inquiry"],
@@ -46,11 +46,21 @@ export function Footer() {
         <div>
           <h4 className="font-display text-base font-semibold mb-4 text-white">Our Products</h4>
           <ul className="space-y-2.5 text-sm opacity-80">
-            <li>Areca Tablewares</li>
-            <li>Amrutey Premium Tea</li>
-            <li>Cleaning Products</li>
-            <li>Ready-to-Eat Gravies</li>
-            <li>Outdoor Catering</li>
+            <li>
+              <Link to="/products" className="hover:text-accent transition-colors">Areca Tablewares</Link>
+            </li>
+            <li>
+              <Link to="/products" className="hover:text-accent transition-colors">Amrutey Premium Tea</Link>
+            </li>
+            <li>
+              <Link to="/distributorship" className="hover:text-accent transition-colors">Cleaning Products</Link>
+            </li>
+            <li>
+              <Link to="/distributorship" className="hover:text-accent transition-colors">Ready-to-Eat Gravies</Link>
+            </li>
+            <li>
+              <Link to="/services" className="hover:text-accent transition-colors">Outdoor Catering</Link>
+            </li>
           </ul>
         </div>
 

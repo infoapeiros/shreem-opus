@@ -7,8 +7,8 @@ import logo from "@/assets/website logo/Plantin.jpeg";
 const links = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
-  { to: "/products", label: "Products" },
-  { to: "/distributorship", label: "Distributorship" },
+  { to: "/products", label: "Own Brand Products" },
+  { to: "/distributorship", label: "Distribution" },
   { to: "/services", label: "Services" },
   { to: "/gallery", label: "Gallery" },
   { to: "/export-inquiry", label: "Export" },

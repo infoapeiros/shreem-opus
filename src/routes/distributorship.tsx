@@ -1,16 +1,30 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { createFileRoute } from "@tanstack/react-router";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
 import { SiteLayout, PageHero } from "@/components/site/SiteLayout";
+import { ArrowRight } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import cateringImg from "@/assets/catering.jpg";
+import arecaImg from "@/assets/areca.jpg";
+import cleaningImg from "@/assets/cleaning.jpg";
+import gravyImg from "@/assets/gravy.jpg";
+import { products, ProductCard, CategoryEntryCard } from "./products";
+import type { Product } from "./products";
 
 export const Route = createFileRoute("/distributorship")({
   head: () => ({
     meta: [
-      { title: "Distributorship — Authorized Brand Partnerships | Shreem Eco Ventures LLP" },
-      { name: "description", content: "Shreem Eco Ventures LLP is an authorized distributor of Happykery and select partner brands — extending a trusted supply network across India." },
-      { property: "og:title", content: "Distributorship — Shreem Eco Ventures LLP" },
-      { property: "og:description", content: "Authorized distribution partnerships extending our trusted supply network across India." },
+      { title: "Distribution — Food Packaging, Cleaning Supplies & Ready Gravies | Shreem Eco Ventures LLP" },
+      {
+        name: "description",
+        content:
+          "Shreem Eco Ventures LLP is an authorized distributor of bulk food packaging, commercial cleaning supplies, ready gravies, and partner brands like Happykery.",
+      },
+      { property: "og:title", content: "Distribution — Shreem Eco Ventures LLP" },
+      {
+        property: "og:description",
+        content: "Authorized distribution partnerships extending our B2B supply network across India.",
+      },
       { property: "og:url", content: "/distributorship" },
     ],
     links: [{ rel: "canonical", href: "/distributorship" }],
@@ -18,70 +32,187 @@ export const Route = createFileRoute("/distributorship")({
   component: DistributorshipPage,
 });
 
-type Distributor = { name: string; img: string; desc: string; features: string[] };
-
-const distributors: Distributor[] = [
-  {
-    name: "Happykery",
-    img: cateringImg,
-    desc: "Authorized distributorship of Happykery products — extending our trusted supply network to more partners.",
-    features: ["Authorized distributor", "Reliable supply", "Pan-India reach"],
-  },
-];
-
-function DistributorCard({ d, i }: { d: Distributor; i: number }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: i * 0.08 }}
-      className="group relative overflow-hidden rounded-2xl bg-card border border-border shadow-soft hover:shadow-elegant hover:-translate-y-1 transition-all"
-    >
-      <div className="aspect-[4/3] overflow-hidden bg-surface">
-        <img
-          src={d.img}
-          alt={d.name}
-          loading="lazy"
-          width={1024}
-          height={768}
-          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-        />
-      </div>
-      <div className="p-6">
-        <h3 className="font-display text-lg font-semibold text-primary">{d.name}</h3>
-        <p className="mt-2 text-sm text-muted-foreground">{d.desc}</p>
-        <ul className="mt-4 space-y-1.5">
-          {d.features.map((f) => (
-            <li key={f} className="flex items-center gap-2 text-xs text-foreground/80">
-              <CheckCircle2 className="h-3.5 w-3.5 text-secondary" /> {f}
-            </li>
-          ))}
-        </ul>
-        <Link
-          to="/export-inquiry"
-          className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-secondary hover:gap-2.5 transition-all"
-        >
-          Request Quote <ArrowRight className="h-4 w-4" />
-        </Link>
-      </div>
-    </motion.div>
-  );
-}
-
 function DistributorshipPage() {
+  const [expandedCategory, setExpandedCategory] = useState<"happykery" | "packaging" | "cleaning" | "gravy" | null>(null);
+  const [tick, setTick] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => setTick((t) => t + 1), 2500);
+    return () => clearInterval(timer);
+  }, []);
+
+  const happykeryCat: Product = {
+    name: "Happykery B2B Catering",
+    imgs: [cateringImg],
+    desc: "Authorized distributorship of Happykery products — extending B2B catering solutions and food supplies.",
+    features: ["Authorized distributor", "Reliable supply", "Pan-India reach"],
+  };
+
+  const foodPackagingCat: Product = {
+    name: "Food Packaging",
+    imgs: [arecaImg],
+    desc: "Compostable B2B take-away packaging for QSRs, cloud kitchens, and food service partners.",
+    features: ["Branded options", "Stackable", "Food-grade materials"],
+  };
+
+  const cleaningCat: Product = {
+    name: "Cleaning Products",
+    imgs: [cleaningImg],
+    desc: "High-performance commercial and industrial cleaning supplies engineered for hospitality and workplaces.",
+    features: ["Floor & multi-surface cleaners", "Kitchen & surface disinfectants", "Industrial degreasers & drum supply"],
+  };
+
+  const gravyCat: Product = {
+    name: "Ready Gravies",
+    imgs: [gravyImg],
+    desc: "Restaurant-quality Punjabi, Mughlai, South Indian, and Indo-Chinese stock gravy bases.",
+    features: ["Chef-formulated recipes", "Ready-to-use bases", "Consistent taste & long shelf life"],
+  };
+
+  // Sub-products lists
+  const happykeryProducts = [
+    {
+      name: "Happykery B2B Catering",
+      imgs: [cateringImg],
+      desc: "Full-service B2B catering supply and commercial kitchen partnerships under the Happykery authorization.",
+      features: ["Menu customization", "Bulk corporate packages", "Authorized regional supply"],
+    },
+  ];
+
+  const foodPackagingProducts = products.filter((p) => p.name === "Food Packaging");
+  const cleaningProducts = products.filter((p) => p.cat === "cleaning");
+  const gravyProducts = products.filter((p) => p.cat === "gravy");
+
   return (
     <SiteLayout>
       <PageHero
-        eyebrow="Authorized Distribution"
-        title="Brands we proudly distribute."
+        eyebrow="B2B Distribution"
+        title="Distribution Products & Brands"
         subtitle="Authorized distribution partnerships that extend our trusted supply network across India."
       />
 
-      <section className="py-20 bg-background">
-        <div className="container-px mx-auto max-w-7xl grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {distributors.map((d, i) => (
-            <DistributorCard key={d.name} d={d} i={i} />
-          ))}
+      <section className="py-16 bg-background">
+        <div className="container-px mx-auto max-w-7xl">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <CategoryEntryCard
+              p={happykeryCat}
+              isExpanded={expandedCategory === "happykery"}
+              onToggle={() => setExpandedCategory((c) => (c === "happykery" ? null : "happykery"))}
+              tick={tick}
+            />
+            <CategoryEntryCard
+              p={foodPackagingCat}
+              isExpanded={expandedCategory === "packaging"}
+              onToggle={() => setExpandedCategory((c) => (c === "packaging" ? null : "packaging"))}
+              tick={tick}
+            />
+            <CategoryEntryCard
+              p={cleaningCat}
+              isExpanded={expandedCategory === "cleaning"}
+              onToggle={() => setExpandedCategory((c) => (c === "cleaning" ? null : "cleaning"))}
+              tick={tick}
+            />
+            <CategoryEntryCard
+              p={gravyCat}
+              isExpanded={expandedCategory === "gravy"}
+              onToggle={() => setExpandedCategory((c) => (c === "gravy" ? null : "gravy"))}
+              tick={tick}
+            />
+          </div>
+
+          <AnimatePresence mode="wait">
+            {expandedCategory === "happykery" && (
+              <motion.div
+                key="happykery"
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.3 }}
+                className="mt-16 border-t border-border/60 pt-16 overflow-hidden"
+              >
+                <h3 className="font-display text-2xl font-bold text-primary mb-2 text-center">
+                  Happykery B2B Catering Solutions
+                </h3>
+                <p className="text-center text-muted-foreground mb-10 max-w-md mx-auto">
+                  Authorized distributorship extending high-quality corporate and event catering supplies.
+                </p>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {happykeryProducts.map((p, i) => (
+                    <ProductCard key={p.name + i} p={p} i={i} tick={tick} />
+                  ))}
+                </div>
+              </motion.div>
+            )}
+
+            {expandedCategory === "packaging" && (
+              <motion.div
+                key="packaging"
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.3 }}
+                className="mt-16 border-t border-border/60 pt-16 overflow-hidden"
+              >
+                <h3 className="font-display text-2xl font-bold text-primary mb-2 text-center">
+                  Distributed Food Packaging Range
+                </h3>
+                <p className="text-center text-muted-foreground mb-10 max-w-md mx-auto">
+                  Eco-friendly, food-grade disposable containers and tableware for cloud kitchens and QSRs.
+                </p>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {foodPackagingProducts.map((p, i) => (
+                    <ProductCard key={p.name + i} p={p} i={i} tick={tick} />
+                  ))}
+                </div>
+              </motion.div>
+            )}
+
+            {expandedCategory === "cleaning" && (
+              <motion.div
+                key="cleaning"
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.3 }}
+                className="mt-16 border-t border-border/60 pt-16 overflow-hidden"
+              >
+                <h3 className="font-display text-2xl font-bold text-primary mb-2 text-center">
+                  Distributed Cleaning Products
+                </h3>
+                <p className="text-center text-muted-foreground mb-10 max-w-md mx-auto">
+                  Commercial-grade multi-surface, kitchen and heavy-duty industrial cleaning chemicals.
+                </p>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {cleaningProducts.map((p, i) => (
+                    <ProductCard key={p.name + i} p={p} i={i} tick={tick} />
+                  ))}
+                </div>
+              </motion.div>
+            )}
+
+            {expandedCategory === "gravy" && (
+              <motion.div
+                key="gravy"
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.3 }}
+                className="mt-16 border-t border-border/60 pt-16 overflow-hidden"
+              >
+                <h3 className="font-display text-2xl font-bold text-primary mb-2 text-center">
+                  Distributed Ready Gravies
+                </h3>
+                <p className="text-center text-muted-foreground mb-10 max-w-md mx-auto">
+                  Punjabi, Mughlai, South Indian, and Chinese restaurant-style stock gravies.
+                </p>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {gravyProducts.map((p, i) => (
+                    <ProductCard key={p.name + i} p={p} i={i} tick={tick} />
+                  ))}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </section>
 
