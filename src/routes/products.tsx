@@ -6,18 +6,18 @@ import { SiteLayout, PageHero } from "@/components/site/SiteLayout";
 import arecaImg from "@/assets/areca.jpg";
 import cleaningImg from "@/assets/cleaning.jpg";
 import gravyImg from "@/assets/gravy.jpg";
-import amruteyTeaImg from "@/assets/Amrutey Premium Tea.jpeg";
-import plantinDisposable1 from "@/assets/plantin disposable.JPG";
-import plantinDisposable2 from "@/assets/plantin disposable2.JPG";
-import arecaRoundPlates1 from "@/assets/areca round plates.JPG";
-import arecaRoundPlates2 from "@/assets/areca round plates2.JPG";
-import arecaRoundPlates3 from "@/assets/areca round plates3.JPG";
-import arecaRoundPlates4 from "@/assets/areca round plates4.JPG";
-import arecaBowls1 from "@/assets/areca bowls.JPG";
-import arecaBowls2 from "@/assets/areca bowls2.JPG";
-import arecaTrays1 from "@/assets/areca trays and platters.JPG";
-import arecaTrays2 from "@/assets/areca trays and platters2.JPG";
-import arecaTrays3 from "@/assets/areca trays and platters3.JPG";
+import amruteyTeaImg from "@/assets/amrutey-premium-tea.jpg";
+import plantinDisposable1 from "@/assets/plantin-disposable.jpg";
+import plantinDisposable2 from "@/assets/plantin-disposable2.jpg";
+import arecaRoundPlates1 from "@/assets/areca-round-plates.jpg";
+import arecaRoundPlates2 from "@/assets/areca-round-plates2.jpg";
+import arecaRoundPlates3 from "@/assets/areca-round-plates3.jpg";
+import arecaRoundPlates4 from "@/assets/areca-round-plates4.jpg";
+import arecaBowls1 from "@/assets/areca-bowls.jpg";
+import arecaBowls2 from "@/assets/areca-bowls2.jpg";
+import arecaTrays1 from "@/assets/areca-trays-and-platters.jpg";
+import arecaTrays2 from "@/assets/areca-trays-and-platters2.jpg";
+import arecaTrays3 from "@/assets/areca-trays-and-platters3.jpg";
 
 export const Route = createFileRoute("/products")({
   head: () => ({
