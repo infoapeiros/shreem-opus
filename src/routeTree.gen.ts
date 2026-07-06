@@ -18,6 +18,11 @@ import { Route as DistributorshipRouteImport } from './routes/distributorship'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ProductsIndexRouteImport } from './routes/products.index'
+import { Route as DistributorshipIndexRouteImport } from './routes/distributorship.index'
+import { Route as ProductsBrandIdRouteImport } from './routes/products.$brandId'
+import { Route as DistributorshipHappikeryRouteImport } from './routes/distributorship.happikery'
+import { Route as DistributorshipBlsRouteImport } from './routes/distributorship.bls'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
@@ -64,40 +69,79 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProductsIndexRoute = ProductsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ProductsRoute,
+} as any)
+const DistributorshipIndexRoute = DistributorshipIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => DistributorshipRoute,
+} as any)
+const ProductsBrandIdRoute = ProductsBrandIdRouteImport.update({
+  id: '/$brandId',
+  path: '/$brandId',
+  getParentRoute: () => ProductsRoute,
+} as any)
+const DistributorshipHappikeryRoute =
+  DistributorshipHappikeryRouteImport.update({
+    id: '/happikery',
+    path: '/happikery',
+    getParentRoute: () => DistributorshipRoute,
+  } as any)
+const DistributorshipBlsRoute = DistributorshipBlsRouteImport.update({
+  id: '/bls',
+  path: '/bls',
+  getParentRoute: () => DistributorshipRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/distributorship': typeof DistributorshipRoute
+  '/distributorship': typeof DistributorshipRouteWithChildren
   '/export-inquiry': typeof ExportInquiryRoute
   '/gallery': typeof GalleryRoute
-  '/products': typeof ProductsRoute
+  '/products': typeof ProductsRouteWithChildren
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/distributorship/bls': typeof DistributorshipBlsRoute
+  '/distributorship/happikery': typeof DistributorshipHappikeryRoute
+  '/products/$brandId': typeof ProductsBrandIdRoute
+  '/distributorship/': typeof DistributorshipIndexRoute
+  '/products/': typeof ProductsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/distributorship': typeof DistributorshipRoute
   '/export-inquiry': typeof ExportInquiryRoute
   '/gallery': typeof GalleryRoute
-  '/products': typeof ProductsRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/distributorship/bls': typeof DistributorshipBlsRoute
+  '/distributorship/happikery': typeof DistributorshipHappikeryRoute
+  '/products/$brandId': typeof ProductsBrandIdRoute
+  '/distributorship': typeof DistributorshipIndexRoute
+  '/products': typeof ProductsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/distributorship': typeof DistributorshipRoute
+  '/distributorship': typeof DistributorshipRouteWithChildren
   '/export-inquiry': typeof ExportInquiryRoute
   '/gallery': typeof GalleryRoute
-  '/products': typeof ProductsRoute
+  '/products': typeof ProductsRouteWithChildren
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/distributorship/bls': typeof DistributorshipBlsRoute
+  '/distributorship/happikery': typeof DistributorshipHappikeryRoute
+  '/products/$brandId': typeof ProductsBrandIdRoute
+  '/distributorship/': typeof DistributorshipIndexRoute
+  '/products/': typeof ProductsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -111,17 +155,25 @@ export interface FileRouteTypes {
     | '/products'
     | '/services'
     | '/sitemap.xml'
+    | '/distributorship/bls'
+    | '/distributorship/happikery'
+    | '/products/$brandId'
+    | '/distributorship/'
+    | '/products/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
     | '/contact'
-    | '/distributorship'
     | '/export-inquiry'
     | '/gallery'
-    | '/products'
     | '/services'
     | '/sitemap.xml'
+    | '/distributorship/bls'
+    | '/distributorship/happikery'
+    | '/products/$brandId'
+    | '/distributorship'
+    | '/products'
   id:
     | '__root__'
     | '/'
@@ -133,16 +185,21 @@ export interface FileRouteTypes {
     | '/products'
     | '/services'
     | '/sitemap.xml'
+    | '/distributorship/bls'
+    | '/distributorship/happikery'
+    | '/products/$brandId'
+    | '/distributorship/'
+    | '/products/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
-  DistributorshipRoute: typeof DistributorshipRoute
+  DistributorshipRoute: typeof DistributorshipRouteWithChildren
   ExportInquiryRoute: typeof ExportInquiryRoute
   GalleryRoute: typeof GalleryRoute
-  ProductsRoute: typeof ProductsRoute
+  ProductsRoute: typeof ProductsRouteWithChildren
   ServicesRoute: typeof ServicesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
@@ -212,17 +269,82 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/products/': {
+      id: '/products/'
+      path: '/'
+      fullPath: '/products/'
+      preLoaderRoute: typeof ProductsIndexRouteImport
+      parentRoute: typeof ProductsRoute
+    }
+    '/distributorship/': {
+      id: '/distributorship/'
+      path: '/'
+      fullPath: '/distributorship/'
+      preLoaderRoute: typeof DistributorshipIndexRouteImport
+      parentRoute: typeof DistributorshipRoute
+    }
+    '/products/$brandId': {
+      id: '/products/$brandId'
+      path: '/$brandId'
+      fullPath: '/products/$brandId'
+      preLoaderRoute: typeof ProductsBrandIdRouteImport
+      parentRoute: typeof ProductsRoute
+    }
+    '/distributorship/happikery': {
+      id: '/distributorship/happikery'
+      path: '/happikery'
+      fullPath: '/distributorship/happikery'
+      preLoaderRoute: typeof DistributorshipHappikeryRouteImport
+      parentRoute: typeof DistributorshipRoute
+    }
+    '/distributorship/bls': {
+      id: '/distributorship/bls'
+      path: '/bls'
+      fullPath: '/distributorship/bls'
+      preLoaderRoute: typeof DistributorshipBlsRouteImport
+      parentRoute: typeof DistributorshipRoute
+    }
   }
 }
+
+interface DistributorshipRouteChildren {
+  DistributorshipBlsRoute: typeof DistributorshipBlsRoute
+  DistributorshipHappikeryRoute: typeof DistributorshipHappikeryRoute
+  DistributorshipIndexRoute: typeof DistributorshipIndexRoute
+}
+
+const DistributorshipRouteChildren: DistributorshipRouteChildren = {
+  DistributorshipBlsRoute: DistributorshipBlsRoute,
+  DistributorshipHappikeryRoute: DistributorshipHappikeryRoute,
+  DistributorshipIndexRoute: DistributorshipIndexRoute,
+}
+
+const DistributorshipRouteWithChildren = DistributorshipRoute._addFileChildren(
+  DistributorshipRouteChildren,
+)
+
+interface ProductsRouteChildren {
+  ProductsBrandIdRoute: typeof ProductsBrandIdRoute
+  ProductsIndexRoute: typeof ProductsIndexRoute
+}
+
+const ProductsRouteChildren: ProductsRouteChildren = {
+  ProductsBrandIdRoute: ProductsBrandIdRoute,
+  ProductsIndexRoute: ProductsIndexRoute,
+}
+
+const ProductsRouteWithChildren = ProductsRoute._addFileChildren(
+  ProductsRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
-  DistributorshipRoute: DistributorshipRoute,
+  DistributorshipRoute: DistributorshipRouteWithChildren,
   ExportInquiryRoute: ExportInquiryRoute,
   GalleryRoute: GalleryRoute,
-  ProductsRoute: ProductsRoute,
+  ProductsRoute: ProductsRouteWithChildren,
   ServicesRoute: ServicesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
 }

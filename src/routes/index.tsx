@@ -10,8 +10,8 @@ import heroImg from "@/assets/hero.jpg";
 import arecaImg from "@/assets/areca.jpg";
 import teaImg from "@/assets/tea.jpg";
 import cleaningImg from "@/assets/cleaning.jpg";
-import gravyImg from "@/assets/gravy.jpg";
 import cateringImg from "@/assets/catering.jpg";
+import happikeryImg from "@/assets/happykery/Makhani base gravy.jpg";
 import aboutImg from "@/assets/about.jpg";
 
 export const Route = createFileRoute("/")({
@@ -32,8 +32,8 @@ export const Route = createFileRoute("/")({
 const segments = [
   { title: "Areca Tablewares", desc: "100% biodegradable plates, bowls, trays & food packaging crafted from naturally fallen areca leaves.", img: arecaImg, to: "/products" },
   { title: "Amrutey Premium Tea", desc: "Hand-picked, full-bodied tea blends for hotels, retailers and discerning households.", img: teaImg, to: "/products" },
-  { title: "Cleaning Products", desc: "High-performance commercial and industrial cleaners that meet hospitality standards.", img: cleaningImg, to: "/distributorship" },
-  { title: "Ready-to-Eat Gravies", desc: "Restaurant-quality Punjabi, Mughlai, South Indian and Chinese base sauces.", img: gravyImg, to: "/distributorship" },
+  { title: "Cleaning Products", desc: "High-performance commercial and industrial cleaners that meet hospitality standards.", img: cleaningImg, to: "/distributorship/bls" },
+  { title: "Happikery", desc: "Ready-to-eat gravies, sauces, biryani paste and more for restaurants and cloud kitchens.", img: happikeryImg, to: "/distributorship/happikery" },
   { title: "Outdoor Catering", desc: "Full-service catering for corporate, social and large-scale events across Gujarat.", img: cateringImg, to: "/services" },
 ];
 

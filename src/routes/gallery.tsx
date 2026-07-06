@@ -3,8 +3,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import { SiteLayout, PageHero } from "@/components/site/SiteLayout";
-import factory1Img from "@/assets/factory1.jpg";
-import factory2Img from "@/assets/fectory2.jpg";
+import factory2Img from "@/assets/factory2.jpg";
 import factory3Img from "@/assets/factory3.jpg";
 import arecaRoundPlates1 from "@/assets/areca-round-plates.jpg";
 import arecaRoundPlates2 from "@/assets/areca-round-plates2.jpg";
@@ -34,7 +33,6 @@ export const Route = createFileRoute("/gallery")({
 });
 
 const items = [
-  { src: factory1Img,        cat: "Factory",   alt: "Manufacturing facility" },
   { src: factory2Img,        cat: "Factory",   alt: "Factory floor" },
   { src: factory3Img,        cat: "Factory",   alt: "Production area" },
   { src: arecaRoundPlates1,  cat: "Products",  alt: "Areca round plates" },

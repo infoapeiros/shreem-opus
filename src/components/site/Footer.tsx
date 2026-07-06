@@ -53,10 +53,10 @@ export function Footer() {
               <Link to="/products" className="hover:text-accent transition-colors">Amrutey Premium Tea</Link>
             </li>
             <li>
-              <Link to="/distributorship" className="hover:text-accent transition-colors">Cleaning Products</Link>
+              <Link to="/distributorship/bls" className="hover:text-accent transition-colors">Cleaning Products</Link>
             </li>
             <li>
-              <Link to="/distributorship" className="hover:text-accent transition-colors">Ready-to-Eat Gravies</Link>
+              <Link to="/distributorship/happikery" className="hover:text-accent transition-colors">Happikery</Link>
             </li>
             <li>
               <Link to="/services" className="hover:text-accent transition-colors">Outdoor Catering</Link>
