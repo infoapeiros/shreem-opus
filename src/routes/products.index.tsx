@@ -39,7 +39,14 @@ export const Route = createFileRoute("/products/")({
 
 export type Category = "all" | "ownbrand" | "areca" | "tea";
 
-export type Product = { name: string; imgs: string[]; desc: string; features: string[] };
+export type Product = {
+  name: string;
+  imgs: string[];
+  desc: string;
+  features: string[];
+  /** "cover" (default) crops to fill the frame; "contain" fits the whole image without cropping. */
+  imgFit?: "cover" | "contain";
+};
 
 export const products: (Product & { cat: Exclude<Category, "all"> })[] = [
   {
@@ -104,7 +111,19 @@ export const products: (Product & { cat: Exclude<Category, "all"> })[] = [
 // Renders all images stacked; only the active one is visible via opacity.
 // This keeps every image decoded in the browser so the cross-fade is
 // instantaneous — no mid-transition reload flash.
-export function ImageSlideshow({ imgs, alt, tick }: { imgs: string[]; alt: string; tick: number }) {
+export function ImageSlideshow({
+  imgs,
+  alt,
+  tick,
+  fit = "cover",
+}: {
+  imgs: string[];
+  alt: string;
+  tick: number;
+  fit?: "cover" | "contain";
+}) {
+  const fitClass = fit === "contain" ? "object-contain" : "object-cover";
+
   if (imgs.length === 1) {
     return (
       <img
@@ -113,7 +132,7 @@ export function ImageSlideshow({ imgs, alt, tick }: { imgs: string[]; alt: strin
         loading="lazy"
         width={1024}
         height={768}
-        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+        className={`h-full w-full ${fitClass} transition-transform duration-700 group-hover:scale-110`}
       />
     );
   }
@@ -132,7 +151,7 @@ export function ImageSlideshow({ imgs, alt, tick }: { imgs: string[]; alt: strin
           width={1024}
           height={768}
           // Absolute stack + opacity cross-fade — no src swap, no flash
-          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ease-in-out ${
+          className={`absolute inset-0 h-full w-full ${fitClass} transition-opacity duration-700 ease-in-out ${
             i === idx ? "opacity-100" : "opacity-0"
           }`}
         />
@@ -190,7 +209,7 @@ export function CategoryEntryCard({
   const body = (
     <>
       <div className="aspect-[4/3] overflow-hidden bg-surface">
-        <ImageSlideshow imgs={p.imgs} alt={p.name} tick={tick} />
+        <ImageSlideshow imgs={p.imgs} alt={p.name} tick={tick} fit={p.imgFit} />
       </div>
       <div className="p-6">
         <h3 className="font-display text-lg font-semibold text-primary">{p.name}</h3>

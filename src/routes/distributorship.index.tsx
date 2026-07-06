@@ -3,7 +3,10 @@ import { useState, useEffect } from "react";
 import { SiteLayout, PageHero } from "@/components/site/SiteLayout";
 import { ArrowRight } from "lucide-react";
 import { Link } from "@tanstack/react-router";
-import cleaningImg from "@/assets/cleaning.jpg";
+import blsRideOnScrubberImg from "@/assets/BLS/machines/BLS 165 Ride On Scrubber.webp";
+import blsRideOnSweeperImg from "@/assets/BLS/machines/BLS 90 Ride On Sweeper.webp";
+import blsAutoScrubber1200eImg from "@/assets/BLS/machines/BLS 1200E Auto Scrubber.webp";
+import blsAutoScrubber520bImg from "@/assets/BLS/machines/BLS 520 B Auto Scrubber.webp";
 import tikkaMasalaImg from "@/assets/happykery/tikka masala base gravy.jpg";
 import makhaniImg from "@/assets/happykery/Makhani base gravy.jpg";
 import kormaImg from "@/assets/happykery/korma base gravy.jpg";
@@ -35,7 +38,7 @@ function DistributorshipPage() {
   const [tick, setTick] = useState(0);
 
   useEffect(() => {
-    const timer = setInterval(() => setTick((t) => t + 1), 2500);
+    const timer = setInterval(() => setTick((t) => t + 1), 3500);
     return () => clearInterval(timer);
   }, []);
 
@@ -48,9 +51,10 @@ function DistributorshipPage() {
 
   const cleaningCat: Product = {
     name: "Cleaning Products",
-    imgs: [cleaningImg],
+    imgs: [blsRideOnScrubberImg, blsRideOnSweeperImg, blsAutoScrubber1200eImg, blsAutoScrubber520bImg],
     desc: "High-performance commercial and industrial cleaning supplies engineered for hospitality and workplaces.",
     features: ["Floor & multi-surface cleaners", "Kitchen & surface disinfectants", "Industrial degreasers & drum supply"],
+    imgFit: "contain",
   };
 
   return (

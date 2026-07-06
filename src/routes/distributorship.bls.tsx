@@ -60,7 +60,7 @@ function BlsProductsPage() {
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {chemicals.map((p, i) => (
-              <ProductTile key={p.id} name={p.name} image={p.image} i={i} />
+              <ProductTile key={p.id} name={p.name} image={p.image} description={p.description} price={p.price} i={i} />
             ))}
           </div>
 
@@ -69,7 +69,7 @@ function BlsProductsPage() {
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {machines.map((p, i) => (
-              <ProductTile key={p.id} name={p.name} image={p.image} i={i} />
+              <ProductTile key={p.id} name={p.name} image={p.image} description={p.description} price={p.price} i={i} />
             ))}
           </div>
         </div>
