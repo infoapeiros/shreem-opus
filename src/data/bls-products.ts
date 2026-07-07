@@ -1,33 +1,35 @@
-import bright1WashRoomBathroomCleanerImg from "@/assets/BLS/chemicals/Bright 1 – Wash Room  Bathroom Cleaner.webp";
-import bright2BkcDisinfectantFloorCleanerImg from "@/assets/BLS/chemicals/Bright 2 BKC – Disinfectant Floor Cleaner.webp";
-import bright2ConcentratedHardSurfaceFloorCleanerSanitizerImg from "@/assets/BLS/chemicals/Bright 2 – Concentrated Hard Surface Floor Cleaner Sanitizer.webp";
-import bright3GlassMirrorCleanerConcentrateImg from "@/assets/BLS/chemicals/Bright 3 – Glass & Mirror Cleaner Concentrate.webp";
-import bright4FurniturePolishImg from "@/assets/BLS/chemicals/Bright 4 – Furniture Polish.webp";
-import bright5AirFreshenerImg from "@/assets/BLS/chemicals/Bright 5 – Air Freshener.webp";
-import bright6ToiletUrinalBowlCleanerImg from "@/assets/BLS/chemicals/Bright 6 – Toilet  Urinal Bowl Cleaner.webp";
-import bright7StainlessSteelPolishImg from "@/assets/BLS/chemicals/Bright 7 – Stainless Steel Polish.webp";
-import bright8DishWashAllPurposeCleanerConcentrateImg from "@/assets/BLS/chemicals/Bright 8 – Dish Wash (All Purpose) Cleaner Concentrate.webp";
-import bright9AllPurposeCleanerCumSanitizerConcentrateImg from "@/assets/BLS/chemicals/Bright 9 – All Purpose Cleaner Cum Sanitizer Concentrate.webp";
-import bright10GrillOvenCleanerConcentrateImg from "@/assets/BLS/chemicals/Bright 10 – Grill & Oven Cleaner Concentrate.webp";
-import bright11CloggedDrainCleanerImg from "@/assets/BLS/chemicals/Bright 11 – Clogged Drain Cleaner.webp";
-import brightHandWashImg from "@/assets/BLS/chemicals/Bright Hand Wash (Triclosan Based Disinfectant Hand Cleaner).webp";
-import bls165RideOnScrubberImg from "@/assets/BLS/machines/BLS 165 Ride On Scrubber.webp";
-import bls215RideOnScrubberImg from "@/assets/BLS/machines/BLS 215 Ride On Scrubber.webp";
-import bls295RideOnScrubberImg from "@/assets/BLS/machines/BLS 295 Ride On Scrubber.webp";
-import bls90RideOnSweeperImg from "@/assets/BLS/machines/BLS 90 Ride On Sweeper.webp";
-import bls150RideOnSweeperImg from "@/assets/BLS/machines/BLS 150 Ride On Sweeper.webp";
-import bls180RideOnSweeperImg from "@/assets/BLS/machines/BLS 180 Ride On Sweeper.webp";
-import manualSweeperHepaFilterImg from "@/assets/BLS/chemicals/Manual Sweeper with HEPA Filter.webp";
-import mopingScooterImg from "@/assets/BLS/chemicals/Moping Scooter.webp";
-import bls1200eAutoScrubberImg from "@/assets/BLS/machines/BLS 1200E Auto Scrubber.webp";
-import bls1500eAutoScrubberImg from "@/assets/BLS/machines/BLS 1500E Auto Scrubber.webp";
-import bls1700eAutoScrubberImg from "@/assets/BLS/machines/BLS 1700E Auto Scrubber.webp";
-import bls520bAutoScrubberImg from "@/assets/BLS/machines/BLS 520 B Auto Scrubber.webp";
-import blsLongHandleMiniScrubberDryerImg from "@/assets/BLS/machines/BLS Long Handle Mini Scrubber Dryer.webp";
-import bls001PolishingCleaningMachineImg from "@/assets/BLS/machines/BLS-001 Polishing  Cleaning Machine.webp";
-import bls1100MultifunctionSingleDiscImg from "@/assets/BLS/machines/BLS 1100 Multifunction Single Disc.webp";
-import bls3000FloorPolishingMachineImg from "@/assets/BLS/machines/BLS 3000 (3 HP - 20 Inch) Floor Polishing Machine.webp";
-import bls20SsCarpetExtractorImg from "@/assets/BLS/machines/BLS 20 S.S Carpet Extractor.webp";
+import bright1WashRoomBathroomCleanerImg from "@/assets/BLS/chemicals/bright-1-wash-room-bathroom-cleaner.webp";
+import bright2BkcDisinfectantFloorCleanerImg from "@/assets/BLS/chemicals/bright-2-bkc-disinfectant-floor-cleaner.webp";
+import bright2ConcentratedHardSurfaceFloorCleanerSanitizerImg from "@/assets/BLS/chemicals/bright-2-concentrated-hard-surface-floor-cleaner-sanitizer.webp";
+import bright3GlassMirrorCleanerConcentrateImg from "@/assets/BLS/chemicals/bright-3-glass-mirror-cleaner-concentrate.webp";
+import bright4FurniturePolishImg from "@/assets/BLS/chemicals/bright-4-furniture-polish.webp";
+import bright5AirFreshenerImg from "@/assets/BLS/chemicals/bright-5-air-freshener.webp";
+import bright6ToiletUrinalBowlCleanerImg from "@/assets/BLS/chemicals/bright-6-toilet-urinal-bowl-cleaner.webp";
+import bright7StainlessSteelPolishImg from "@/assets/BLS/chemicals/bright-7-stainless-steel-polish.webp";
+import bright8DishWashAllPurposeCleanerConcentrateImg from "@/assets/BLS/chemicals/bright-8-dish-wash-all-purpose-cleaner-concentrate.webp";
+import bright9AllPurposeCleanerCumSanitizerConcentrateImg from "@/assets/BLS/chemicals/bright-9-all-purpose-cleaner-cum-sanitizer-concentrate.webp";
+import bright10GrillOvenCleanerConcentrateImg from "@/assets/BLS/chemicals/bright-10-grill-oven-cleaner-concentrate.webp";
+import bright11CloggedDrainCleanerImg from "@/assets/BLS/chemicals/bright-11-clogged-drain-cleaner.webp";
+import bright12ConcentratedDescalentImg from "@/assets/BLS/chemicals/bright-12-concentrated-descalent.webp";
+import brightHandWashImg from "@/assets/BLS/chemicals/bright-hand-wash.webp";
+import bls165RideOnScrubberImg from "@/assets/BLS/machines/bls-165-ride-on-scrubber.webp";
+import bls215RideOnScrubberImg from "@/assets/BLS/machines/bls-215-ride-on-scrubber.webp";
+import bls295RideOnScrubberImg from "@/assets/BLS/machines/bls-295-ride-on-scrubber.webp";
+import bls90RideOnSweeperImg from "@/assets/BLS/machines/bls-90-ride-on-sweeper.webp";
+import bls150RideOnSweeperImg from "@/assets/BLS/machines/bls-150-ride-on-sweeper.webp";
+import bls180RideOnSweeperImg from "@/assets/BLS/machines/bls-180-ride-on-sweeper.webp";
+import manualSweeperHepaFilterImg from "@/assets/BLS/chemicals/manual-sweeper-hepa-filter.webp";
+import mopingScooterImg from "@/assets/BLS/chemicals/moping-scooter.webp";
+import bls1200eAutoScrubberImg from "@/assets/BLS/machines/bls-1200e-auto-scrubber.webp";
+import bls1500eAutoScrubberImg from "@/assets/BLS/machines/bls-1500e-auto-scrubber.webp";
+import bls1700eAutoScrubberImg from "@/assets/BLS/machines/bls-1700e-auto-scrubber.webp";
+import bls520bAutoScrubberImg from "@/assets/BLS/machines/bls-520b-auto-scrubber.webp";
+import blsLongHandleMiniScrubberDryerImg from "@/assets/BLS/machines/bls-long-handle-mini-scrubber-dryer.webp";
+import bls001PolishingCleaningMachineImg from "@/assets/BLS/machines/bls-001-polishing-cleaning-machine.webp";
+import bls1100MultifunctionSingleDiscImg from "@/assets/BLS/machines/bls-1100-multifunction-single-disc.webp";
+import bls3000FloorPolishingMachineImg from "@/assets/BLS/machines/bls-3000-floor-polishing-machine.webp";
+import bls20SsCarpetExtractorImg from "@/assets/BLS/machines/bls-20-ss-carpet-extractor.webp";
+import bls40SsCarpetExtractorImg from "@/assets/BLS/chemicals/bls-40-ss-carpet-extractor.webp";
 
 export type BLSCategory = "chemicals" | "machines";
 
@@ -56,7 +58,7 @@ export const blsProducts: BLSProduct[] = [
   { id: "bright-9-all-purpose-cleaner-cum-sanitizer-concentrate", name: "Bright 9 – All Purpose Cleaner Cum Sanitizer Concentrate", slug: "bright-9-all-purpose-cleaner-cum-sanitizer-concentrate", image: bright9AllPurposeCleanerCumSanitizerConcentrateImg, category: "chemicals", price: 750, description: "Multi-purpose cleaner and sanitizer suitable for kitchen utensils and food preparation surfaces." },
   { id: "bright-10-grill-oven-cleaner-concentrate", name: "Bright 10 – Grill & Oven Cleaner Concentrate", slug: "bright-10-grill-oven-cleaner-concentrate", image: bright10GrillOvenCleanerConcentrateImg, category: "chemicals", price: 1750, description: "Industrial-strength cleaner for grills, ovens, chimneys, and heavy grease deposits." },
   { id: "bright-11-clogged-drain-cleaner", name: "Bright 11 – Clogged Drain Cleaner", slug: "bright-11-clogged-drain-cleaner", image: bright11CloggedDrainCleanerImg, category: "chemicals", price: 850, description: "Fast-acting drain cleaner that dissolves grease, food residue, and hair while helping prevent blockages." },
-  { id: "bright-12-concentrated-descalent", name: "Bright 12 – Concentrated Descalent", slug: "bright-12-concentrated-descalent", image: null, category: "chemicals", price: 1150, description: "Powerful descaling solution for removing hard water scale from tiles, fixtures, PVC pipes, and equipment." },
+  { id: "bright-12-concentrated-descalent", name: "Bright 12 – Concentrated Descalent", slug: "bright-12-concentrated-descalent", image: bright12ConcentratedDescalentImg, category: "chemicals", price: 1150, description: "Powerful descaling solution for removing hard water scale from tiles, fixtures, PVC pipes, and equipment." },
   { id: "bright-hand-wash", name: "Bright Hand Wash (Triclosan Based Disinfectant Hand Cleaner)", slug: "bright-hand-wash", image: brightHandWashImg, category: "chemicals", price: 500, description: "Antibacterial hand wash that effectively removes germs while remaining gentle on the skin." },
 
   { id: "bls-165-ride-on-scrubber", name: "BLS 165 Ride On Scrubber", slug: "bls-165-ride-on-scrubber", image: bls165RideOnScrubberImg, category: "machines", price: 365000, description: "Compact ride-on scrubber designed for efficient cleaning of medium to large commercial spaces." },
@@ -76,5 +78,5 @@ export const blsProducts: BLSProduct[] = [
   { id: "bls-1100-multifunction-single-disc", name: "BLS 1100 Multifunction Single Disc", slug: "bls-1100-multifunction-single-disc", image: bls1100MultifunctionSingleDiscImg, category: "machines", price: 38500, description: "Versatile single-disc floor machine for scrubbing, polishing, and deep cleaning applications." },
   { id: "bls-3000-floor-polishing-machine", name: "BLS 3000 (3 HP - 20 Inch) Floor Polishing Machine", slug: "bls-3000-floor-polishing-machine", image: bls3000FloorPolishingMachineImg, category: "machines", price: 78990, description: "High-performance 3 HP floor polishing machine built for intensive polishing and floor restoration work." },
   { id: "bls-20-ss-carpet-extractor", name: "BLS 20 S.S Carpet Extractor", slug: "bls-20-ss-carpet-extractor", image: bls20SsCarpetExtractorImg, category: "machines", price: 26500, description: "Professional stainless steel carpet extractor designed for deep carpet and upholstery cleaning." },
-  { id: "bls-40-ss-carpet-extractor", name: "BLS 40 S.S Carpet Extractor", slug: "bls-40-ss-carpet-extractor", image: null, category: "machines", price: 28500, description: "High-capacity stainless steel carpet extractor suitable for large-scale commercial carpet cleaning." },
+  { id: "bls-40-ss-carpet-extractor", name: "BLS 40 S.S Carpet Extractor", slug: "bls-40-ss-carpet-extractor", image: bls40SsCarpetExtractorImg, category: "machines", price: 28500, description: "High-capacity stainless steel carpet extractor suitable for large-scale commercial carpet cleaning." },
 ];

@@ -1,0 +1,132 @@
+# /make-fable-skill — Generate a frontier-grade engineering skill for THIS project
+
+You are about to create a project-specific engineering skill that makes ANY Claude model (Haiku/Sonnet/Opus) work on this repository at frontier quality. The output is a single file: `.claude/skills/<project-slug>-engineering/SKILL.md` in the current repo, which every future session will auto-discover.
+
+The quality bar: after this skill exists, a model that has never seen this repo should — on its first task — read the right context silently, back every claim with `file:line` evidence, respect the project's invariants, change the minimum, verify what it shipped, and record what it learned.
+
+Work through the five phases below. Do not skip Phase 1 or Phase 5.
+
+---
+
+## Phase 1 — Repo reconnaissance (silent, evidence-first)
+
+Investigate before writing anything. Use targeted reads/greps, not repo-wide scans:
+
+1. **Orientation docs:** `README*`, `CLAUDE.md`, `CONTRIBUTING*`, `docs/`, `AI/` or similar knowledge folders, ADRs/decision records. Note which exist and which are stale (spot-check 2–3 claims against code — docs that contradict code must be flagged in the skill's trust-order section).
+2. **Tech stack + build:** project files (`*.csproj`, `package.json`, `pyproject.toml`, `go.mod`, `Cargo.toml`, Makefile, CI config). Extract the exact build/test/lint commands and what "0 errors" means here (are there pre-existing warnings to ignore? how many?).
+3. **Architecture + seams:** entry points, layering, and especially the *seams* — the narrow funnels most behavior passes through (a dispatcher, a single service class, a queue, a middleware chain). Seams are where minimal changes happen; name them with file paths.
+4. **Conventions:** `git log --oneline -30` for commit-message style; read 2–3 recent diffs for code style, error-handling and logging patterns, config-read patterns. Note mandatory wrappers (e.g., "use LogHelper not raw log4net", "use the shared HTTP client").
+5. **Danger zones:** production-critical paths, known-issues docs, TODO/HACK clusters, anything guarded by feature flags or kill-switches, external processes/binaries the repo ships.
+6. **Decision history:** rejected designs, superseded architectures, "we tried X and it failed" records. These MUST go into the skill — re-proposing rejected designs is the #1 way models waste time.
+
+## Phase 2 — Extract the six ingredients
+
+From Phase 1, write down (for yourself) the project-specific content:
+
+1. **Session-start reading list** — the 2–5 files a model must read before any task, in order.
+2. **Trust order** — where truth lives when sources disagree (usually: code > logs/measurements > docs > assumptions). Name the measured-numbers sources (perf findings, benchmark files, timing logs) so models quote instead of inventing.
+3. **Domain quick-map** — current architecture state in ≤10 bullet lines: what shipped recently, what the build target is, the seams, the key file map.
+4. **Regression invariants** — the things that must NEVER break (user-facing flows, data contracts, protocol guarantees, "the store must always be able to print"-class rules). These are the highest-value lines in the whole skill.
+5. **Hard rules** — the project's non-negotiables (forbidden APIs, required wrappers, git hygiene, things never to lower/raise/delete).
+6. **Verification recipe** — exact build command + expected result, how to smoke-test artifacts (not just compile), any "do NOT do X on a dev machine" traps (live queues, prod endpoints, real printers/devices).
+
+## Phase 3 — Interview the user (only for what code can't tell you)
+
+Ask at most 3–5 sharp questions, only about gaps: Which flows are business-critical and must never regress? Any rejected approaches not written down anywhere? Any production incidents that shaped current design? Deployment/elevation constraints? Preferred response language/verbosity?
+
+If the user is unavailable or says "just do it", proceed with code-derived facts and mark the invariants section `[Needs Confirmation]` so the next session revisits it.
+
+## Phase 4 — Write the SKILL.md
+
+Create `.claude/skills/<project-slug>-engineering/SKILL.md` from the template below. Rules for filling it:
+
+- Every project-specific claim carries a `file:line` or file-path reference you actually verified in Phase 1. No placeholder left unfilled, no invented facts.
+- Keep it under ~200 lines. The skill teaches *method*; it points to docs for *content* — do not duplicate architecture docs into the skill.
+- The frontmatter `description` must be pushy: models under-trigger skills, so say "ALWAYS use this skill for ANY task touching this repository… even a one-line question."
+- Keep the universal sections (operating loop, evidence discipline, red-team, minimal change, verify, anti-patterns) intact — they are the method. Adapt only the examples and the project sections.
+
+### TEMPLATE (replace {{...}}; keep structure)
+
+```markdown
+---
+name: {{project-slug}}-engineering
+description: Frontier-grade operating procedure for the {{project name}} repo ({{one-line what it is}}). ALWAYS use this skill for ANY task touching this repository — bug fix, feature, config change, release, log analysis, architecture question, code review, or even a one-line "where is X" question. Do not wait for the user to ask for rigor; this skill IS the default operating mode here. It encodes the session protocol, evidence discipline, verification steps, decision history, and regression invariants that produce frontier-quality work on this codebase regardless of which model is running.
+---
+
+# {{Project}} Engineering — Operating Procedure
+
+## Why this skill exists
+{{1 short paragraph: what this software is, what a mistake costs (production impact), and the bar: evidence-backed, verified, minimally-invasive work — not "plausible answers".}}
+
+## 1. Session start (silent, before ANY task)
+1. Read {{ordered reading list from Phase 2.1}}.
+2. {{Task-routing note if the repo has skills/patterns/commands folders.}}
+3. Never announce these reads; never ask the user to re-explain the project.
+
+**Trust order when sources disagree: {{trust order from Phase 2.2}}.** {{Note any known-stale docs.}}
+
+## 2. The operating loop
+Every non-trivial task: **Evidence → Analysis → Red-team → Minimal change → Verify → Record.**
+For a one-line question the loop collapses to Evidence → answer — but Evidence never disappears.
+
+### 2.1 Evidence discipline
+- Every factual claim carries a `file:line` reference, a measured number, or a probe result — or an honest tag: **[Certain]** (read/measured), **[Likely]** (platform behavior + local evidence), **[Needs Verification]** (field data required).
+- Use the file map to find code; read the minimum files but read them for real — a claim about a function requires having read it.
+- **Probe running artifacts instead of assuming**: shipped binaries, installed services, live config can differ from source. A 5-second probe beats a field failure.
+- Measured numbers live in {{perf/timing sources}} — quote them; never invent figures.
+
+### 2.2 Analysis
+- Answer what was actually asked. If the user is describing a problem or thinking out loud, deliver the assessment and stop — no uninvited fixes.
+- Lead with the verdict, then support. Recommend, don't menu.
+- {{Language/tone note, e.g., "Hinglish input is normal; match the user; keep output token-minimal."}}
+
+### 2.3 Red-team before you recommend
+Before presenting any design or non-trivial fix, try to break it: hidden assumptions, environment variance, crash-mid-operation behavior, worst-case at the ugliest deployment. If it survives, state the residual risks. **Do not resurrect rejected designs:** {{list rejected approaches + where the rejection is recorded}}.
+
+### 2.4 Minimal change
+- Additive beats refactor: new guarded method beside working code, not restructuring.
+- Find the seam first: {{name the seams + files}}. Change internals at the seam; everything above stays provably untouched.
+- Risky changes ship with a kill-switch + per-request/job fallback; "flag-off equals current production" is the release gate.
+- Hard rules, no exceptions: {{project hard rules from Phase 2.5}}.
+
+### 2.5 Regression invariants (violating any of these = failed task)
+{{Numbered list from Phase 2.4 — the flows/contracts that must never break, with file refs.}}
+
+### 2.6 Verify — before claiming anything is done
+- {{Exact build/test commands + expected result, incl. "N pre-existing warnings are noise — say so, don't hide them".}}
+- Smoke-test the artifact, not just the compile: {{project-appropriate probes}}.
+- {{Multi-artifact traps: separate projects to rebuild/copy, generated files, etc.}}
+- {{Dev-machine traps: things NOT to touch/run locally.}}
+- Report faithfully: failed test = say so with output; skipped step = say so.
+
+### 2.7 Record
+After a real change, silently update {{the repo's living docs: known-issues, overview, architecture}} — only for what actually changed. Commit specific staged files with {{commit-message convention}}. No push without explicit ask.
+
+## 3. Domain quick-map (state as of {{date}})
+{{≤10 bullets from Phase 2.3: current architecture, recent shipped work, build target, key seams/files, stack + versions.}}
+
+## 4. Anti-patterns (the gap between mediocre and frontier here)
+| Anti-pattern | Do instead |
+|---|---|
+| Answer from docs alone | Docs orient; code decides. Open the file before asserting. |
+| Repo-wide scanning | File map → 2–4 targeted reads → grep the specific symbol |
+| "This should work" after writing code | Build it, probe it, show the output |
+| Big refactor for one behavior | Additive change at the seam + guard + fallback |
+| Risky change with no escape hatch | Kill-switch; old path byte-identical when off |
+| Design presented without attacking it | Red-team: assumptions, variance, crash modes |
+| Re-proposing {{rejected designs}} | Read {{decision record}}; bring new facts or don't reopen |
+| Verbose summaries, restating the request | Lead with outcome; 1 line per step |
+| Touching {{sacred paths}} "while at it" | Invariants are load-bearing; explicit ask only |
+| Inventing numbers | Quote {{measured sources}} or measure |
+```
+
+## Phase 5 — Validate
+
+1. Re-read the generated SKILL.md cold: every `{{}}` gone? Every file reference real (spot-check 3)? Under ~200 lines? Description pushy?
+2. If subagents are available, run 1–2 realistic project tasks with a smaller model (`model: sonnet` or `haiku`) instructed to "FIRST read <skill path> and follow it strictly" — read-only tasks, answers written to a scratch folder outside the repo's source tree. Check the output shows: correct current-state knowledge, file:line evidence, invariants respected, no rejected-design proposals. Fix the skill where it failed.
+3. Tell the user what was created, where, the 2–3 project-specific invariants you encoded (so they can correct them), and that the skill now auto-applies for any model in this project.
+
+## Notes
+- If the repo has no docs at all, the skill you write becomes the seed doc — keep the domain quick-map slightly longer in that case, and recommend the user run `/init` for a CLAUDE.md too.
+- If a `.claude/skills/<slug>-engineering/SKILL.md` already exists, update it (preserve name), don't create a duplicate.
+- Reference implementation of this pattern (if reachable): `C:\Users\Admin\Desktop\lume_widget_1.0\.claude\skills\lume-widget-engineering\SKILL.md` — validated against Sonnet baselines on real tasks.
