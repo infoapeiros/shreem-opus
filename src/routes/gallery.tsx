@@ -15,7 +15,8 @@ import arecaBowls2 from "@/assets/areca-bowls2.jpg";
 import arecaTrays1 from "@/assets/areca-trays-and-platters.jpg";
 import arecaTrays2 from "@/assets/areca-trays-and-platters2.jpg";
 import arecaTrays3 from "@/assets/areca-trays-and-platters3.jpg";
-import amruteyTeaImg from "@/assets/amrutey-premium-tea.jpg";
+import amruteyFrontImg from "@/assets/Amrutey_Front_Product.png";
+import amruteyBackImg from "@/assets/Amrutey_Back_Product.png";
 import plantinDisposable1 from "@/assets/plantin-disposable.jpg";
 import plantinDisposable2 from "@/assets/plantin-disposable2.jpg";
 
@@ -45,7 +46,8 @@ const items = [
   { src: arecaTrays1,        cat: "Products",  alt: "Areca trays and platters" },
   { src: arecaTrays2,        cat: "Products",  alt: "Areca trays and platters" },
   { src: arecaTrays3,        cat: "Products",  alt: "Areca trays and platters" },
-  { src: amruteyTeaImg,      cat: "Products",  alt: "Amrutey premium tea" },
+  { src: amruteyFrontImg,    cat: "Products",  alt: "Amrutey premium tea" },
+  { src: amruteyBackImg,     cat: "Products",  alt: "Amrutey premium tea" },
   { src: plantinDisposable1, cat: "Packaging", alt: "Plantin disposable packaging" },
   { src: plantinDisposable2, cat: "Packaging", alt: "Plantin disposable packaging" },
 ];

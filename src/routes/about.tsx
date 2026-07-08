@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Target, Eye, Heart, Factory, ShieldCheck, Leaf } from "lucide-react";
 import { SiteLayout, PageHero } from "@/components/site/SiteLayout";
-import aboutImg from "@/assets/about.jpg";
+import aboutImg from "@/assets/factory2.jpg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({

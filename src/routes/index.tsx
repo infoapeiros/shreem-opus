@@ -6,13 +6,18 @@ import {
 } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { Counter } from "@/components/site/Counter";
-import heroImg from "@/assets/hero.jpg";
-import arecaImg from "@/assets/areca.jpg";
-import teaImg from "@/assets/tea.jpg";
-import cleaningImg from "@/assets/cleaning.jpg";
-import cateringImg from "@/assets/catering.jpg";
+import heroImg from "@/assets/plantin-disposable.jpg";
+import heroVideo from "@/assets/videos/shreem_horizontal.mp4";
+import heroFactoryImg from "@/assets/factory3.jpg";
+import heroLineImg from "@/assets/DSC_9745.jpg";
+import arecaSegmentImg from "@/assets/plantin-disposable2.jpg";
+import amruteySegmentImg from "@/assets/Amrutey_Front_Product.png";
+import cleaningSegmentImg from "@/assets/BLS/chemicals/bright-9-all-purpose-cleaner-cum-sanitizer-concentrate.webp";
 import happikeryImg from "@/assets/happykery/Makhani base gravy.jpg";
-import aboutImg from "@/assets/about.jpg";
+import aboutImg from "@/assets/factory3.jpg";
+import plantinLogo from "@/assets/website logo/plantin.jpeg";
+import happikeryLogo from "@/assets/website logo/happrykery_logo.jpg";
+import blsLogo from "@/assets/website logo/bls_logo.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -30,11 +35,10 @@ export const Route = createFileRoute("/")({
 });
 
 const segments = [
-  { title: "Areca Tablewares", desc: "100% biodegradable plates, bowls, trays & food packaging crafted from naturally fallen areca leaves.", img: arecaImg, to: "/products" },
-  { title: "Amrutey Premium Tea", desc: "Hand-picked, full-bodied tea blends for hotels, retailers and discerning households.", img: teaImg, to: "/products" },
-  { title: "Cleaning Products", desc: "High-performance commercial and industrial cleaners that meet hospitality standards.", img: cleaningImg, to: "/distributorship/bls" },
+  { title: "Areca Tablewares", desc: "100% biodegradable plates, bowls, trays & food packaging crafted from naturally fallen areca leaves.", img: arecaSegmentImg, to: "/products" },
+  { title: "Amrutey Premium Tea", desc: "Hand-picked, full-bodied tea blends for hotels, retailers and discerning households.", img: amruteySegmentImg, to: "/products" },
+  { title: "Cleaning Products", desc: "High-performance commercial and industrial cleaners that meet hospitality standards.", img: cleaningSegmentImg, to: "/distributorship/bls" },
   { title: "Happikery", desc: "Ready-to-eat gravies, sauces, biryani paste and more for restaurants and cloud kitchens.", img: happikeryImg, to: "/distributorship/happikery" },
-  { title: "Outdoor Catering", desc: "Full-service catering for corporate, social and large-scale events across Gujarat.", img: cateringImg, to: "/services" },
 ];
 
 const why = [
@@ -44,6 +48,12 @@ const why = [
   { Icon: Recycle, title: "Eco-Friendly Products", desc: "Biodegradable tableware that helps brands meet ESG goals." },
   { Icon: ShieldCheck, title: "Timely Delivery", desc: "Predictable lead times your kitchen and store can rely on." },
   { Icon: Headphones, title: "Customer Support", desc: "A dedicated account manager for every B2B client." },
+];
+
+const brandLogos = [
+  { src: plantinLogo, alt: "Plantin Disposable" },
+  { src: happikeryLogo, alt: "Happikery" },
+  { src: blsLogo, alt: "BLS" },
 ];
 
 const trust = ["Quality Products", "Eco-Friendly Solutions", "Reliable Supply Chain", "Export Ready", "Customer Satisfaction"];
@@ -58,10 +68,10 @@ function HomePage() {
   return (
     <SiteLayout>
       {/* HERO */}
-      <section className="relative min-h-[92vh] flex items-center overflow-hidden">
+      <section className="relative min-h-[68vh] flex items-center overflow-hidden">
         <img
           src={heroImg}
-          alt="Shreem Eco Ventures LLP manufacturing facility producing areca tableware"
+          alt="Plantin Disposable biodegradable areca leaf tableware"
           width={1920}
           height={1280}
           className="absolute inset-0 h-full w-full object-cover"
@@ -70,40 +80,95 @@ function HomePage() {
         <div aria-hidden className="absolute top-20 right-10 h-72 w-72 rounded-full bg-secondary/20 blur-3xl animate-float" />
         <div aria-hidden className="absolute bottom-20 left-10 h-80 w-80 rounded-full bg-accent/20 blur-3xl animate-float" style={{ animationDelay: "1.5s" }} />
 
-        <div className="container-px mx-auto max-w-7xl relative z-10 py-24">
-          <motion.span
-            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-md px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white border border-white/20"
-          >
-            <Leaf className="h-3.5 w-3.5 text-accent" /> Made in Ahmedabad · Export Ready
-          </motion.span>
+        <div className="mx-auto max-w-[92rem] px-5 md:px-8 xl:px-10 relative z-10 py-14 md:py-16">
+          <div className="grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
+            {/* LEFT: MESSAGING */}
+            <div>
+              <motion.span
+                initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
+                className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-md px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white border border-white/20"
+              >
+                <Leaf className="h-3.5 w-3.5 text-accent" /> Made in Ahmedabad · Export Ready
+              </motion.span>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
-            className="mt-6 max-w-4xl font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05]"
-          >
-            Delivering Quality Products for{" "}
-            <span className="text-gradient-accent">Hospitality, Retail & Global Markets</span>
-          </motion.h1>
+              <motion.h1
+                initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
+                className="mt-4 font-display text-[1.7rem] sm:text-[2rem] md:text-[2.65rem] lg:text-[3.25rem] font-bold text-white leading-[1.05]"
+              >
+                Delivering Quality Products for{" "}
+                <span className="text-gradient-accent">Hospitality, Retail & Global Markets</span>
+              </motion.h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
-            className="mt-6 max-w-2xl text-lg md:text-xl text-white/85 leading-relaxed"
-          >
-            Manufacturers of eco-friendly areca tablewares and trusted suppliers of premium tea, cleaning products, ready-to-eat gravies and catering solutions.
-          </motion.p>
+              <motion.p
+                initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
+                className="mt-3 max-w-2xl text-base md:text-lg text-white/85 leading-relaxed"
+              >
+                Manufacturers of eco-friendly areca tablewares and trusted suppliers of premium tea, cleaning products, ready-to-eat gravies and catering solutions.
+              </motion.p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}
-            className="mt-9 flex flex-wrap gap-4"
-          >
-            <Link to="/products" className="group inline-flex items-center gap-2 rounded-full gradient-primary px-7 py-3.5 text-sm font-semibold text-white shadow-elegant hover:-translate-y-0.5 transition-all">
-              Explore Products <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Link>
-            <Link to="/export-inquiry" className="group inline-flex items-center gap-2 rounded-full bg-white/95 backdrop-blur px-7 py-3.5 text-sm font-semibold text-primary hover:bg-white hover:-translate-y-0.5 transition-all">
-              Export Inquiry <Globe2 className="h-4 w-4" />
-            </Link>
-          </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}
+                className="mt-6 flex flex-wrap gap-4"
+              >
+                <Link to="/products" className="group inline-flex items-center gap-2 rounded-full gradient-primary px-7 py-3.5 text-sm font-semibold text-white shadow-elegant hover:-translate-y-0.5 transition-all">
+                  Explore Products <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+                <Link to="/export-inquiry" className="group inline-flex items-center gap-2 rounded-full bg-white/95 backdrop-blur px-7 py-3.5 text-sm font-semibold text-primary hover:bg-white hover:-translate-y-0.5 transition-all">
+                  Export Inquiry <Globe2 className="h-4 w-4" />
+                </Link>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}
+                className="mt-7 text-left"
+              >
+                <span className="text-xs font-semibold uppercase tracking-[0.25em] text-white/60">Our Brands</span>
+                <div className="mt-3 flex flex-wrap items-center justify-start gap-6">
+                  {brandLogos.map((logo) => (
+                    <div
+                      key={logo.alt}
+                      className="flex items-center justify-center rounded-xl bg-white/90 backdrop-blur-sm px-2.5 py-1.5 shadow-soft border border-white/50"
+                    >
+                      <img src={logo.src} alt={logo.alt} loading="lazy" className="h-[29px] md:h-[34px] w-auto object-contain" />
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            </div>
+
+            {/* RIGHT: MEDIA SHOWCASE */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25 }}
+              className="w-full md:max-w-[78%] mx-auto md:mx-0"
+            >
+              <div className="rounded-2xl md:rounded-3xl overflow-hidden shadow-elegant border border-white/15">
+                <video
+                  src={heroVideo}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  aria-label="Shreem Eco Ventures LLP promotional video"
+                  className="block w-full h-auto"
+                />
+              </div>
+
+              <div className="mt-3 grid grid-cols-2 gap-3">
+                <img
+                  src={heroFactoryImg}
+                  alt="Shreem Eco Ventures LLP factory floor"
+                  loading="lazy"
+                  className="block w-full h-auto rounded-2xl md:rounded-3xl shadow-soft border border-white/15"
+                />
+                <img
+                  src={heroLineImg}
+                  alt="Shreem Eco Ventures LLP production line"
+                  loading="lazy"
+                  className="block w-full h-auto rounded-2xl md:rounded-3xl shadow-soft border border-white/15"
+                />
+              </div>
+            </motion.div>
+          </div>
 
           <motion.div
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }}
@@ -170,7 +235,7 @@ function HomePage() {
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
             <div className="max-w-2xl">
               <span className="text-xs font-semibold tracking-[0.25em] uppercase text-secondary">What we offer</span>
-              <h2 className="mt-3 font-display text-3xl md:text-5xl font-bold text-primary">Five business segments. One trusted partner.</h2>
+              <h2 className="mt-3 font-display text-3xl md:text-5xl font-bold text-primary">Four business segments. One trusted partner.</h2>
             </div>
             <Link to="/products" className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-secondary transition-colors">
               View full catalog <ArrowRight className="h-4 w-4" />

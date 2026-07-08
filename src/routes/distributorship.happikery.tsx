@@ -1,8 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { SiteLayout, PageHero } from "@/components/site/SiteLayout";
+import { SiteLayout } from "@/components/site/SiteLayout";
 import { ProductTile } from "@/components/site/ProductTile";
 import { happikeryProducts } from "@/data/happikery-products";
+
+const accentStyles: React.CSSProperties = {
+  "--secondary": "oklch(0.42 0.15 20)", // maroon / burgundy
+  "--gradient-primary": "linear-gradient(135deg, oklch(0.42 0.15 20), oklch(0.30 0.13 15))",
+  "--gradient-accent": "linear-gradient(135deg, oklch(0.88 0.045 70), oklch(0.78 0.07 55))", // cream / warm gold
+} as React.CSSProperties;
+
+const heroGradient = "linear-gradient(135deg, oklch(0.22 0.10 18), oklch(0.36 0.14 22))";
 
 export const Route = createFileRoute("/distributorship/happikery")({
   head: () => ({
@@ -27,55 +35,63 @@ export const Route = createFileRoute("/distributorship/happikery")({
 
 function HappikeryProductsPage() {
   return (
-    <SiteLayout>
-      <PageHero
-        eyebrow="Authorized Distributor"
-        title="Happikery Product Range"
-        subtitle="Ready-to-eat gravies, sauces, biryani paste, and food solutions for restaurants, cloud kitchens, hotels, caterers, and food businesses."
-      />
+    <div style={accentStyles}>
+      <SiteLayout>
+        <section className="relative overflow-hidden" style={{ backgroundImage: heroGradient }}>
+          <div aria-hidden className="absolute -top-24 -right-24 h-80 w-80 rounded-full gradient-accent opacity-20 blur-3xl" />
+          <div aria-hidden className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-white/10 blur-3xl" />
+          <div className="container-px mx-auto max-w-7xl py-20 md:py-28 relative">
+            <span className="inline-block text-xs font-semibold tracking-[0.25em] uppercase text-white/80 mb-4">
+              Authorized Distributor
+            </span>
+            <h1 className="font-display text-4xl md:text-6xl font-bold text-white max-w-3xl">Happikery Product Range</h1>
+            <p className="mt-5 max-w-2xl text-lg text-white/85">Ready-to-eat gravies, sauces, biryani paste, and food solutions for restaurants, cloud kitchens, hotels, caterers, and food businesses.</p>
+          </div>
+        </section>
 
-      <section className="py-16 bg-background">
-        <div className="container-px mx-auto max-w-7xl">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-10">
-            <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-              <Link to="/distributorship" className="hover:text-primary transition-colors">
-                Distribution
+        <section className="py-16 bg-background">
+          <div className="container-px mx-auto max-w-7xl">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-10">
+              <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                <Link to="/distributorship" className="hover:text-primary transition-colors">
+                  Distribution
+                </Link>
+                <span>/</span>
+                <span className="text-secondary">Happikery</span>
+              </div>
+              <Link
+                to="/distributorship"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-muted-foreground hover:text-primary transition-colors"
+              >
+                <ArrowLeft className="h-3.5 w-3.5" /> Back to Distribution
               </Link>
-              <span>/</span>
-              <span className="text-secondary">Happikery</span>
             </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {happikeryProducts.map((p, i) => (
+                <ProductTile key={p.id} name={p.name} image={p.image} price={p.price} i={i} />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="py-20 border-t border-border/45 bg-surface">
+          <div className="container-px mx-auto max-w-5xl text-center">
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-primary">
+              Interested in stocking Happikery products?
+            </h2>
+            <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
+              Reach out for pricing, bulk orders, and pan-India dispatch of the full Happikery range.
+            </p>
             <Link
-              to="/distributorship"
-              className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-muted-foreground hover:text-primary transition-colors"
+              to="/contact"
+              className="mt-8 inline-flex items-center gap-2 rounded-full gradient-primary px-7 py-3.5 text-sm font-semibold text-white shadow-soft hover:shadow-elegant hover:-translate-y-0.5 transition-all"
             >
-              <ArrowLeft className="h-3.5 w-3.5" /> Back to Distribution
+              Get in Touch <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {happikeryProducts.map((p, i) => (
-              <ProductTile key={p.id} name={p.name} image={p.image} price={p.price} i={i} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 border-t border-border/45 bg-surface">
-        <div className="container-px mx-auto max-w-5xl text-center">
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-primary">
-            Interested in stocking Happikery products?
-          </h2>
-          <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-            Reach out for pricing, bulk orders, and pan-India dispatch of the full Happikery range.
-          </p>
-          <Link
-            to="/contact"
-            className="mt-8 inline-flex items-center gap-2 rounded-full gradient-primary px-7 py-3.5 text-sm font-semibold text-white shadow-soft hover:shadow-elegant hover:-translate-y-0.5 transition-all"
-          >
-            Get in Touch <ArrowRight className="h-4 w-4" />
-          </Link>
-        </div>
-      </section>
-    </SiteLayout>
+        </section>
+      </SiteLayout>
+    </div>
   );
 }

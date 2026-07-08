@@ -3,7 +3,8 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { SiteLayout, PageHero } from "@/components/site/SiteLayout";
-import amruteyTeaImg from "@/assets/amrutey-premium-tea.jpg";
+import amruteyFrontImg from "@/assets/Amrutey_Front_Product.png";
+import amruteyBackImg from "@/assets/Amrutey_Back_Product.png";
 import plantinDisposable1 from "@/assets/plantin-disposable.jpg";
 import plantinDisposable2 from "@/assets/plantin-disposable2.jpg";
 import arecaRoundPlates1 from "@/assets/areca-round-plates.jpg";
@@ -59,7 +60,7 @@ export const products: (Product & { cat: Exclude<Category, "all"> })[] = [
   {
     cat: "ownbrand",
     name: "Amrutey Premium Tea",
-    imgs: [amruteyTeaImg],
+    imgs: [amruteyFrontImg, amruteyBackImg],
     desc: "Our signature hand-picked premium tea brand for hotels, retailers and discerning households.",
     features: ["Own brand", "Hand-picked leaves", "Rich aroma"],
   },
@@ -88,21 +89,21 @@ export const products: (Product & { cat: Exclude<Category, "all"> })[] = [
   {
     cat: "tea",
     name: "Amrutey Premium Tea Packs",
-    imgs: [amruteyTeaImg],
+    imgs: [amruteyFrontImg, amruteyBackImg],
     desc: "Retail-ready loose leaf and bagged tea in elegant packaging.",
     features: ["Hand-picked leaves", "Rich aroma", "Long shelf life"],
   },
   {
     cat: "tea",
     name: "Hotel Tea Supply",
-    imgs: [amruteyTeaImg],
+    imgs: [amruteyFrontImg, amruteyBackImg],
     desc: "Bulk supply for hotels, lounges and corporate pantries.",
     features: ["Custom blends", "Consistent quality", "Bulk pricing"],
   },
   {
     cat: "tea",
     name: "Retail Tea Products",
-    imgs: [amruteyTeaImg],
+    imgs: [amruteyFrontImg, amruteyBackImg],
     desc: "Private label and house-brand tea for grocery chains.",
     features: ["MOQ flexible", "Custom packaging", "Pan-India dispatch"],
   },
@@ -194,20 +195,18 @@ export function ProductCard({ p, i, tick }: { p: Product; i: number; tick: numbe
 
 export function CategoryEntryCard({
   p,
-  isExpanded,
-  onToggle,
   tick,
   to,
 }: {
   p: Product;
   tick: number;
-  isExpanded?: boolean;
-  onToggle?: () => void;
-  /** When set, the card navigates to this route instead of expanding inline. */
-  to?: string;
+  to: string;
 }) {
-  const body = (
-    <>
+  return (
+    <Link
+      to={to}
+      className="group relative block overflow-hidden rounded-2xl bg-card border border-border text-left shadow-soft hover:shadow-elegant hover:-translate-y-1 transition-all duration-300 w-full cursor-pointer"
+    >
       <div className="aspect-[4/3] overflow-hidden bg-surface">
         <ImageSlideshow imgs={p.imgs} alt={p.name} tick={tick} fit={p.imgFit} />
       </div>
@@ -222,59 +221,7 @@ export function CategoryEntryCard({
           ))}
         </ul>
         <div className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-secondary group-hover:gap-2.5 transition-all">
-          {to ? "View Product Range" : isExpanded ? "Collapse Range" : "View Product Range"}
-          <ArrowRight className={`h-4 w-4 transition-transform ${!to && isExpanded ? "rotate-90" : ""}`} />
-        </div>
-      </div>
-    </>
-  );
-
-  if (to) {
-    return (
-      <Link
-        to={to}
-        className="group relative block overflow-hidden rounded-2xl bg-card border border-border text-left shadow-soft hover:shadow-elegant hover:-translate-y-1 transition-all duration-300 w-full cursor-pointer"
-      >
-        {body}
-      </Link>
-    );
-  }
-
-  return (
-    <button
-      onClick={onToggle}
-      className={`group relative overflow-hidden rounded-2xl bg-card border text-left transition-all duration-300 w-full hover:-translate-y-1 focus:outline-none cursor-pointer ${
-        isExpanded
-          ? "border-secondary ring-2 ring-secondary/20 shadow-elegant scale-[1.01]"
-          : "border-border shadow-soft hover:shadow-elegant"
-      }`}
-    >
-      {body}
-    </button>
-  );
-}
-
-function BrandNavigationCard({ p, to, tick }: { p: Product; to: string; tick: number }) {
-  return (
-    <Link
-      to={to}
-      className="group relative overflow-hidden rounded-2xl bg-card border border-border text-left shadow-soft hover:shadow-elegant hover:-translate-y-1 transition-all duration-300 w-full block cursor-pointer"
-    >
-      <div className="aspect-[4/3] overflow-hidden bg-surface">
-        <ImageSlideshow imgs={p.imgs} alt={p.name} tick={tick} />
-      </div>
-      <div className="p-6">
-        <h3 className="font-display text-lg font-semibold text-primary">{p.name}</h3>
-        <p className="mt-2 text-sm text-muted-foreground">{p.desc}</p>
-        <ul className="mt-4 space-y-1.5">
-          {p.features.map((f) => (
-            <li key={f} className="flex items-center gap-2 text-xs text-foreground/80">
-              <CheckCircle2 className="h-3.5 w-3.5 text-secondary" /> {f}
-            </li>
-          ))}
-        </ul>
-        <div className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-secondary group-hover:gap-2.5 transition-all">
-          View Brand Page <ArrowRight className="h-4 w-4" />
+          View Product Range <ArrowRight className="h-4 w-4" />
         </div>
       </div>
     </Link>
@@ -315,8 +262,8 @@ function ProductsIndexPage() {
           </div>
 
           <div className="grid sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <BrandNavigationCard p={plantinBrand} to="/products/plantin" tick={tick} />
-            <BrandNavigationCard p={amruteyBrand} to="/products/amrutey" tick={tick} />
+            <CategoryEntryCard p={plantinBrand} to="/products/plantin" tick={tick} />
+            <CategoryEntryCard p={amruteyBrand} to="/products/amrutey" tick={tick} />
           </div>
         </div>
       </section>

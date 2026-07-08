@@ -1,7 +1,8 @@
 import { createFileRoute, Link, useParams } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import { ArrowRight, ArrowLeft } from "lucide-react";
+import { ArrowRight, ArrowLeft, Leaf, Coffee } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { SiteLayout, PageHero } from "@/components/site/SiteLayout";
 import { products, ProductCard } from "./products.index";
 import type { Product } from "./products.index";
@@ -34,6 +35,9 @@ type BrandConfig = {
   subtitle: string;
   intro: string;
   accentStyles: React.CSSProperties;
+  heroGradient: string;
+  tagline: string;
+  TaglineIcon: LucideIcon;
   ctaTitle: string;
   ctaSubtitle: string;
   ctaButtonText: string;
@@ -53,6 +57,9 @@ const brandConfigs: Record<string, BrandConfig> = {
       "--gradient-primary": "linear-gradient(135deg, oklch(0.627 0.194 149.24), oklch(0.484 0.163 158))",
       "--gradient-accent": "linear-gradient(135deg, oklch(0.85 0.15 120), oklch(0.75 0.18 135))",
     } as React.CSSProperties,
+    heroGradient: "linear-gradient(135deg, oklch(0.26 0.07 150), oklch(0.42 0.13 152))",
+    tagline: "Eco-Friendly · Sustainable · Areca Tableware",
+    TaglineIcon: Leaf,
     ctaTitle: "Inquire About Bulk Plantin Orders",
     ctaSubtitle: "Get custom sizes, private labeling, and wholesale B2B pricing for your business.",
     ctaButtonText: "Send Export Inquiry",
@@ -71,6 +78,9 @@ const brandConfigs: Record<string, BrandConfig> = {
       "--gradient-primary": "linear-gradient(135deg, oklch(0.38 0.12 45), oklch(0.48 0.15 55))",
       "--gradient-accent": "linear-gradient(135deg, oklch(0.82 0.18 78), oklch(0.75 0.15 65))",
     } as React.CSSProperties,
+    heroGradient: "linear-gradient(135deg, oklch(0.24 0.05 40), oklch(0.42 0.12 58))",
+    tagline: "Premium Tea · Rich Aroma · Hand-Picked Quality",
+    TaglineIcon: Coffee,
     ctaTitle: "Partner with Amrutey Tea",
     ctaSubtitle: "Discuss wholesale hotel supplies, custom blends, or retail packaging options.",
     ctaButtonText: "Request Tea Catalog",
@@ -119,7 +129,20 @@ function BrandPage() {
     <div style={config.accentStyles}>
       <SiteLayout>
         {/* HERO */}
-        <PageHero eyebrow={config.eyebrow} title={config.title} subtitle={config.subtitle} />
+        <section className="relative overflow-hidden" style={{ backgroundImage: config.heroGradient }}>
+          <div aria-hidden className="absolute top-10 right-10 h-72 w-72 rounded-full bg-white/10 blur-3xl animate-float" />
+          <div aria-hidden className="absolute bottom-10 left-10 h-80 w-80 rounded-full bg-white/10 blur-3xl animate-float" style={{ animationDelay: "1.5s" }} />
+          <div className="container-px mx-auto max-w-7xl py-20 md:py-28 relative z-10">
+            <span className="inline-block text-xs font-semibold tracking-[0.25em] uppercase text-white/80 mb-4">
+              {config.eyebrow}
+            </span>
+            <h1 className="font-display text-4xl md:text-6xl font-bold text-white max-w-3xl">{config.title}</h1>
+            <p className="mt-5 max-w-2xl text-lg text-white/85">{config.subtitle}</p>
+            <div className="mt-7 inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-md px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white border border-white/20">
+              <config.TaglineIcon className="h-3.5 w-3.5" /> {config.tagline}
+            </div>
+          </div>
+        </section>
 
         {/* CONTENT & PRODUCT GRID */}
         <section className="py-16 bg-background">
