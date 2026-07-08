@@ -2,7 +2,8 @@ import { Link } from "@tanstack/react-router";
 import { Mail, Phone, MapPin, Globe, Send, Share2, AtSign } from "lucide-react";
 import logo from "@/assets/website logo/Plantin.jpeg";
 
-const socials = [Globe, Share2, AtSign, Send];
+// Social links not finalized yet — hidden for now, restore when ready.
+// const socials = [Globe, Share2, AtSign, Send];
 
 export function Footer() {
   return (
@@ -15,6 +16,7 @@ export function Footer() {
           <p className="text-sm opacity-80 leading-relaxed">
             Manufacturers of eco-friendly areca tablewares and trusted suppliers of premium tea, cleaning products, ready-to-eat gravies and catering solutions across India and global markets.
           </p>
+          {/* Social links not finalized yet — hidden for now, restore when ready.
           <div className="flex gap-2 mt-5">
             {socials.map((Icon, i) => (
               <a key={i} href="#" aria-label="social" className="grid h-9 w-9 place-items-center rounded-full bg-white/10 hover:bg-secondary transition-colors">
@@ -22,6 +24,7 @@ export function Footer() {
               </a>
             ))}
           </div>
+          */}
         </div>
 
         <div>
@@ -47,10 +50,10 @@ export function Footer() {
           <h4 className="font-display text-base font-semibold mb-4 text-white">Our Products</h4>
           <ul className="space-y-2.5 text-sm opacity-80">
             <li>
-              <Link to="/products" className="hover:text-accent transition-colors">Areca Tablewares</Link>
+              <Link to="/products/$brandId" params={{ brandId: "plantin" }} className="hover:text-accent transition-colors">Areca Tablewares</Link>
             </li>
             <li>
-              <Link to="/products" className="hover:text-accent transition-colors">Amrutey Premium Tea</Link>
+              <Link to="/products/$brandId" params={{ brandId: "amrutey" }} className="hover:text-accent transition-colors">Amrutey Premium Tea</Link>
             </li>
             <li>
               <Link to="/distributorship/bls" className="hover:text-accent transition-colors">Cleaning Products</Link>
