@@ -15,7 +15,7 @@ import amruteySegmentImg from "@/assets/Amrutey_Front_Product.png";
 import cleaningSegmentImg from "@/assets/BLS/chemicals/bright-9-all-purpose-cleaner-cum-sanitizer-concentrate.webp";
 import happikeryImg from "@/assets/happykery/Makhani base gravy.jpg";
 import aboutImg from "@/assets/factory3.jpg";
-import plantinLogo from "@/assets/website logo/plantin.jpeg";
+import plantinLogo from "@/assets/website logo/Plantin.jpeg";
 import happikeryLogo from "@/assets/website logo/happrykery_logo.jpg";
 import blsLogo from "@/assets/website logo/bls_logo.jpg";
 
