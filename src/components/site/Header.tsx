@@ -10,7 +10,6 @@ const links = [
   { to: "/products", label: "Own Brand Products" },
   { to: "/distributorship", label: "Distribution" },
   { to: "/services", label: "Services" },
-  { to: "/gallery", label: "Gallery" },
   { to: "/export-inquiry", label: "Export" },
   { to: "/contact", label: "Contact" },
 ] as const;

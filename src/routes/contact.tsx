@@ -10,7 +10,7 @@ export const Route = createFileRoute("/contact")({
       { title: "Contact Shreem Eco Ventures LLP — Ahmedabad, India" },
       { name: "description", content: "Get in touch with Shreem Eco Ventures LLP — Pushkar Industrial Hub, Ahmedabad. Phone: +91 96620 78551 / +91 87803 08763. Email: shreem0222@gmail.com." },
       { property: "og:title", content: "Contact Us — Shreem Eco Ventures LLP" },
-      { property: "og:description", content: "Reach our Ahmedabad office for quotes, samples and B2B partnerships." },
+      { property: "og:description", content: "Reach our Ahmedabad office for quotes, samples and customer inquiries." },
       { property: "og:url", content: "/contact" },
     ],
     links: [{ rel: "canonical", href: "/contact" }],
@@ -31,7 +31,7 @@ function ContactPage() {
     <SiteLayout>
       <PageHero
         eyebrow="Contact us"
-        title="Let's talk business."
+        title="Let's start a conversation."
         subtitle="Reach out for quotes, samples, private label discussions or to schedule a factory visit."
       />
 

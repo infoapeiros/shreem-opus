@@ -12,7 +12,6 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as ProductsRouteImport } from './routes/products'
-import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as ExportInquiryRouteImport } from './routes/export-inquiry'
 import { Route as DistributorshipRouteImport } from './routes/distributorship'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -37,11 +36,6 @@ const ServicesRoute = ServicesRouteImport.update({
 const ProductsRoute = ProductsRouteImport.update({
   id: '/products',
   path: '/products',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const GalleryRoute = GalleryRouteImport.update({
-  id: '/gallery',
-  path: '/gallery',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ExportInquiryRoute = ExportInquiryRouteImport.update({
@@ -102,7 +96,6 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/distributorship': typeof DistributorshipRouteWithChildren
   '/export-inquiry': typeof ExportInquiryRoute
-  '/gallery': typeof GalleryRoute
   '/products': typeof ProductsRouteWithChildren
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -117,7 +110,6 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/export-inquiry': typeof ExportInquiryRoute
-  '/gallery': typeof GalleryRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/distributorship/bls': typeof DistributorshipBlsRoute
@@ -133,7 +125,6 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/distributorship': typeof DistributorshipRouteWithChildren
   '/export-inquiry': typeof ExportInquiryRoute
-  '/gallery': typeof GalleryRoute
   '/products': typeof ProductsRouteWithChildren
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -151,7 +142,6 @@ export interface FileRouteTypes {
     | '/contact'
     | '/distributorship'
     | '/export-inquiry'
-    | '/gallery'
     | '/products'
     | '/services'
     | '/sitemap.xml'
@@ -166,7 +156,6 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/export-inquiry'
-    | '/gallery'
     | '/services'
     | '/sitemap.xml'
     | '/distributorship/bls'
@@ -181,7 +170,6 @@ export interface FileRouteTypes {
     | '/contact'
     | '/distributorship'
     | '/export-inquiry'
-    | '/gallery'
     | '/products'
     | '/services'
     | '/sitemap.xml'
@@ -198,7 +186,6 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   DistributorshipRoute: typeof DistributorshipRouteWithChildren
   ExportInquiryRoute: typeof ExportInquiryRoute
-  GalleryRoute: typeof GalleryRoute
   ProductsRoute: typeof ProductsRouteWithChildren
   ServicesRoute: typeof ServicesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -225,13 +212,6 @@ declare module '@tanstack/react-router' {
       path: '/products'
       fullPath: '/products'
       preLoaderRoute: typeof ProductsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/gallery': {
-      id: '/gallery'
-      path: '/gallery'
-      fullPath: '/gallery'
-      preLoaderRoute: typeof GalleryRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/export-inquiry': {
@@ -343,7 +323,6 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   DistributorshipRoute: DistributorshipRouteWithChildren,
   ExportInquiryRoute: ExportInquiryRoute,
-  GalleryRoute: GalleryRoute,
   ProductsRoute: ProductsRouteWithChildren,
   ServicesRoute: ServicesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,

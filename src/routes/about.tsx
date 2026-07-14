@@ -8,7 +8,7 @@ export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
       { title: "About Shreem Eco Ventures LLP — Manufacturing Excellence in Ahmedabad" },
-      { name: "description", content: "Learn the story, vision and values behind Shreem Eco Ventures LLP — manufacturer of eco-friendly areca tableware and premium B2B supplier from Ahmedabad, India." },
+      { name: "description", content: "Learn the story, vision and values behind Shreem Eco Ventures LLP — manufacturer of eco-friendly areca tableware and premium supplier from Ahmedabad, India." },
       { property: "og:title", content: "About Shreem Eco Ventures LLP" },
       { property: "og:description", content: "Our story, vision and commitment to sustainable manufacturing." },
       { property: "og:url", content: "/about" },
@@ -27,15 +27,14 @@ const values = [
 const pillars = [
   { Icon: Factory, title: "Manufacturing Excellence", text: "Modern equipment, trained craftsmen and standardized processes for repeatable, premium quality at scale." },
   { Icon: ShieldCheck, title: "Quality Assurance", text: "Multi-stage QC across raw material, in-process and final dispatch ensures every order meets international standards." },
-  { Icon: Leaf, title: "Sustainability", text: "Areca tableware made from naturally fallen palm leaves — zero chemicals, fully biodegradable in 60 days." },
+  { Icon: Leaf, title: "Eco Friendly", text: "Areca tableware made from naturally fallen palm leaves — zero chemicals, fully biodegradable in 60 days." },
 ];
 
 const timeline = [
-  { year: "2015", title: "Founded in Ahmedabad", text: "Began as a small trading unit serving local hospitality partners." },
-  { year: "2018", title: "Areca manufacturing line", text: "Launched in-house production of biodegradable areca tableware." },
-  { year: "2021", title: "Amrutey tea brand", text: "Introduced our premium tea brand for hotels and retailers." },
-  { year: "2023", title: "Catering & gravies", text: "Expanded into ready-to-eat gravies and outdoor catering services." },
-  { year: "2025", title: "Going global", text: "Servicing export buyers across Middle East, Europe and North America." },
+  { year: "2000", title: "Food & Catering", text: "Started our journey by providing quality food and catering services, building a strong foundation through exceptional customer service and trusted relationships." },
+  { year: "2022", title: "Areca – Plant In Disposable", text: "Expanded into eco-friendly disposable products with our premium Areca range, offering sustainable solutions for businesses and individual customers." },
+  { year: "2025", title: "Happikery – Ready to Eat Gravy", text: "Introduced our ready-to-eat gravy range, delivering authentic taste, convenience, and consistent quality for homes, restaurants, and catering services." },
+  { year: "2026", title: "Amrutey Tea", text: "Launched our premium tea brand, offering carefully selected blends crafted to deliver a refreshing experience for every tea lover." },
 ];
 
 function AboutPage() {
@@ -44,7 +43,7 @@ function AboutPage() {
       <PageHero
         eyebrow="About us"
         title="Quality you can trust. Partnerships that last."
-        subtitle="Shreem Eco Ventures LLP is a family-owned manufacturer and B2B supplier headquartered in Ahmedabad, Gujarat — proudly serving hospitality and retail leaders across India and abroad."
+        subtitle="Shreem Eco Ventures LLP is a family-owned manufacturer and trusted supplier headquartered in Ahmedabad, Gujarat — proudly serving businesses and individual customers across India and abroad."
       />
 
       <section className="py-20 bg-background">
@@ -58,10 +57,10 @@ function AboutPage() {
             <span className="text-xs font-semibold tracking-[0.25em] uppercase text-secondary">Our story</span>
             <h2 className="mt-3 font-display text-3xl md:text-4xl font-bold text-primary">From a small Ahmedabad workshop to a multi-segment manufacturer.</h2>
             <p className="mt-5 text-muted-foreground leading-relaxed">
-              Shreem Eco Ventures LLP was founded with a simple promise — to deliver the kind of consistent quality that builds long-term B2B relationships. A decade in, that promise has scaled across five business segments and dozens of cities, but the discipline behind every order remains unchanged.
+              Shreem Eco Ventures LLP was founded with a simple promise — to deliver the kind of consistent quality that builds long-term customer relationships. A decade in, that promise has scaled across five product segments and dozens of cities, but the discipline behind every order remains unchanged.
             </p>
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              Today, our 67-shed facility in Pushkar Industrial Hub serves hotels, restaurants, retail chains, distributors and global export buyers who care equally about quality, ethics and supply reliability.
+              Today, our 67-shed facility in Pushkar Industrial Hub serves hotels, restaurants, retail chains, distributors, global export buyers and individual customers who care equally about quality, ethics and supply reliability.
             </p>
           </motion.div>
         </div>
@@ -92,7 +91,7 @@ function AboutPage() {
         <div className="container-px mx-auto max-w-7xl">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <span className="text-xs font-semibold tracking-[0.25em] uppercase text-secondary">What sets us apart</span>
-            <h2 className="mt-3 font-display text-3xl md:text-4xl font-bold text-primary">Manufacturing excellence, end to end.</h2>
+            <h2 className="mt-3 font-display text-3xl md:text-4xl font-bold text-primary">Product and Service Excellence, End to End.</h2>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {pillars.map(({ Icon, title, text }, i) => (

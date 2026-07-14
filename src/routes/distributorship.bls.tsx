@@ -15,16 +15,16 @@ const heroGradient = "linear-gradient(135deg, oklch(0.24 0.08 250), oklch(0.40 0
 export const Route = createFileRoute("/distributorship/bls")({
   head: () => ({
     meta: [
-      { title: "BLS Cleaning Products — Chemicals & Machines | Shreem Eco Ventures LLP" },
+      { title: "BLS Cleaning Machines | Shreem Eco Ventures LLP" },
       {
         name: "description",
         content:
-          "Browse the full BLS range of commercial cleaning chemicals and cleaning machines distributed pan-India by Shreem Eco Ventures LLP.",
+          "Browse the full BLS range of commercial cleaning machines distributed pan-India by Shreem Eco Ventures LLP.",
       },
-      { property: "og:title", content: "BLS Cleaning Products — Shreem Eco Ventures LLP" },
+      { property: "og:title", content: "BLS Cleaning Machines — Shreem Eco Ventures LLP" },
       {
         property: "og:description",
-        content: "Authorized distributor of BLS cleaning chemicals and cleaning machines for hospitality and industrial use.",
+        content: "Authorized distributor of BLS commercial cleaning machines for hospitality and industrial use.",
       },
       { property: "og:url", content: "/distributorship/bls" },
     ],
@@ -34,7 +34,6 @@ export const Route = createFileRoute("/distributorship/bls")({
 });
 
 function BlsProductsPage() {
-  const chemicals = blsProducts.filter((p) => p.category === "chemicals");
   const machines = blsProducts.filter((p) => p.category === "machines");
 
   return (
@@ -47,8 +46,8 @@ function BlsProductsPage() {
             <span className="inline-block text-xs font-semibold tracking-[0.25em] uppercase text-white/80 mb-4">
               Authorized Distributor
             </span>
-            <h1 className="font-display text-4xl md:text-6xl font-bold text-white max-w-3xl">BLS Cleaning Products</h1>
-            <p className="mt-5 max-w-2xl text-lg text-white/85">Commercial-grade cleaning chemicals and cleaning machines for hospitality, industrial, and institutional use.</p>
+            <h1 className="font-display text-4xl md:text-6xl font-bold text-white max-w-3xl">BLS Cleaning Machines</h1>
+            <p className="mt-5 max-w-2xl text-lg text-white/85">Commercial-grade cleaning machines for hospitality, industrial, and institutional use.</p>
           </div>
         </section>
 
@@ -71,15 +70,6 @@ function BlsProductsPage() {
             </div>
 
             <h3 className="font-display text-2xl font-bold text-primary mb-8 border-b border-border pb-4">
-              Cleaning Chemicals
-            </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {chemicals.map((p, i) => (
-                <ProductTile key={p.id} name={p.name} image={p.image} description={p.description} price={p.price} i={i} />
-              ))}
-            </div>
-
-            <h3 className="font-display text-2xl font-bold text-primary mb-8 mt-16 border-b border-border pb-4">
               Cleaning Machines
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -93,10 +83,10 @@ function BlsProductsPage() {
         <section className="py-20 border-t border-border/45 bg-surface">
           <div className="container-px mx-auto max-w-5xl text-center">
             <h2 className="font-display text-3xl md:text-4xl font-bold text-primary">
-              Interested in stocking BLS products?
+              Interested in stocking BLS machines?
             </h2>
             <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-              Reach out for pricing, bulk orders, and pan-India dispatch of the full BLS range.
+              Reach out for pricing, bulk orders, and pan-India dispatch of the full BLS machine range.
             </p>
             <Link
               to="/contact"

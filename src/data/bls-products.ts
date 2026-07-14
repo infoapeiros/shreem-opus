@@ -1,17 +1,3 @@
-import bright1WashRoomBathroomCleanerImg from "@/assets/BLS/chemicals/bright-1-wash-room-bathroom-cleaner.webp";
-import bright2BkcDisinfectantFloorCleanerImg from "@/assets/BLS/chemicals/bright-2-bkc-disinfectant-floor-cleaner.webp";
-import bright2ConcentratedHardSurfaceFloorCleanerSanitizerImg from "@/assets/BLS/chemicals/bright-2-concentrated-hard-surface-floor-cleaner-sanitizer.webp";
-import bright3GlassMirrorCleanerConcentrateImg from "@/assets/BLS/chemicals/bright-3-glass-mirror-cleaner-concentrate.webp";
-import bright4FurniturePolishImg from "@/assets/BLS/chemicals/bright-4-furniture-polish.webp";
-import bright5AirFreshenerImg from "@/assets/BLS/chemicals/bright-5-air-freshener.webp";
-import bright6ToiletUrinalBowlCleanerImg from "@/assets/BLS/chemicals/bright-6-toilet-urinal-bowl-cleaner.webp";
-import bright7StainlessSteelPolishImg from "@/assets/BLS/chemicals/bright-7-stainless-steel-polish.webp";
-import bright8DishWashAllPurposeCleanerConcentrateImg from "@/assets/BLS/chemicals/bright-8-dish-wash-all-purpose-cleaner-concentrate.webp";
-import bright9AllPurposeCleanerCumSanitizerConcentrateImg from "@/assets/BLS/chemicals/bright-9-all-purpose-cleaner-cum-sanitizer-concentrate.webp";
-import bright10GrillOvenCleanerConcentrateImg from "@/assets/BLS/chemicals/bright-10-grill-oven-cleaner-concentrate.webp";
-import bright11CloggedDrainCleanerImg from "@/assets/BLS/chemicals/bright-11-clogged-drain-cleaner.webp";
-import bright12ConcentratedDescalentImg from "@/assets/BLS/chemicals/bright-12-concentrated-descalent.webp";
-import brightHandWashImg from "@/assets/BLS/chemicals/bright-hand-wash.webp";
 import bls165RideOnScrubberImg from "@/assets/BLS/machines/bls-165-ride-on-scrubber.webp";
 import bls215RideOnScrubberImg from "@/assets/BLS/machines/bls-215-ride-on-scrubber.webp";
 import bls295RideOnScrubberImg from "@/assets/BLS/machines/bls-295-ride-on-scrubber.webp";
@@ -46,21 +32,6 @@ export type BLSProduct = {
 };
 
 export const blsProducts: BLSProduct[] = [
-  { id: "bright-1-wash-room-bathroom-cleaner", name: "Bright 1 – Wash Room / Bathroom Cleaner", slug: "bright-1-wash-room-bathroom-cleaner", image: bright1WashRoomBathroomCleanerImg, category: "chemicals", price: 550, description: "Powerful bathroom cleaner for acid-resistant surfaces that removes stubborn stains, eliminates bacteria, and leaves a fresh fragrance." },
-  { id: "bright-2-bkc-disinfectant-floor-cleaner", name: "Bright 2 BKC – Disinfectant Floor Cleaner", slug: "bright-2-bkc-disinfectant-floor-cleaner", image: bright2BkcDisinfectantFloorCleanerImg, category: "chemicals", price: 950, description: "Broad-spectrum disinfectant floor cleaner designed for hospitals, ICUs, OT rooms, and other hygienic environments." },
-  { id: "bright-2-concentrated-hard-surface-floor-cleaner-sanitizer", name: "Bright 2 – Concentrated Hard Surface Floor Cleaner / Sanitizer", slug: "bright-2-concentrated-hard-surface-floor-cleaner-sanitizer", image: bright2ConcentratedHardSurfaceFloorCleanerSanitizerImg, category: "chemicals", price: 750, description: "Concentrated hard surface cleaner and sanitizer suitable for all floor types with excellent stain removal and antibacterial protection." },
-  { id: "bright-3-glass-mirror-cleaner-concentrate", name: "Bright 3 – Glass & Mirror Cleaner Concentrate", slug: "bright-3-glass-mirror-cleaner-concentrate", image: bright3GlassMirrorCleanerConcentrateImg, category: "chemicals", price: 550, description: "Streak-free glass and mirror cleaner that removes fingerprints, grease, and oil without leaving residue." },
-  { id: "bright-4-furniture-polish", name: "Bright 4 – Furniture Polish", slug: "bright-4-furniture-polish", image: bright4FurniturePolishImg, category: "chemicals", price: 1350, description: "Premium furniture polish that restores shine, protects wooden surfaces, and enhances furniture life." },
-  { id: "bright-5-air-freshener", name: "Bright 5 – Air Freshener", slug: "bright-5-air-freshener", image: bright5AirFreshenerImg, category: "chemicals", price: 150, description: "Long-lasting air freshener that neutralizes unpleasant odors while leaving a refreshing fragrance." },
-  { id: "bright-6-toilet-urinal-bowl-cleaner", name: "Bright 6 – Toilet / Urinal Bowl Cleaner", slug: "bright-6-toilet-urinal-bowl-cleaner", image: bright6ToiletUrinalBowlCleanerImg, category: "chemicals", price: 450, description: "Heavy-duty toilet and urinal cleaner formulated to remove stains, lime scale, and tough deposits." },
-  { id: "bright-7-stainless-steel-polish", name: "Bright 7 – Stainless Steel Polish", slug: "bright-7-stainless-steel-polish", image: bright7StainlessSteelPolishImg, category: "chemicals", price: 1450, description: "Professional stainless steel polish that cleans, shines, and protects steel furniture, lifts, handles, and fittings." },
-  { id: "bright-8-dish-wash-all-purpose-cleaner-concentrate", name: "Bright 8 – Dish Wash (All Purpose) Cleaner Concentrate", slug: "bright-8-dish-wash-all-purpose-cleaner-concentrate", image: bright8DishWashAllPurposeCleanerConcentrateImg, category: "chemicals", price: 375, description: "Concentrated dishwashing solution that effectively removes grease while remaining gentle on hands." },
-  { id: "bright-9-all-purpose-cleaner-cum-sanitizer-concentrate", name: "Bright 9 – All Purpose Cleaner Cum Sanitizer Concentrate", slug: "bright-9-all-purpose-cleaner-cum-sanitizer-concentrate", image: bright9AllPurposeCleanerCumSanitizerConcentrateImg, category: "chemicals", price: 750, description: "Multi-purpose cleaner and sanitizer suitable for kitchen utensils and food preparation surfaces." },
-  { id: "bright-10-grill-oven-cleaner-concentrate", name: "Bright 10 – Grill & Oven Cleaner Concentrate", slug: "bright-10-grill-oven-cleaner-concentrate", image: bright10GrillOvenCleanerConcentrateImg, category: "chemicals", price: 1750, description: "Industrial-strength cleaner for grills, ovens, chimneys, and heavy grease deposits." },
-  { id: "bright-11-clogged-drain-cleaner", name: "Bright 11 – Clogged Drain Cleaner", slug: "bright-11-clogged-drain-cleaner", image: bright11CloggedDrainCleanerImg, category: "chemicals", price: 850, description: "Fast-acting drain cleaner that dissolves grease, food residue, and hair while helping prevent blockages." },
-  { id: "bright-12-concentrated-descalent", name: "Bright 12 – Concentrated Descalent", slug: "bright-12-concentrated-descalent", image: bright12ConcentratedDescalentImg, category: "chemicals", price: 1150, description: "Powerful descaling solution for removing hard water scale from tiles, fixtures, PVC pipes, and equipment." },
-  { id: "bright-hand-wash", name: "Bright Hand Wash (Triclosan Based Disinfectant Hand Cleaner)", slug: "bright-hand-wash", image: brightHandWashImg, category: "chemicals", price: 500, description: "Antibacterial hand wash that effectively removes germs while remaining gentle on the skin." },
-
   { id: "bls-165-ride-on-scrubber", name: "BLS 165 Ride On Scrubber", slug: "bls-165-ride-on-scrubber", image: bls165RideOnScrubberImg, category: "machines", price: 365000, description: "Compact ride-on scrubber designed for efficient cleaning of medium to large commercial spaces." },
   { id: "bls-215-ride-on-scrubber", name: "BLS 215 Ride On Scrubber", slug: "bls-215-ride-on-scrubber", image: bls215RideOnScrubberImg, category: "machines", price: 515000, description: "Heavy-duty dual-brush ride-on scrubber delivering superior cleaning performance for industrial floors." },
   { id: "bls-295-ride-on-scrubber", name: "BLS 295 Ride On Scrubber", slug: "bls-295-ride-on-scrubber", image: bls295RideOnScrubberImg, category: "machines", price: 665490, description: "High-capacity ride-on scrubber built for continuous cleaning of large facilities and warehouses." },

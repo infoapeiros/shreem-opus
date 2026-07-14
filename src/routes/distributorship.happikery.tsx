@@ -15,16 +15,16 @@ const heroGradient = "linear-gradient(135deg, oklch(0.22 0.10 18), oklch(0.36 0.
 export const Route = createFileRoute("/distributorship/happikery")({
   head: () => ({
     meta: [
-      { title: "Happikery Products — Ready-to-Eat Gravies & Sauces | Shreem Eco Ventures LLP" },
+      { title: "Happikery - Ready to Eat Gravy Products — Ready-to-Eat Gravies & Sauces | Shreem Eco Ventures LLP" },
       {
         name: "description",
         content:
-          "Browse the full Happikery product range — ready-to-eat gravies, sauces, biryani paste, pav bhaji, sambhar and pizza pasta sauce, distributed pan-India by Shreem Eco Ventures LLP.",
+          "Browse the full Happikery - Ready to Eat Gravy product range — ready-to-eat gravies, sauces, biryani paste, pav bhaji, sambhar and pizza pasta sauce, distributed pan-India by Shreem Eco Ventures LLP.",
       },
-      { property: "og:title", content: "Happikery Products — Shreem Eco Ventures LLP" },
+      { property: "og:title", content: "Happikery - Ready to Eat Gravy Products — Shreem Eco Ventures LLP" },
       {
         property: "og:description",
-        content: "Authorized distributor of Happikery ready-to-eat gravies and sauces for restaurants, cloud kitchens, hotels and caterers.",
+        content: "Authorized distributor of Happikery - Ready to Eat Gravy ready-to-eat gravies and sauces for restaurants, cloud kitchens, hotels and caterers.",
       },
       { property: "og:url", content: "/distributorship/happikery" },
     ],
@@ -44,7 +44,7 @@ function HappikeryProductsPage() {
             <span className="inline-block text-xs font-semibold tracking-[0.25em] uppercase text-white/80 mb-4">
               Authorized Distributor
             </span>
-            <h1 className="font-display text-4xl md:text-6xl font-bold text-white max-w-3xl">Happikery Product Range</h1>
+            <h1 className="font-display text-4xl md:text-6xl font-bold text-white max-w-3xl">Happikery - Ready to Eat Gravy Product Range</h1>
             <p className="mt-5 max-w-2xl text-lg text-white/85">Ready-to-eat gravies, sauces, biryani paste, and food solutions for restaurants, cloud kitchens, hotels, caterers, and food businesses.</p>
           </div>
         </section>
@@ -57,7 +57,7 @@ function HappikeryProductsPage() {
                   Distribution
                 </Link>
                 <span>/</span>
-                <span className="text-secondary">Happikery</span>
+                <span className="text-secondary">Happikery - Ready to Eat Gravy</span>
               </div>
               <Link
                 to="/distributorship"
@@ -78,10 +78,10 @@ function HappikeryProductsPage() {
         <section className="py-20 border-t border-border/45 bg-surface">
           <div className="container-px mx-auto max-w-5xl text-center">
             <h2 className="font-display text-3xl md:text-4xl font-bold text-primary">
-              Interested in stocking Happikery products?
+              Interested in stocking Happikery - Ready to Eat Gravy products?
             </h2>
             <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-              Reach out for pricing, bulk orders, and pan-India dispatch of the full Happikery range.
+              Reach out for pricing, bulk orders, and pan-India dispatch of the full Happikery - Ready to Eat Gravy range.
             </p>
             <Link
               to="/contact"

@@ -35,7 +35,6 @@ export function Footer() {
               ["/products", "Own Brand Products"],
               ["/distributorship", "Distribution"],
               ["/services", "Services"],
-              ["/gallery", "Gallery"],
               ["/export-inquiry", "Export Inquiry"],
               ["/contact", "Contact"],
             ].map(([to, label]) => (
@@ -50,7 +49,7 @@ export function Footer() {
           <h4 className="font-display text-base font-semibold mb-4 text-white">Our Products</h4>
           <ul className="space-y-2.5 text-sm opacity-80">
             <li>
-              <Link to="/products/$brandId" params={{ brandId: "plantin" }} className="hover:text-accent transition-colors">Areca Tablewares</Link>
+              <Link to="/products/$brandId" params={{ brandId: "plantin" }} className="hover:text-accent transition-colors">Areca - Plant In Disposable</Link>
             </li>
             <li>
               <Link to="/products/$brandId" params={{ brandId: "amrutey" }} className="hover:text-accent transition-colors">Amrutey Premium Tea</Link>
@@ -59,7 +58,7 @@ export function Footer() {
               <Link to="/distributorship/bls" className="hover:text-accent transition-colors">Cleaning Products</Link>
             </li>
             <li>
-              <Link to="/distributorship/happikery" className="hover:text-accent transition-colors">Happikery</Link>
+              <Link to="/distributorship/happikery" className="hover:text-accent transition-colors">Happikery - Ready to Eat Gravy</Link>
             </li>
             <li>
               <Link to="/services" className="hover:text-accent transition-colors">Outdoor Catering</Link>

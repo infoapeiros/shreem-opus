@@ -7,7 +7,7 @@ import { SiteLayout, PageHero } from "@/components/site/SiteLayout";
 export const Route = createFileRoute("/export-inquiry")({
   head: () => ({
     meta: [
-      { title: "Export Inquiry — Bulk B2B & International Orders | Shreem Eco Ventures LLP" },
+      { title: "Export Inquiry — Bulk & International Orders | Shreem Eco Ventures LLP" },
       {
         name: "description",
         content:
@@ -141,7 +141,7 @@ function ExportPage() {
                         name="message"
                         rows={3}
                         className="w-full rounded-xl border border-input bg-background px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-ring transition"
-                        placeholder="Tell us about your business and target ports..."
+                        placeholder="Tell us about your requirement and target ports..."
                       />
                     </div>
                     <button

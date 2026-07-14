@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { Factory, Warehouse, Truck, Tag, Globe2, UtensilsCrossed, Megaphone, Users, Building2, ArrowRight } from "lucide-react";
+import { Factory, Warehouse, Truck, Tag, Globe2, UtensilsCrossed, Megaphone, Users, Building2, ChefHat, Store, ArrowRight } from "lucide-react";
 import { SiteLayout, PageHero } from "@/components/site/SiteLayout";
 
 export const Route = createFileRoute("/services")({
@@ -27,6 +27,8 @@ const services = [
   { Icon: Truck, title: "Distribution", text: "Pan-India distribution network with reliable cold-chain and dry-goods logistics partners." },
   { Icon: Tag, title: "Private Label Solutions", text: "Build your own brand on our products — custom packaging, branding and MOQs to fit your scale." },
   { Icon: Globe2, title: "Export Support", text: "Documentation, certifications and packaging that meets international compliance requirements." },
+  { Icon: ChefHat, title: "Cloud Kitchen", text: "Complete cloud kitchen solutions including setup support, food production assistance, packaging, and operational guidance to help businesses launch and grow efficiently." },
+  { Icon: Store, title: "Restaurant Franchise", text: "Comprehensive restaurant franchise solutions, from concept development and branding to operational support, helping entrepreneurs build successful food businesses." },
 ];
 
 function ServicesPage() {
@@ -34,7 +36,7 @@ function ServicesPage() {
     <SiteLayout>
       <PageHero
         eyebrow="Our services"
-        title="Nine ways we power your business."
+        title="Eleven ways we power your business."
         subtitle="From production lines to plated meals — a single partner across your supply chain."
       />
 

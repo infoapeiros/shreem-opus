@@ -2,19 +2,17 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import {
   ArrowRight, Leaf, Sparkles, ShieldCheck, Truck, HeartHandshake,
-  Award, Recycle, Globe2, Headphones, Star, Quote, ChevronDown,
+  Award, Recycle, Globe2, Star, Quote, ChevronDown,
+  Video, ImageOff,
 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { Counter } from "@/components/site/Counter";
 import heroImg from "@/assets/plantin-disposable.jpg";
-import heroVideo from "@/assets/videos/shreem_horizontal.mp4";
-import heroFactoryImg from "@/assets/factory3.jpg";
-import heroLineImg from "@/assets/DSC_9745.jpg";
 import arecaSegmentImg from "@/assets/plantin-disposable2.jpg";
 import amruteySegmentImg from "@/assets/Amrutey_Front_Product.png";
 import cleaningSegmentImg from "@/assets/BLS/chemicals/bright-9-all-purpose-cleaner-cum-sanitizer-concentrate.webp";
 import happikeryImg from "@/assets/happykery/Makhani base gravy.jpg";
-import aboutImg from "@/assets/factory3.jpg";
 import plantinLogo from "@/assets/website logo/Plantin.jpeg";
 import happikeryLogo from "@/assets/website logo/happrykery_logo.jpg";
 import blsLogo from "@/assets/website logo/bls_logo.jpg";
@@ -24,8 +22,8 @@ export const Route = createFileRoute("/")({
     meta: [
       { title: "Shreem Eco Ventures LLP — Areca Tableware, Premium Tea & Catering" },
       { name: "description", content: "Manufacturers of eco-friendly areca tableware and trusted suppliers of premium Amrutey tea, cleaning products, ready-to-eat gravies and outdoor catering — Ahmedabad, India. Export ready." },
-      { property: "og:title", content: "Shreem Eco Ventures LLP — Quality Products for Hospitality, Retail & Global Markets" },
-      { property: "og:description", content: "Eco-friendly areca tableware, premium tea, ready-to-eat gravies, cleaning supplies & catering — built for hotels, restaurants and exporters." },
+      { property: "og:title", content: "Shreem Eco Ventures LLP — Quality Products for Homes, Hospitality & Global Markets" },
+      { property: "og:description", content: "Eco-friendly areca tableware, premium tea, ready-to-eat gravies, cleaning supplies & catering — for businesses and individual customers alike." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
     ],
@@ -35,10 +33,10 @@ export const Route = createFileRoute("/")({
 });
 
 const segments = [
-  { title: "Areca Tablewares", desc: "100% biodegradable plates, bowls, trays & food packaging crafted from naturally fallen areca leaves.", img: arecaSegmentImg, to: "/products" },
+  { title: "Areca - Plant In Disposable", desc: "100% biodegradable plates, bowls, trays & food packaging crafted from naturally fallen areca leaves.", img: arecaSegmentImg, to: "/products" },
   { title: "Amrutey Premium Tea", desc: "Hand-picked, full-bodied tea blends for hotels, retailers and discerning households.", img: amruteySegmentImg, to: "/products" },
-  { title: "Cleaning Products", desc: "High-performance commercial and industrial cleaners that meet hospitality standards.", img: cleaningSegmentImg, to: "/distributorship/bls" },
-  { title: "Happikery", desc: "Ready-to-eat gravies, sauces, biryani paste and more for restaurants and cloud kitchens.", img: happikeryImg, to: "/distributorship/happikery" },
+  { title: "Puriora Cleaning Solutions", desc: "Our premium own brand of high-performance commercial, industrial, and household cleaning chemicals.", img: cleaningSegmentImg, to: "/products/puriora" },
+  { title: "Happikery - Ready to Eat Gravy", desc: "Ready-to-eat gravies, sauces, biryani paste and more for restaurants and cloud kitchens.", img: happikeryImg, to: "/distributorship/happikery" },
 ];
 
 const why = [
@@ -47,12 +45,11 @@ const why = [
   { Icon: Truck, title: "Bulk Supply Capability", desc: "Container-load and pan-India distribution, on schedule." },
   { Icon: Recycle, title: "Eco-Friendly Products", desc: "Biodegradable tableware that helps brands meet ESG goals." },
   { Icon: ShieldCheck, title: "Timely Delivery", desc: "Predictable lead times your kitchen and store can rely on." },
-  { Icon: Headphones, title: "Customer Support", desc: "A dedicated account manager for every B2B client." },
 ];
 
 const brandLogos = [
   { src: plantinLogo, alt: "Plantin Disposable" },
-  { src: happikeryLogo, alt: "Happikery" },
+  { src: happikeryLogo, alt: "Happikery - Ready to Eat Gravy" },
   { src: blsLogo, alt: "BLS" },
 ];
 
@@ -63,6 +60,15 @@ const testimonials = [
   { name: "Priya Sharma", role: "Owner, Cafe Chain", text: "Their Amrutey tea is the best decision we made for our menu. Customers ask which brand it is — every single day." },
   { name: "James O'Connor", role: "Importer, UK", text: "Reliable export partner. Documentation is on point and packaging holds up beautifully across the supply chain." },
 ];
+
+function MediaPlaceholder({ icon: Icon, label, className = "" }: { icon: LucideIcon; label: string; className?: string }) {
+  return (
+    <div className={`flex flex-col items-center justify-center gap-2 bg-surface text-muted-foreground ${className}`}>
+      <Icon className="h-8 w-8 opacity-40" />
+      <span className="text-xs font-semibold uppercase tracking-wider">{label}</span>
+    </div>
+  );
+}
 
 function HomePage() {
   return (
@@ -142,29 +148,19 @@ function HomePage() {
               className="w-full md:max-w-[78%] mx-auto md:mx-0"
             >
               <div className="rounded-2xl md:rounded-3xl overflow-hidden shadow-elegant border border-white/15">
-                <video
-                  src={heroVideo}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  aria-label="Shreem Eco Ventures LLP promotional video"
-                  className="block w-full h-auto"
-                />
+                <MediaPlaceholder icon={Video} label="Video Coming Soon" className="aspect-video w-full" />
               </div>
 
               <div className="mt-3 grid grid-cols-2 gap-3">
-                <img
-                  src={heroFactoryImg}
-                  alt="Shreem Eco Ventures LLP factory floor"
-                  loading="lazy"
-                  className="block w-full h-auto rounded-2xl md:rounded-3xl shadow-soft border border-white/15"
+                <MediaPlaceholder
+                  icon={ImageOff}
+                  label="Coming Soon"
+                  className="aspect-[4/3] w-full rounded-2xl md:rounded-3xl shadow-soft border border-white/15"
                 />
-                <img
-                  src={heroLineImg}
-                  alt="Shreem Eco Ventures LLP production line"
-                  loading="lazy"
-                  className="block w-full h-auto rounded-2xl md:rounded-3xl shadow-soft border border-white/15"
+                <MediaPlaceholder
+                  icon={ImageOff}
+                  label="Coming Soon"
+                  className="aspect-[4/3] w-full rounded-2xl md:rounded-3xl shadow-soft border border-white/15"
                 />
               </div>
             </motion.div>
@@ -199,7 +195,7 @@ function HomePage() {
             transition={{ duration: 0.7 }}
             className="relative"
           >
-            <img src={aboutImg} alt="Shreem Eco Ventures LLP manufacturing team" loading="lazy" width={1024} height={768} className="rounded-2xl shadow-elegant w-full h-auto object-cover" />
+            <MediaPlaceholder icon={ImageOff} label="Coming Soon" className="aspect-[4/3] w-full rounded-2xl shadow-elegant" />
             <div className="absolute -bottom-6 -right-6 rounded-2xl gradient-primary p-6 text-white shadow-elegant hidden sm:block">
               <div className="font-display text-3xl font-bold">15+</div>
               <div className="text-xs uppercase tracking-widest opacity-80">Years of Trust</div>
@@ -212,10 +208,10 @@ function HomePage() {
           >
             <span className="text-xs font-semibold tracking-[0.25em] uppercase text-secondary">About Shreem</span>
             <h2 className="mt-3 font-display text-3xl md:text-5xl font-bold text-primary">
-              Built on quality. Trusted by hospitality leaders.
+              Built on quality. Trusted by businesses and customers everywhere.
             </h2>
             <p className="mt-5 text-base md:text-lg text-muted-foreground leading-relaxed">
-              From our Ahmedabad facility, Shreem Eco Ventures LLP manufactures and supplies a curated portfolio of eco-friendly tableware, premium tea, gravies and cleaning solutions — engineered for restaurants, retailers and exporters who refuse to compromise.
+              From our Ahmedabad facility, Shreem Eco Ventures LLP manufactures and supplies a curated portfolio of eco-friendly tableware, premium tea, gravies and cleaning solutions — crafted for businesses and individual customers who refuse to compromise.
             </p>
             <ul className="mt-6 grid sm:grid-cols-2 gap-3 text-sm">
               {["ISO-grade quality control", "End-to-end private labeling", "International packaging norms", "Pan-India distribution network"].map((i) => (
@@ -229,13 +225,13 @@ function HomePage() {
         </div>
       </section>
 
-      {/* BUSINESS SEGMENTS */}
+      {/* PRODUCT SEGMENTS */}
       <section className="py-24 bg-surface">
         <div className="container-px mx-auto max-w-7xl">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
             <div className="max-w-2xl">
               <span className="text-xs font-semibold tracking-[0.25em] uppercase text-secondary">What we offer</span>
-              <h2 className="mt-3 font-display text-3xl md:text-5xl font-bold text-primary">Four business segments. One trusted partner.</h2>
+              <h2 className="mt-3 font-display text-3xl md:text-5xl font-bold text-primary">Four product segments. One trusted partner.</h2>
             </div>
             <Link to="/products" className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-secondary transition-colors">
               View full catalog <ArrowRight className="h-4 w-4" />
@@ -273,8 +269,8 @@ function HomePage() {
         <div className="container-px mx-auto max-w-7xl">
           <div className="text-center max-w-2xl mx-auto mb-14">
             <span className="text-xs font-semibold tracking-[0.25em] uppercase text-secondary">Why Shreem</span>
-            <h2 className="mt-3 font-display text-3xl md:text-5xl font-bold text-primary">Built for B2B at scale.</h2>
-            <p className="mt-4 text-muted-foreground">Six reasons hotels, exporters and retailers choose us as a long-term supply partner.</p>
+            <h2 className="mt-3 font-display text-3xl md:text-5xl font-bold text-primary">Built for quality at every scale.</h2>
+            <p className="mt-4 text-muted-foreground">Five reasons businesses and customers choose us as a long-term supply partner.</p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {why.map(({ Icon, title, desc }, i) => (
@@ -320,7 +316,7 @@ function HomePage() {
         <div className="container-px mx-auto max-w-7xl">
           <div className="text-center max-w-2xl mx-auto mb-14">
             <span className="text-xs font-semibold tracking-[0.25em] uppercase text-secondary">Client voices</span>
-            <h2 className="mt-3 font-display text-3xl md:text-5xl font-bold text-primary">Trusted by hospitality leaders.</h2>
+            <h2 className="mt-3 font-display text-3xl md:text-5xl font-bold text-primary">Trusted by businesses and customers alike.</h2>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {testimonials.map((t, i) => (

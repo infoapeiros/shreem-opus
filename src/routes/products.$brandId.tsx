@@ -1,21 +1,22 @@
 import { createFileRoute, Link, useParams } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import { ArrowRight, ArrowLeft, Leaf, Coffee } from "lucide-react";
+import { ArrowRight, ArrowLeft, Leaf, Coffee, Sparkles, FileText, Download } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { SiteLayout, PageHero } from "@/components/site/SiteLayout";
 import { products, ProductCard } from "./products.index";
 import type { Product } from "./products.index";
+import plantinCatalogue from "@/assets/catlog/PlantIn_Product Brochure_Online 1.pdf";
 
 export const Route = createFileRoute("/products/$brandId")({
   head: ({ params }) => {
     const brandId = params.brandId;
     const config = brandConfigs[brandId as keyof typeof brandConfigs];
     const brandTitle = config ? config.name : "Own Brand Page";
-    const brandDesc = config ? config.subtitle : "Dedicated own brand B2B portfolio page.";
+    const brandDesc = config ? config.subtitle : "Dedicated own brand portfolio page.";
     return {
       meta: [
-        { title: `${brandTitle} — Own Brand B2B Portfolio | Shreem Eco Ventures LLP` },
+        { title: `${brandTitle} — Own Brand Portfolio | Shreem Eco Ventures LLP` },
         { name: "description", content: brandDesc },
         { property: "og:title", content: `${brandTitle} — Shreem Eco Ventures LLP` },
         { property: "og:description", content: brandDesc },
@@ -42,6 +43,8 @@ type BrandConfig = {
   ctaSubtitle: string;
   ctaButtonText: string;
   filterCat: string;
+  /** URL of the brand's downloadable product catalogue PDF, if available. */
+  catalogueUrl?: string;
 };
 
 const brandConfigs: Record<string, BrandConfig> = {
@@ -50,8 +53,8 @@ const brandConfigs: Record<string, BrandConfig> = {
     name: "Plantin Disposable",
     eyebrow: "Own Brand",
     title: "Plantin Disposable Tableware",
-    subtitle: "Premium B2B biodegradable tableware manufactured from naturally fallen areca leaves.",
-    intro: "Crafted with sustainability at the core, Plantin is our premium line of B2B biodegradable areca leaf tableware. Using only naturally fallen areca leaves and water, we manufacture a wide range of plates, bowls, and platters for hospitality leaders globally who prioritize ecological responsibility.",
+    subtitle: "Premium biodegradable tableware manufactured from naturally fallen areca leaves.",
+    intro: "Crafted with sustainability at the core, Plantin is our premium line of biodegradable areca leaf tableware. Using only naturally fallen areca leaves and water, we manufacture a wide range of plates, bowls, and platters for businesses and individual customers worldwide who prioritize ecological responsibility.",
     accentStyles: {
       "--secondary": "oklch(0.627 0.194 149.24)", // fresh green
       "--gradient-primary": "linear-gradient(135deg, oklch(0.627 0.194 149.24), oklch(0.484 0.163 158))",
@@ -61,9 +64,10 @@ const brandConfigs: Record<string, BrandConfig> = {
     tagline: "Eco-Friendly · Sustainable · Areca Tableware",
     TaglineIcon: Leaf,
     ctaTitle: "Inquire About Bulk Plantin Orders",
-    ctaSubtitle: "Get custom sizes, private labeling, and wholesale B2B pricing for your business.",
+    ctaSubtitle: "Get custom sizes, private labeling, and competitive bulk pricing for commercial or personal use.",
     ctaButtonText: "Send Export Inquiry",
     filterCat: "areca",
+    catalogueUrl: plantinCatalogue,
   },
   amrutey: {
     id: "amrutey",
@@ -71,7 +75,7 @@ const brandConfigs: Record<string, BrandConfig> = {
     eyebrow: "Own Brand",
     title: "Amrutey Premium Tea",
     subtitle: "Hand-picked premium tea blends curated for hotels, lounges, retailers and households.",
-    intro: "Amrutey represents our commitment to the finest tea traditions. Our signature hand-picked premium tea blends are curated to meet the strict quality standards of hospitality lounges, fine dining establishments, B2B suppliers, and grocery retailers.",
+    intro: "Amrutey represents our commitment to the finest tea traditions. Our signature hand-picked premium tea blends are curated to meet the strict quality standards of hospitality lounges, fine dining establishments, retailers, and discerning individual customers.",
     accentStyles: {
       "--secondary": "oklch(0.38 0.12 45)", // warm tea brown
       "--accent": "oklch(0.82 0.18 78)", // gold
@@ -85,6 +89,26 @@ const brandConfigs: Record<string, BrandConfig> = {
     ctaSubtitle: "Discuss wholesale hotel supplies, custom blends, or retail packaging options.",
     ctaButtonText: "Request Tea Catalog",
     filterCat: "tea",
+  },
+  puriora: {
+    id: "puriora",
+    name: "Puriora - Cleaning Solutions",
+    eyebrow: "Own Brand",
+    title: "Puriora - Cleaning Solutions",
+    subtitle: "High-performance commercial, industrial, and household cleaning chemicals.",
+    intro: "Puriora represents our dedication to pristine hygiene and professional-grade cleanliness. Formulated with premium-quality active ingredients, our comprehensive range of cleaning solutions is designed to deliver deep cleaning, disinfection, and stain-removal for commercial, industrial, and household environments.",
+    accentStyles: {
+      "--secondary": "oklch(0.60 0.15 200)", // fresh clean teal/blue
+      "--gradient-primary": "linear-gradient(135deg, oklch(0.60 0.15 200), oklch(0.45 0.13 210))",
+      "--gradient-accent": "linear-gradient(135deg, oklch(0.80 0.10 180), oklch(0.70 0.12 195))",
+    } as React.CSSProperties,
+    heroGradient: "linear-gradient(135deg, oklch(0.25 0.06 200), oklch(0.40 0.12 210))",
+    tagline: "Hygiene · Disinfection · Professional Cleaners",
+    TaglineIcon: Sparkles,
+    ctaTitle: "Partner with Puriora",
+    ctaSubtitle: "Discuss wholesale supply, custom packaging options, or bulk ordering for commercial spaces.",
+    ctaButtonText: "Inquire About Puriora",
+    filterCat: "cleaning",
   },
 };
 
@@ -170,9 +194,30 @@ function BrandPage() {
               <p className="text-base text-muted-foreground leading-relaxed">{config.intro}</p>
             </div>
 
+            {/* CATALOGUE ACTIONS */}
+            {config.catalogueUrl && (
+              <div className="flex flex-wrap gap-4 mb-16">
+                <a
+                  href={config.catalogueUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full gradient-primary px-7 py-3.5 text-sm font-semibold text-white shadow-soft hover:shadow-elegant hover:-translate-y-0.5 transition-all"
+                >
+                  <FileText className="h-4 w-4" /> View Catalogue
+                </a>
+                <a
+                  href={config.catalogueUrl}
+                  download="Plantin-Product-Catalogue.pdf"
+                  className="inline-flex items-center gap-2 rounded-full border-2 border-secondary text-secondary px-7 py-3.5 text-sm font-semibold hover:bg-secondary hover:text-white transition-all"
+                >
+                  <Download className="h-4 w-4" /> Download Catalogue
+                </a>
+              </div>
+            )}
+
             {/* PRODUCT GRID */}
             <h3 className="font-display text-2xl font-bold text-primary mb-8 border-b border-border pb-4">
-              B2B Product Range
+              Product Range
             </h3>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {brandProducts.map((p, i) => (
@@ -182,7 +227,7 @@ function BrandPage() {
           </div>
         </section>
 
-        {/* CUSTOM B2B CTA SECTION */}
+        {/* CUSTOM CTA SECTION */}
         <section className="py-20 border-t border-border/45 bg-surface">
           <div className="container-px mx-auto max-w-5xl text-center">
             <h2 className="font-display text-3xl md:text-4xl font-bold text-primary">{config.ctaTitle}</h2>
