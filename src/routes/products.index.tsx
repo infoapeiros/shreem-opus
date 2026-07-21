@@ -9,17 +9,11 @@ import royalBaghanFrontImg from "@/assets/royal_front.jpeg";
 import royalBaghanBackImg from "@/assets/royal_back.jpeg";
 import newAnnapurnaFrontImg from "@/assets/annapurna_front.jpeg";
 import newAnnapurnaBackImg from "@/assets/annapurna_back.jpeg";
-import plantinDisposable1 from "@/assets/plantin-disposable.jpg";
-import plantinDisposable2 from "@/assets/plantin-disposable2.jpg";
-import arecaRoundPlates1 from "@/assets/areca-round-plates.jpg";
-import arecaRoundPlates2 from "@/assets/areca-round-plates2.jpg";
-import arecaRoundPlates3 from "@/assets/areca-round-plates3.jpg";
-import arecaRoundPlates4 from "@/assets/areca-round-plates4.jpg";
-import arecaBowls1 from "@/assets/areca-bowls.jpg";
-import arecaBowls2 from "@/assets/areca-bowls2.jpg";
-import arecaTrays1 from "@/assets/areca-trays-and-platters.jpg";
-import arecaTrays2 from "@/assets/areca-trays-and-platters2.jpg";
-import arecaTrays3 from "@/assets/areca-trays-and-platters3.jpg";
+import plantinDisposable1 from "@/assets/plantin-disposable.png";
+import plantinDisposable2 from "@/assets/plantin-disposable2.png";
+import arecaRoundPlatesImg from "@/assets/areca_round_plates_a.png";
+import arecaBowlsImg from "@/assets/areca_bowls_a.png";
+import arecaTraysImg from "@/assets/areca_trays_and_platters_a.png";
 
 // Puriora brand new product images
 import purioraBathroomCleanerImg from "@/assets/Puriora/puriora_bathroom_cleaner.jpeg";
@@ -104,21 +98,21 @@ export const products: (Product & { cat: Exclude<Category, "all"> })[] = [
   {
     cat: "areca",
     name: "Areca Round Plates",
-    imgs: [arecaRoundPlates1, arecaRoundPlates2, arecaRoundPlates3, arecaRoundPlates4],
+    imgs: [arecaRoundPlatesImg],
     desc: "Premium 6, 8, 10 & 12 inch plates from naturally fallen areca leaves.",
     features: ["100% biodegradable", "Microwave safe", "Leak-proof"],
   },
   {
     cat: "areca",
     name: "Areca Bowls",
-    imgs: [arecaBowls1, arecaBowls2],
+    imgs: [arecaBowlsImg],
     desc: "Sturdy bowls for soups, curries and dessert service.",
     features: ["Multiple sizes", "Heat resistant", "Eco-friendly"],
   },
   {
     cat: "areca",
     name: "Areca Trays & Platters",
-    imgs: [arecaTrays1, arecaTrays2, arecaTrays3],
+    imgs: [arecaTraysImg],
     desc: "Compartment trays and serving platters for buffets.",
     features: ["Custom sizing", "Strong & rigid", "Premium finish"],
   },

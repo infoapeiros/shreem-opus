@@ -1,21 +1,19 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight, Leaf, Sparkles, ShieldCheck, Truck, HeartHandshake,
-  Award, Recycle, Globe2, Star, Quote, ChevronDown,
-  Video, ImageOff,
+  Award, Recycle, Globe2, Star, Quote,
 } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { Counter } from "@/components/site/Counter";
-import heroImg from "@/assets/plantin-disposable.jpg";
-import arecaSegmentImg from "@/assets/plantin-disposable2.jpg";
+import { HeroCarousel } from "@/components/site/HeroCarousel";
+import arecaSegmentImg from "@/assets/plantin-disposable2.png";
 import amruteySegmentImg from "@/assets/Amrutey_Front_Product.png";
 import cleaningSegmentImg from "@/assets/BLS/chemicals/bright-9-all-purpose-cleaner-cum-sanitizer-concentrate.webp";
 import happikeryImg from "@/assets/happykery/Makhani base gravy.jpg";
-import plantinLogo from "@/assets/website logo/Plantin.jpeg";
-import happikeryLogo from "@/assets/website logo/happrykery_logo.jpg";
-import blsLogo from "@/assets/website logo/bls_logo.jpg";
+import amruteyShowcaseImg from "@/assets/amrutey.png";
+import plantinBgShowcaseImg from "@/assets/plantin_bg.jpeg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -47,25 +45,86 @@ const why = [
   { Icon: ShieldCheck, title: "Timely Delivery", desc: "Predictable lead times your kitchen and store can rely on." },
 ];
 
-const brandLogos = [
-  { src: plantinLogo, alt: "Plantin Disposable" },
-  { src: happikeryLogo, alt: "Happikery - Ready to Eat Gravy" },
-  { src: blsLogo, alt: "BLS" },
-];
-
 const trust = ["Quality Products", "Eco-Friendly Solutions", "Reliable Supply Chain", "Export Ready", "Customer Satisfaction"];
 
 const testimonials = [
-  { name: "Rakesh Mehta", role: "Procurement Head, Hotel Group", text: "Shreem's areca plates upgraded the perception of our breakfast buffet overnight. Quality is incredibly consistent." },
-  { name: "Priya Sharma", role: "Owner, Cafe Chain", text: "Their Amrutey tea is the best decision we made for our menu. Customers ask which brand it is — every single day." },
-  { name: "James O'Connor", role: "Importer, UK", text: "Reliable export partner. Documentation is on point and packaging holds up beautifully across the supply chain." },
+  { name: "The Flavour Junction", role: "Happikery Ready-to-Eat Gravies", text: "The Happikery gravies have helped us maintain consistent taste during busy hours. They save preparation time without compromising on quality." },
+  { name: "Iyer's Authentic", role: "Amrutey Premium Tea", text: "Our customers appreciate the rich aroma and refreshing taste of Amrutey Tea. It has become a regular part of our menu." },
+  { name: "Divine Dosa", role: "Happikery Sambar", text: "The Happikery Sambar delivers consistent flavour every day. It's reliable, convenient, and loved by our customers." },
+  { name: "Kusines Catering", role: "Plant In Disposable Areca Tableware", text: "Plant In areca tableware has elevated our catering presentations. Strong, eco-friendly, and perfect for large events." },
+  { name: "Future Foods Group", role: "Business Partner", text: "We've found Shreem Eco Ventures to be a dependable business partner with quality products and timely deliveries." },
+  { name: "Padmavati Marketing", role: "Plant In Disposable", text: "Our customers appreciate the premium finish and durability of Plant In products. They've become one of our best-selling ranges." },
+  { name: "Mahavir Traders", role: "Plant In Disposable Distributor", text: "Excellent product quality and consistent supply make Plant In an easy recommendation for our retail network." },
+  { name: "Bothmal Disposable", role: "Plant In Disposable Dealer", text: "The variety and finish of Plant In disposable products have been well received by our customers. Great quality across the range." },
+  { name: "Paresh Kumar", role: "Amrutey Premium Tea", text: "Amrutey Tea offers a rich flavour and consistent quality. It's a product I confidently recommend to my customers." },
+  { name: "Nirwana Group", role: "Export & Multi-Product Partner", text: "Professional service, reliable documentation, and quality products have made Shreem Eco Ventures a trusted long-term supplier." },
 ];
 
-function MediaPlaceholder({ icon: Icon, label, className = "" }: { icon: LucideIcon; label: string; className?: string }) {
+const aboutShowcaseImages = [
+  { src: amruteyShowcaseImg, alt: "Amrutey Premium Tea" },
+  { src: plantinBgShowcaseImg, alt: "Plant In Areca Tableware" },
+];
+
+function AboutImageShowcase({ className = "" }: { className?: string }) {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => setIndex((i) => (i + 1) % aboutShowcaseImages.length), 4500);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
-    <div className={`flex flex-col items-center justify-center gap-2 bg-surface text-muted-foreground ${className}`}>
-      <Icon className="h-8 w-8 opacity-40" />
-      <span className="text-xs font-semibold uppercase tracking-wider">{label}</span>
+    <div className={`relative overflow-hidden ${className}`}>
+      <AnimatePresence>
+        <motion.img
+          key={index}
+          src={aboutShowcaseImages[index].src}
+          alt={aboutShowcaseImages[index].alt}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1 }}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+      </AnimatePresence>
+    </div>
+  );
+}
+
+function TestimonialsCarousel({ items }: { items: typeof testimonials }) {
+  const pageCount = Math.ceil(items.length / 3);
+  const [page, setPage] = useState(0);
+
+  useEffect(() => {
+    if (pageCount <= 1) return;
+    const timer = setInterval(() => setPage((p) => (p + 1) % pageCount), 5500);
+    return () => clearInterval(timer);
+  }, [pageCount]);
+
+  const visible = Array.from({ length: 3 }, (_, i) => items[(page * 3 + i) % items.length]);
+
+  return (
+    <div className="grid md:grid-cols-3 gap-6">
+      <AnimatePresence mode="popLayout" initial={false}>
+        {visible.map((t, i) => (
+          <motion.div
+            key={`${page}-${t.name}`}
+            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }}
+            transition={{ delay: i * 0.1 }}
+            className="p-8 rounded-2xl bg-card border border-border shadow-soft hover:shadow-elegant transition-all relative"
+          >
+            <Quote className="absolute top-6 right-6 h-8 w-8 text-secondary/20" />
+            <div className="flex gap-0.5 mb-4">
+              {Array.from({ length: 5 }).map((_, j) => <Star key={j} className="h-4 w-4 fill-accent text-accent" />)}
+            </div>
+            <p className="text-foreground/85 leading-relaxed">{t.text}</p>
+            <div className="mt-6 pt-5 border-t border-border">
+              <div className="font-semibold text-primary">{t.name}</div>
+              <div className="text-xs text-muted-foreground">{t.role}</div>
+            </div>
+          </motion.div>
+        ))}
+      </AnimatePresence>
     </div>
   );
 }
@@ -73,108 +132,8 @@ function MediaPlaceholder({ icon: Icon, label, className = "" }: { icon: LucideI
 function HomePage() {
   return (
     <SiteLayout>
-      {/* HERO */}
-      <section className="relative min-h-[68vh] flex items-center overflow-hidden">
-        <img
-          src={heroImg}
-          alt="Plantin Disposable biodegradable areca leaf tableware"
-          width={1920}
-          height={1280}
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-        <div className="absolute inset-0 gradient-hero" />
-        <div aria-hidden className="absolute top-20 right-10 h-72 w-72 rounded-full bg-secondary/20 blur-3xl animate-float" />
-        <div aria-hidden className="absolute bottom-20 left-10 h-80 w-80 rounded-full bg-accent/20 blur-3xl animate-float" style={{ animationDelay: "1.5s" }} />
-
-        <div className="mx-auto max-w-[92rem] px-5 md:px-8 xl:px-10 relative z-10 py-14 md:py-16">
-          <div className="grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
-            {/* LEFT: MESSAGING */}
-            <div>
-              <motion.span
-                initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-                className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-md px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white border border-white/20"
-              >
-                <Leaf className="h-3.5 w-3.5 text-accent" /> Made in Ahmedabad · Export Ready
-              </motion.span>
-
-              <motion.h1
-                initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
-                className="mt-4 font-display text-[1.7rem] sm:text-[2rem] md:text-[2.65rem] lg:text-[3.25rem] font-bold text-white leading-[1.05]"
-              >
-                Delivering Quality Products for{" "}
-                <span className="text-gradient-accent">Hospitality, Retail & Global Markets</span>
-              </motion.h1>
-
-              <motion.p
-                initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
-                className="mt-3 max-w-2xl text-base md:text-lg text-white/85 leading-relaxed"
-              >
-                Manufacturers of eco-friendly areca tablewares and trusted suppliers of premium tea, cleaning products, ready-to-eat gravies and catering solutions.
-              </motion.p>
-
-              <motion.div
-                initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}
-                className="mt-6 flex flex-wrap gap-4"
-              >
-                <Link to="/products" className="group inline-flex items-center gap-2 rounded-full gradient-primary px-7 py-3.5 text-sm font-semibold text-white shadow-elegant hover:-translate-y-0.5 transition-all">
-                  Explore Products <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Link>
-                <Link to="/export-inquiry" className="group inline-flex items-center gap-2 rounded-full bg-white/95 backdrop-blur px-7 py-3.5 text-sm font-semibold text-primary hover:bg-white hover:-translate-y-0.5 transition-all">
-                  Export Inquiry <Globe2 className="h-4 w-4" />
-                </Link>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}
-                className="mt-7 text-left"
-              >
-                <span className="text-xs font-semibold uppercase tracking-[0.25em] text-white/60">Our Brands</span>
-                <div className="mt-3 flex flex-wrap items-center justify-start gap-6">
-                  {brandLogos.map((logo) => (
-                    <div
-                      key={logo.alt}
-                      className="flex items-center justify-center rounded-xl bg-white/90 backdrop-blur-sm px-2.5 py-1.5 shadow-soft border border-white/50"
-                    >
-                      <img src={logo.src} alt={logo.alt} loading="lazy" className="h-[29px] md:h-[34px] w-auto object-contain" />
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-            </div>
-
-            {/* RIGHT: MEDIA SHOWCASE */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25 }}
-              className="w-full md:max-w-[78%] mx-auto md:mx-0"
-            >
-              <div className="rounded-2xl md:rounded-3xl overflow-hidden shadow-elegant border border-white/15">
-                <MediaPlaceholder icon={Video} label="Video Coming Soon" className="aspect-video w-full" />
-              </div>
-
-              <div className="mt-3 grid grid-cols-2 gap-3">
-                <MediaPlaceholder
-                  icon={ImageOff}
-                  label="Coming Soon"
-                  className="aspect-[4/3] w-full rounded-2xl md:rounded-3xl shadow-soft border border-white/15"
-                />
-                <MediaPlaceholder
-                  icon={ImageOff}
-                  label="Coming Soon"
-                  className="aspect-[4/3] w-full rounded-2xl md:rounded-3xl shadow-soft border border-white/15"
-                />
-              </div>
-            </motion.div>
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }}
-            className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 text-white/70"
-          >
-            <span className="text-[10px] uppercase tracking-[0.3em]">Scroll</span>
-            <ChevronDown className="h-5 w-5 animate-bounce" />
-          </motion.div>
-        </div>
-      </section>
+      {/* HERO CAROUSEL */}
+      <HeroCarousel />
 
       {/* TRUST STRIP */}
       <section className="bg-primary text-primary-foreground">
@@ -195,7 +154,7 @@ function HomePage() {
             transition={{ duration: 0.7 }}
             className="relative"
           >
-            <MediaPlaceholder icon={ImageOff} label="Coming Soon" className="aspect-[4/3] w-full rounded-2xl shadow-elegant" />
+            <AboutImageShowcase className="aspect-[4/3] w-full rounded-2xl shadow-elegant" />
             <div className="absolute -bottom-6 -right-6 rounded-2xl gradient-primary p-6 text-white shadow-elegant hidden sm:block">
               <div className="font-display text-3xl font-bold">15+</div>
               <div className="text-xs uppercase tracking-widest opacity-80">Years of Trust</div>
@@ -318,26 +277,7 @@ function HomePage() {
             <span className="text-xs font-semibold tracking-[0.25em] uppercase text-secondary">Client voices</span>
             <h2 className="mt-3 font-display text-3xl md:text-5xl font-bold text-primary">Trusted by businesses and customers alike.</h2>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {testimonials.map((t, i) => (
-              <motion.div
-                key={t.name}
-                initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="p-8 rounded-2xl bg-card border border-border shadow-soft hover:shadow-elegant transition-all relative"
-              >
-                <Quote className="absolute top-6 right-6 h-8 w-8 text-secondary/20" />
-                <div className="flex gap-0.5 mb-4">
-                  {Array.from({ length: 5 }).map((_, j) => <Star key={j} className="h-4 w-4 fill-accent text-accent" />)}
-                </div>
-                <p className="text-foreground/85 leading-relaxed">{t.text}</p>
-                <div className="mt-6 pt-5 border-t border-border">
-                  <div className="font-semibold text-primary">{t.name}</div>
-                  <div className="text-xs text-muted-foreground">{t.role}</div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          <TestimonialsCarousel items={testimonials} />
         </div>
       </section>
 

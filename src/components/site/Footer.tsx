@@ -55,13 +55,25 @@ export function Footer() {
               <Link to="/products/$brandId" params={{ brandId: "amrutey" }} className="hover:text-accent transition-colors">Amrutey Premium Tea</Link>
             </li>
             <li>
-              <Link to="/distributorship/bls" className="hover:text-accent transition-colors">Cleaning Products</Link>
+              <Link to="/products/$brandId" params={{ brandId: "puriora" }} className="hover:text-accent transition-colors">Puriora Cleaning Solutions</Link>
+            </li>
+            <li>
+              <Link to="/distributorship/bls" className="hover:text-accent transition-colors">BLS Cleaning Machines</Link>
             </li>
             <li>
               <Link to="/distributorship/happikery" className="hover:text-accent transition-colors">Happikery - Ready to Eat Gravy</Link>
             </li>
             <li>
               <Link to="/services" className="hover:text-accent transition-colors">Outdoor Catering</Link>
+            </li>
+            <li>
+              <Link to="/services" className="hover:text-accent transition-colors">On Ground Market Activities</Link>
+            </li>
+            <li>
+              <Link to="/products" className="hover:text-accent transition-colors">New Annapurna Premium Tea</Link>
+            </li>
+            <li>
+              <Link to="/products" className="hover:text-accent transition-colors">Royal Baghan Premium Tea</Link>
             </li>
           </ul>
         </div>
