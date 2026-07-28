@@ -214,7 +214,7 @@ export const products: (Product & { cat: Exclude<Category, "all"> })[] = [
   },
   {
     cat: "cleaning",
-    name: "Bright 1 – Wash Room / Bathroom Cleaner",
+    name: "Wash Room / Bathroom Cleaner",
     imgs: [bright1WashRoomBathroomCleanerImg],
     desc: "Powerful bathroom cleaner for acid-resistant surfaces that removes stubborn stains, eliminates bacteria, and leaves a fresh fragrance.",
     features: [
@@ -227,7 +227,7 @@ export const products: (Product & { cat: Exclude<Category, "all"> })[] = [
   },
   {
     cat: "cleaning",
-    name: "Bright 2 BKC – Disinfectant Floor Cleaner",
+    name: "Disinfectant Floor Cleaner",
     imgs: [bright2BkcDisinfectantFloorCleanerImg],
     desc: "Broad-spectrum disinfectant floor cleaner designed for hospitals, ICUs, OT rooms, and other hygienic environments.",
     features: [
@@ -240,7 +240,7 @@ export const products: (Product & { cat: Exclude<Category, "all"> })[] = [
   },
   {
     cat: "cleaning",
-    name: "Bright 2 – Concentrated Hard Surface Floor Cleaner / Sanitizer",
+    name: "Concentrated Hard Surface Floor Cleaner / Sanitizer",
     imgs: [bright2ConcentratedHardSurfaceFloorCleanerSanitizerImg],
     desc: "Concentrated hard surface cleaner and sanitizer suitable for all floor types with excellent stain removal and antibacterial protection.",
     features: [
@@ -253,7 +253,7 @@ export const products: (Product & { cat: Exclude<Category, "all"> })[] = [
   },
   {
     cat: "cleaning",
-    name: "Bright 3 – Glass & Mirror Cleaner Concentrate",
+    name: "Glass & Mirror Cleaner Concentrate",
     imgs: [bright3GlassMirrorCleanerConcentrateImg],
     desc: "Streak-free glass and mirror cleaner that removes fingerprints, grease, and oil without leaving residue.",
     features: [
@@ -266,7 +266,7 @@ export const products: (Product & { cat: Exclude<Category, "all"> })[] = [
   },
   {
     cat: "cleaning",
-    name: "Bright 4 – Furniture Polish",
+    name: "Furniture Polish",
     imgs: [bright4FurniturePolishImg],
     desc: "Premium furniture polish that restores shine, protects wooden surfaces, and enhances furniture life.",
     features: [
@@ -279,7 +279,7 @@ export const products: (Product & { cat: Exclude<Category, "all"> })[] = [
   },
   {
     cat: "cleaning",
-    name: "Bright 5 – Air Freshener",
+    name: "Air Freshener",
     imgs: [bright5AirFreshenerImg],
     desc: "Long-lasting air freshener that neutralizes unpleasant odors while leaving a refreshing fragrance.",
     features: [
@@ -292,7 +292,7 @@ export const products: (Product & { cat: Exclude<Category, "all"> })[] = [
   },
   {
     cat: "cleaning",
-    name: "Bright 6 – Toilet / Urinal Bowl Cleaner",
+    name: "Toilet / Urinal Bowl Cleaner",
     imgs: [bright6ToiletUrinalBowlCleanerImg],
     desc: "Heavy-duty toilet and urinal cleaner formulated to remove stains, lime scale, and tough deposits.",
     features: [
@@ -305,7 +305,7 @@ export const products: (Product & { cat: Exclude<Category, "all"> })[] = [
   },
   {
     cat: "cleaning",
-    name: "Bright 7 – Stainless Steel Polish",
+    name: "Stainless Steel Polish",
     imgs: [bright7StainlessSteelPolishImg],
     desc: "Professional stainless steel polish that cleans, shines, and protects steel furniture, lifts, handles, and fittings.",
     features: [
@@ -318,7 +318,7 @@ export const products: (Product & { cat: Exclude<Category, "all"> })[] = [
   },
   {
     cat: "cleaning",
-    name: "Bright 8 – Dish Wash (All Purpose) Cleaner Concentrate",
+    name: "Dish Wash (All Purpose) Cleaner Concentrate",
     imgs: [bright8DishWashAllPurposeCleanerConcentrateImg],
     desc: "Concentrated dishwashing solution that effectively removes grease while remaining gentle on hands.",
     features: [
@@ -331,7 +331,7 @@ export const products: (Product & { cat: Exclude<Category, "all"> })[] = [
   },
   {
     cat: "cleaning",
-    name: "Bright 9 – All Purpose Cleaner Cum Sanitizer Concentrate",
+    name: "All Purpose Cleaner Cum Sanitizer Concentrate",
     imgs: [bright9AllPurposeCleanerCumSanitizerConcentrateImg],
     desc: "Multi-purpose cleaner and sanitizer suitable for kitchen utensils and food preparation surfaces.",
     features: [
@@ -344,7 +344,7 @@ export const products: (Product & { cat: Exclude<Category, "all"> })[] = [
   },
   {
     cat: "cleaning",
-    name: "Bright 10 – Grill & Oven Cleaner Concentrate",
+    name: "Grill & Oven Cleaner Concentrate",
     imgs: [bright10GrillOvenCleanerConcentrateImg],
     desc: "Industrial-strength cleaner for grills, ovens, chimneys, and heavy grease deposits.",
     features: [
@@ -357,7 +357,7 @@ export const products: (Product & { cat: Exclude<Category, "all"> })[] = [
   },
   {
     cat: "cleaning",
-    name: "Bright 11 – Clogged Drain Cleaner",
+    name: "Clogged Drain Cleaner",
     imgs: [bright11CloggedDrainCleanerImg],
     desc: "Fast-acting drain cleaner that dissolves grease, food residue, and hair while helping prevent blockages.",
     features: [
@@ -370,7 +370,7 @@ export const products: (Product & { cat: Exclude<Category, "all"> })[] = [
   },
   {
     cat: "cleaning",
-    name: "Bright 12 – Concentrated Descalent",
+    name: "Concentrated Descalent",
     imgs: [bright12ConcentratedDescalentImg],
     desc: "Powerful descaling solution for removing hard water scale from tiles, fixtures, PVC pipes, and equipment.",
     features: [

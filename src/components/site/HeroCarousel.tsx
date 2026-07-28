@@ -26,6 +26,8 @@ import heroImg from "@/assets/plantin-disposable.png";
 import plantinHeroBg from "@/assets/plantin_herobg.png";
 import amruteyHeroImg from "@/assets/amrutey_hero.png";
 import amruteyHeroBg from "@/assets/amrutey_herobg.png";
+import amrutey2HeroImg from "@/assets/amrutey2_hero.png";
+import amrutey2HeroBg from "@/assets/amrutey2_herobg.png";
 import happikeryHeroImg from "@/assets/happykery_hero.png";
 import happikeryHeroBg from "@/assets/happykery_herobg.png";
 import cleaningSegmentImg from "@/assets/BLS/chemicals/bright-9-all-purpose-cleaner-cum-sanitizer-concentrate.webp";
@@ -75,7 +77,7 @@ export const HERO_SLIDES: HeroSlideData[] = [
     brandName: "Plant In Disposable",
     badgeTagline: "PLANT IN DISPOSABLE · 100% ECO-FRIENDLY",
     BadgeIcon: Leaf,
-    heading: "Eco-Friendly Areca Plant In Disposable",
+    heading: "Plant In Disposable Eco-Friendly Areca Tableware",
     description:
       "Premium biodegradable areca leaf plates and bowls crafted for homes, restaurants, catering, and export markets.",
     primaryCta: { label: "Explore Products", to: "/products" },
@@ -88,9 +90,9 @@ export const HERO_SLIDES: HeroSlideData[] = [
       alt: "Plant In Disposable Eco-Friendly Areca Tableware",
     },
     theme: {
-      accentHex: "#10B981",
-      badgeStyle: "bg-emerald-500/15 text-emerald-300 border-emerald-500/30",
-      primaryBtnStyle: "from-emerald-500 to-teal-600 shadow-emerald-950/50",
+      accentHex: "#2E7D32",
+      badgeStyle: "bg-green-800/20 text-green-300 border-green-700/40",
+      primaryBtnStyle: "from-green-800 to-green-900 shadow-green-950/50 hover:from-green-700 hover:to-green-800",
       bgGradientClass:
         "from-slate-950 via-emerald-950/80 to-teal-950/90 text-white",
       bgTheme: "nature",
@@ -98,12 +100,12 @@ export const HERO_SLIDES: HeroSlideData[] = [
   },
 
   // ---------------------------------------------------------------------------
-  // SLIDE 2: AMRUTEY PREMIUM TEA
+  // SLIDE 2: ANNAPURNA PREMIUM TEA
   // ---------------------------------------------------------------------------
   {
-    id: "amrutey-tea",
-    brandName: "Amrutey Premium Tea",
-    badgeTagline: "AMRUTEY PREMIUM TEA · RICH AROMA",
+    id: "annapurna-tea",
+    brandName: "Annapurna Premium Tea",
+    badgeTagline: "ANNAPURNA PREMIUM TEA · RICH AROMA",
     BadgeIcon: Sparkles,
     heading: "Premium Tea with Rich Aroma",
     description:
@@ -115,7 +117,7 @@ export const HERO_SLIDES: HeroSlideData[] = [
     bgOverlayClassName: "bg-black/25",
     image: {
       src: amruteyHeroImg,
-      alt: "Amrutey Premium Tea Packaging",
+      alt: "Annapurna Premium Tea Packaging",
     },
     theme: {
       accentHex: "#F59E0B",
@@ -128,7 +130,37 @@ export const HERO_SLIDES: HeroSlideData[] = [
   },
 
   // ---------------------------------------------------------------------------
-  // SLIDE 3: HAPPIKERY READY-TO-EAT GRAVY
+  // SLIDE 3: AMRUTEY TEA
+  // ---------------------------------------------------------------------------
+  {
+    id: "amrutey-tea",
+    brandName: "Everyday Tea",
+    badgeTagline: "AMRUTEY TEA · EVERYDAY QUALITY",
+    BadgeIcon: Sparkles,
+    heading: "Everyday Tea for Every Home",
+    description:
+      "Affordable, refreshing tea crafted for everyday use, delivering consistent taste and quality in every cup.",
+    primaryCta: { label: "Explore Products", to: "/products" },
+    secondaryCta: { label: "Get a Quote", to: "/contact" },
+    stat: { label: "Amrutey Tea Collection", Icon: Award },
+    bgImage: amrutey2HeroBg,
+    bgOverlayClassName: "bg-black/25",
+    image: {
+      src: amrutey2HeroImg,
+      alt: "Amrutey Tea Packaging",
+    },
+    theme: {
+      accentHex: "#F59E0B",
+      badgeStyle: "bg-amber-500/15 text-amber-300 border-amber-500/30",
+      primaryBtnStyle: "from-amber-500 to-orange-600 shadow-amber-950/50",
+      bgGradientClass:
+        "from-amber-950/90 via-stone-950 to-slate-950 text-white",
+      bgTheme: "tea",
+    },
+  },
+
+  // ---------------------------------------------------------------------------
+  // SLIDE 4: HAPPIKERY READY-TO-EAT GRAVY
   // ---------------------------------------------------------------------------
   {
     id: "happikery-gravy",
@@ -158,7 +190,7 @@ export const HERO_SLIDES: HeroSlideData[] = [
   },
 
   // ---------------------------------------------------------------------------
-  // SLIDE 4: PURIORA CLEANING SOLUTIONS
+  // SLIDE 5: PURIORA CLEANING SOLUTIONS
   // ---------------------------------------------------------------------------
   {
     id: "puriora-cleaning",
@@ -178,9 +210,9 @@ export const HERO_SLIDES: HeroSlideData[] = [
       alt: "Puriora Professional Cleaning Chemicals",
     },
     theme: {
-      accentHex: "#06B6D4",
-      badgeStyle: "bg-cyan-500/15 text-cyan-300 border-cyan-500/30",
-      primaryBtnStyle: "from-cyan-500 to-blue-600 shadow-cyan-950/50",
+      accentHex: "#14B8A6",
+      badgeStyle: "bg-teal-700/20 text-teal-100 border-teal-600/40",
+      primaryBtnStyle: "from-teal-700 to-teal-600 shadow-teal-950/50 hover:from-teal-600 hover:to-teal-500",
       bgGradientClass:
         "from-slate-950 via-blue-950/80 to-cyan-950/90 text-white",
       bgTheme: "cleaning",
@@ -188,7 +220,7 @@ export const HERO_SLIDES: HeroSlideData[] = [
   },
 
   // ---------------------------------------------------------------------------
-  // SLIDE 5: CLEANING MACHINES
+  // SLIDE 6: CLEANING MACHINES
   // ---------------------------------------------------------------------------
   {
     id: "cleaning-machines",
@@ -208,9 +240,9 @@ export const HERO_SLIDES: HeroSlideData[] = [
       alt: "BLS Industrial Cleaning Machine Showcase",
     },
     theme: {
-      accentHex: "#3B82F6",
-      badgeStyle: "bg-blue-500/15 text-blue-300 border-blue-500/30",
-      primaryBtnStyle: "from-blue-500 to-indigo-600 shadow-blue-950/50",
+      accentHex: "#9CA3AF",
+      badgeStyle: "bg-gray-700/20 text-gray-300 border-gray-500/40",
+      primaryBtnStyle: "from-gray-700 to-gray-600 shadow-gray-950/50 hover:from-gray-600 hover:to-gray-500",
       bgGradientClass: "from-slate-950 via-slate-900 to-blue-950 text-white",
       bgTheme: "industrial",
     },
@@ -256,11 +288,11 @@ function SlideBackgroundDecoration({ theme }: { theme: HeroSlideData["theme"]["b
       return (
         <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden>
           {/* Subtle leaves pattern & glow */}
-          <div className="absolute -top-24 -right-24 h-96 w-96 rounded-full bg-emerald-500/15 blur-3xl animate-float" />
-          <div className="absolute bottom-0 -left-20 h-80 w-80 rounded-full bg-teal-500/10 blur-3xl animate-float" style={{ animationDelay: "2s" }} />
+          <div className="absolute -top-24 -right-24 h-96 w-96 rounded-full bg-green-800/20 blur-3xl animate-float" />
+          <div className="absolute bottom-0 -left-20 h-80 w-80 rounded-full bg-green-900/15 blur-3xl animate-float" style={{ animationDelay: "2s" }} />
           {/* Decorative Leaf SVG Watermark */}
           <svg
-            className="absolute right-0 bottom-0 opacity-[0.04] text-emerald-300 w-[600px] h-[600px] transform translate-x-1/4 translate-y-1/4 pointer-events-none"
+            className="absolute right-0 bottom-0 opacity-[0.04] text-green-700 w-[600px] h-[600px] transform translate-x-1/4 translate-y-1/4 pointer-events-none"
             viewBox="0 0 24 24"
             fill="currentColor"
           >
@@ -296,11 +328,11 @@ function SlideBackgroundDecoration({ theme }: { theme: HeroSlideData["theme"]["b
       return (
         <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden>
           {/* Water splash wave curves & bubble glow */}
-          <div className="absolute -top-10 left-1/3 h-96 w-96 rounded-full bg-cyan-400/15 blur-[100px]" />
-          <div className="absolute bottom-0 right-1/4 h-80 w-80 rounded-full bg-blue-500/15 blur-3xl animate-float" style={{ animationDelay: "1.5s" }} />
+          <div className="absolute -top-10 left-1/3 h-96 w-96 rounded-full bg-teal-300/15 blur-[100px]" />
+          <div className="absolute bottom-0 right-1/4 h-80 w-80 rounded-full bg-teal-600/15 blur-3xl animate-float" style={{ animationDelay: "1.5s" }} />
           {/* Water Wave Curves */}
           <svg
-            className="absolute bottom-0 left-0 w-full opacity-10 text-cyan-400 pointer-events-none"
+            className="absolute bottom-0 left-0 w-full opacity-10 text-teal-400 pointer-events-none"
             viewBox="0 0 1440 320"
             fill="currentColor"
           >
@@ -312,7 +344,7 @@ function SlideBackgroundDecoration({ theme }: { theme: HeroSlideData["theme"]["b
       return (
         <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden>
           {/* Hex mesh pattern and metallic glow */}
-          <div className="absolute -top-20 right-10 h-[450px] w-[450px] rounded-full bg-blue-600/15 blur-[110px]" />
+          <div className="absolute -top-20 right-10 h-[450px] w-[450px] rounded-full bg-gray-400/15 blur-[110px]" />
           <div className="absolute bottom-10 left-10 h-72 w-72 rounded-full bg-slate-500/10 blur-2xl animate-float" />
           {/* Hexagonal Mesh Overlay */}
           <div
@@ -418,7 +450,7 @@ export function HeroCarousel() {
 
   return (
     <section
-      className="relative w-full overflow-hidden bg-slate-950 min-h-[600px] lg:h-[620px] xl:h-[640px] flex flex-col justify-between select-none"
+      className="relative w-full overflow-hidden bg-slate-950 min-h-[1000px] sm:min-h-[600px] lg:h-[620px] xl:h-[640px] flex flex-col justify-between select-none"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       onTouchStart={handleTouchStart}
@@ -427,7 +459,7 @@ export function HeroCarousel() {
       aria-label="Product Showcase Hero Carousel"
     >
       {/* ANIMATED SLIDE CONTAINER */}
-      <div className="relative flex-1 w-full flex items-center">
+      <div className="relative flex-1 w-full flex items-start sm:items-center">
         <AnimatePresence initial={false} custom={direction} mode="popLayout">
           <motion.div
             key={currentSlide.id}
@@ -460,13 +492,13 @@ export function HeroCarousel() {
             <SlideBackgroundDecoration theme={currentSlide.theme.bgTheme} />
 
             {/* MAIN LAYOUT CONTENT */}
-            <div className="mx-auto max-w-[92rem] w-full px-5 md:px-8 xl:px-10 py-4 md:py-5 relative z-10">
-              <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+            <div className="mx-auto max-w-[92rem] w-full px-5 md:px-8 xl:px-10 py-3 md:py-5 relative z-10">
+              <div className="grid lg:grid-cols-12 gap-6 lg:gap-12 items-center">
 
                 {/* ------------------------------------------------------------- */}
-                {/* LEFT SIDE (45% on desktop: lg:col-span-5) */}
+                {/* LEFT SIDE (45% on desktop: lg:col-span-5) — shown after the image on mobile so the product shot is visible first */}
                 {/* ------------------------------------------------------------- */}
-                <div className="lg:col-span-5 flex flex-col items-start text-left">
+                <div className="order-2 lg:order-none lg:col-span-5 flex flex-col items-start text-left">
                   {/* Badge / Tagline */}
                   <motion.div
                     initial={{ opacity: 0, y: 15 }}
@@ -483,7 +515,7 @@ export function HeroCarousel() {
                     initial={{ opacity: 0, y: 25 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.25 }}
-                    className="mt-6 font-display text-4xl sm:text-5xl lg:text-[2.9rem] xl:text-[3.5rem] font-extrabold text-white leading-[1.06] tracking-tight [text-wrap:balance]"
+                    className="mt-4 sm:mt-6 font-display text-3xl sm:text-5xl lg:text-[2.9rem] xl:text-[3.5rem] font-extrabold text-white leading-[1.1] sm:leading-[1.06] tracking-tight [text-wrap:balance]"
                   >
                     {currentSlide.heading}
                   </motion.h1>
@@ -493,7 +525,7 @@ export function HeroCarousel() {
                     initial={{ opacity: 0, scaleX: 0 }}
                     animate={{ opacity: 1, scaleX: 1 }}
                     transition={{ delay: 0.35, duration: 0.5 }}
-                    className="mt-6 h-1 w-14 rounded-full origin-left"
+                    className="mt-4 sm:mt-6 h-1 w-14 rounded-full origin-left"
                     style={{ backgroundColor: currentSlide.theme.accentHex }}
                   />
 
@@ -502,7 +534,7 @@ export function HeroCarousel() {
                     initial={{ opacity: 0, y: 25 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.35 }}
-                    className="mt-5 max-w-xl text-base sm:text-lg text-slate-200/90 leading-relaxed font-normal"
+                    className="mt-3 sm:mt-5 max-w-xl text-base sm:text-lg text-slate-200/90 leading-relaxed font-normal"
                   >
                     {currentSlide.description}
                   </motion.p>
@@ -512,7 +544,7 @@ export function HeroCarousel() {
                     initial={{ opacity: 0, y: 25 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.45 }}
-                    className="mt-9 flex flex-wrap items-center gap-4"
+                    className="mt-6 sm:mt-9 flex flex-wrap items-center gap-4"
                   >
                     {/* Primary CTA: Explore Products */}
                     <Link
@@ -539,7 +571,7 @@ export function HeroCarousel() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.55 }}
-                    className="mt-9 flex flex-wrap items-center gap-3 text-xs text-slate-300/80"
+                    className="mt-6 sm:mt-9 flex flex-wrap items-center gap-3 text-xs text-slate-300/80"
                   >
                     <div className="flex items-center gap-1.5 rounded-full bg-white/5 border border-white/10 px-3 py-1.5">
                       <ShieldCheck className="h-3.5 w-3.5 text-emerald-400" />
@@ -553,10 +585,10 @@ export function HeroCarousel() {
                 </div>
 
                 {/* ------------------------------------------------------------- */}
-                {/* RIGHT SIDE (55% on desktop: lg:col-span-7) */}
+                {/* RIGHT SIDE (55% on desktop: lg:col-span-7) — shown first on mobile so the product shot is immediately visible */}
                 {/* ------------------------------------------------------------- */}
-                <div className="lg:col-span-7 w-full flex justify-center lg:justify-end">
-                  <div className="w-full max-w-2xl relative pb-6 pr-4 pt-4 sm:pb-8 sm:pr-6">
+                <div className="order-1 lg:order-none lg:col-span-7 w-full flex justify-center lg:justify-end">
+                  <div className="w-full max-w-2xl relative pb-5 pr-3 pt-3 sm:pb-8 sm:pr-6">
                     {/* Offset rotated backdrop panel for layered depth */}
                     <div
                       aria-hidden
@@ -584,17 +616,17 @@ export function HeroCarousel() {
                         {/* Rotating dashed accent ring */}
                         <div
                           aria-hidden
-                          className="absolute -top-6 -right-6 h-16 w-16 rounded-full border-2 border-dashed opacity-40 hidden sm:block animate-[spin_18s_linear_infinite]"
+                          className="absolute -top-6 -left-6 h-16 w-16 rounded-full border-2 border-dashed opacity-40 hidden sm:block animate-[spin_18s_linear_infinite]"
                           style={{ borderColor: currentSlide.theme.accentHex }}
                         />
 
                         {/* Main Image Showcase Frame */}
                         <div className="relative rounded-[1.75rem] sm:rounded-[2rem] overflow-hidden bg-slate-900/60 border border-white/15 backdrop-blur-md shadow-[0_35px_90px_-25px_rgba(0,0,0,0.75)] group">
-                          <div className="relative aspect-[16/10] sm:aspect-[16/9.5] w-full overflow-hidden bg-slate-900 flex items-center justify-center">
+                          <div className="relative w-full sm:aspect-[16/9.5] overflow-hidden bg-slate-900 flex items-center justify-center">
                             <img
                               src={currentSlide.image.src}
                               alt={currentSlide.image.alt}
-                              className={`h-full w-full ${currentSlide.image.fit === "contain" ? "object-contain" : "object-cover"} transform transition-transform duration-700 group-hover:scale-105`}
+                              className={`w-full h-auto sm:h-full ${currentSlide.image.fit === "contain" ? "object-contain" : "object-cover"} transform transition-transform duration-700 group-hover:scale-105`}
                               loading="eager"
                             />
 
@@ -611,7 +643,7 @@ export function HeroCarousel() {
                             />
 
                             {/* Slide Brand Badge Overlay */}
-                            <div className="absolute top-4 left-4 sm:top-5 sm:left-5 backdrop-blur-md bg-slate-950/70 border border-white/20 px-3 py-1.5 rounded-full flex items-center gap-2 text-xs font-semibold text-white shadow-lg">
+                            <div className="absolute top-4 right-4 sm:top-5 sm:right-5 backdrop-blur-md bg-slate-950/70 border border-white/20 px-3 py-1.5 rounded-full flex items-center gap-2 text-xs font-semibold text-white shadow-lg">
                               <span
                                 className="h-2 w-2 rounded-full animate-pulse"
                                 style={{ backgroundColor: currentSlide.theme.accentHex }}
@@ -626,7 +658,7 @@ export function HeroCarousel() {
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: 0.8, duration: 0.5 }}
-                          className="absolute -bottom-6 -left-4 sm:-bottom-7 sm:-left-6"
+                          className="absolute -bottom-6 -left-3 sm:-bottom-7 sm:-left-6"
                         >
                           <div className="flex items-center gap-3 rounded-2xl bg-white/95 backdrop-blur px-4 py-3 shadow-2xl border border-white/60">
                             <div
@@ -714,7 +746,7 @@ export function HeroCarousel() {
               onClick={() => setIsPaused(!isPaused)}
               aria-label={isPaused ? "Resume auto-slide" : "Pause auto-slide"}
               title={isPaused ? "Resume auto-slide" : "Pause auto-slide"}
-              className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors border border-white/15"
+              className="p-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors border border-white/15"
             >
               {isPaused ? <Play className="h-3.5 w-3.5" /> : <Pause className="h-3.5 w-3.5" />}
             </button>
@@ -723,7 +755,7 @@ export function HeroCarousel() {
             <button
               onClick={goToPrev}
               aria-label="Previous slide"
-              className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors border border-white/15"
+              className="p-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors border border-white/15"
             >
               <ChevronLeft className="h-4 w-4" />
             </button>
@@ -732,7 +764,7 @@ export function HeroCarousel() {
             <button
               onClick={goToNext}
               aria-label="Next slide"
-              className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors border border-white/15"
+              className="p-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors border border-white/15"
             >
               <ChevronRight className="h-4 w-4" />
             </button>

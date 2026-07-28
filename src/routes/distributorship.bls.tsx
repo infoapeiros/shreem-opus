@@ -42,31 +42,23 @@ function BlsProductsPage() {
         <section className="relative overflow-hidden" style={{ backgroundImage: heroGradient }}>
           <div aria-hidden className="absolute -top-24 -right-24 h-80 w-80 rounded-full bg-white/10 blur-3xl" />
           <div aria-hidden className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-white/10 blur-3xl" />
-          <div className="container-px mx-auto max-w-7xl py-20 md:py-28 relative">
-            <span className="inline-block text-xs font-semibold tracking-[0.25em] uppercase text-white/80 mb-4">
+          <div className="container-px mx-auto max-w-7xl py-12 md:py-16 relative">
+            <span className="inline-block text-xs font-semibold tracking-[0.25em] uppercase text-white/80 mb-3">
               Authorized Distributor
             </span>
             <h1 className="font-display text-4xl md:text-6xl font-bold text-white max-w-3xl">BLS Cleaning Machines</h1>
-            <p className="mt-5 max-w-2xl text-lg text-white/85">Commercial-grade cleaning machines for hospitality, industrial, and institutional use.</p>
+            <p className="mt-4 max-w-2xl text-lg text-white/85">Commercial-grade cleaning machines for hospitality, industrial, and institutional use.</p>
           </div>
         </section>
 
         <section className="py-16 bg-background">
           <div className="container-px mx-auto max-w-7xl">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-10">
-              <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                <Link to="/distributorship" className="hover:text-primary transition-colors">
-                  Distribution
-                </Link>
-                <span>/</span>
-                <span className="text-secondary">BLS</span>
-              </div>
-              <Link
-                to="/distributorship"
-                className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-muted-foreground hover:text-primary transition-colors"
-              >
-                <ArrowLeft className="h-3.5 w-3.5" /> Back to Distribution
+            <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-10">
+              <Link to="/distributorship" className="hover:text-primary transition-colors">
+                Distribution
               </Link>
+              <span>/</span>
+              <span className="text-secondary">BLS</span>
             </div>
 
             <h3 className="font-display text-2xl font-bold text-primary mb-8 border-b border-border pb-4">
@@ -74,8 +66,17 @@ function BlsProductsPage() {
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {machines.map((p, i) => (
-                <ProductTile key={p.id} name={p.name} image={p.image} description={p.description} price={p.price} i={i} />
+                <ProductTile key={p.id} name={p.name} image={p.image} description={p.description} i={i} />
               ))}
+            </div>
+
+            <div className="mt-10">
+              <Link
+                to="/distributorship"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-muted-foreground hover:text-primary transition-colors"
+              >
+                <ArrowLeft className="h-3.5 w-3.5" /> Back to Distribution
+              </Link>
             </div>
           </div>
         </section>

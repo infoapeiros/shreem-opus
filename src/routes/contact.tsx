@@ -22,7 +22,7 @@ const info = [
   { Icon: MapPin, title: "Office Address", lines: ["Shed No. 67, Pushkar Industrial Hub", "Opp. Machchunagar", "Ahmedabad - 382445, Gujarat, India"] },
   { Icon: Phone, title: "Phone", lines: ["+91 96620 78551", "+91 87803 08763"], href: "tel:+919662078551" },
   { Icon: Mail, title: "Email", lines: ["shreem0222@gmail.com"], href: "mailto:shreem0222@gmail.com" },
-  { Icon: Clock, title: "Business Hours", lines: ["Monday – Saturday", "9:30 AM – 7:00 PM IST"] },
+  { Icon: Clock, title: "Business Hours", lines: ["Monday – Saturday", "9:30 AM – 6:30 PM IST"] },
 ];
 
 function ContactPage() {

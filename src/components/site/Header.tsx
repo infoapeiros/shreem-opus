@@ -2,15 +2,15 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import logo from "@/assets/website logo/Plantin.jpeg";
+import logo from "@/assets/website logo/shreem_logo_cropped.png";
 
 const links = [
   { to: "/", label: "Home" },
-  { to: "/about", label: "About" },
   { to: "/products", label: "Own Brand Products" },
   { to: "/distributorship", label: "Distribution" },
   { to: "/services", label: "Services" },
   { to: "/export-inquiry", label: "Export" },
+  { to: "/about", label: "About Us" },
   { to: "/contact", label: "Contact" },
 ] as const;
 
@@ -36,7 +36,7 @@ export function Header() {
           <img
             src={logo}
             alt="Shreem Eco Ventures LLP"
-            className="h-9 sm:h-10 lg:h-9 xl:h-10 w-auto object-contain rounded-lg transition-transform group-hover:scale-105"
+            className="h-10 sm:h-11 lg:h-10 xl:h-11 w-auto object-contain rounded-lg transition-transform group-hover:scale-105"
           />
         </Link>
 

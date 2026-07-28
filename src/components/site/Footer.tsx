@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Mail, Phone, MapPin, Globe, Send, Share2, AtSign } from "lucide-react";
-import logo from "@/assets/website logo/Plantin.jpeg";
+import logo from "@/assets/website logo/shreem_logo_cropped.png";
 
 // Social links not finalized yet — hidden for now, restore when ready.
 // const socials = [Globe, Share2, AtSign, Send];
@@ -46,7 +46,7 @@ export function Footer() {
         </div>
 
         <div>
-          <h4 className="font-display text-base font-semibold mb-4 text-white">Our Products</h4>
+          <h4 className="font-display text-base font-semibold mb-4 text-white">Our Products & Services</h4>
           <ul className="space-y-2.5 text-sm opacity-80">
             <li>
               <Link to="/products/$brandId" params={{ brandId: "plantin" }} className="hover:text-accent transition-colors">Areca - Plant In Disposable</Link>

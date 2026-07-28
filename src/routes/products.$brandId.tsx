@@ -7,6 +7,8 @@ import { SiteLayout, PageHero } from "@/components/site/SiteLayout";
 import { products, ProductCard } from "./products.index";
 import type { Product } from "./products.index";
 import plantinCatalogue from "@/assets/catlog/PlantIn_Product Brochure_Online 1.pdf";
+import plantinLogoImg from "@/assets/website logo/plantin_logo.png";
+import puriaraLogoImg from "@/assets/website logo/puriora_logo.png";
 
 export const Route = createFileRoute("/products/$brandId")({
   head: ({ params }) => {
@@ -45,6 +47,8 @@ type BrandConfig = {
   filterCat: string;
   /** URL of the brand's downloadable product catalogue PDF, if available. */
   catalogueUrl?: string;
+  /** Brand logo (transparent PNG) shown in the hero, if available. */
+  logo?: string;
 };
 
 const brandConfigs: Record<string, BrandConfig> = {
@@ -68,6 +72,7 @@ const brandConfigs: Record<string, BrandConfig> = {
     ctaButtonText: "Send Export Inquiry",
     filterCat: "areca",
     catalogueUrl: plantinCatalogue,
+    logo: plantinLogoImg,
   },
   amrutey: {
     id: "amrutey",
@@ -108,6 +113,7 @@ const brandConfigs: Record<string, BrandConfig> = {
     ctaTitle: "Partner with Puriora",
     ctaSubtitle: "Discuss wholesale supply, custom packaging options, or bulk ordering for commercial spaces.",
     ctaButtonText: "Inquire About Puriora",
+    logo: puriaraLogoImg,
     filterCat: "cleaning",
   },
 };
@@ -156,13 +162,20 @@ function BrandPage() {
         <section className="relative overflow-hidden" style={{ backgroundImage: config.heroGradient }}>
           <div aria-hidden className="absolute top-10 right-10 h-72 w-72 rounded-full bg-white/10 blur-3xl animate-float" />
           <div aria-hidden className="absolute bottom-10 left-10 h-80 w-80 rounded-full bg-white/10 blur-3xl animate-float" style={{ animationDelay: "1.5s" }} />
-          <div className="container-px mx-auto max-w-7xl py-20 md:py-28 relative z-10">
-            <span className="inline-block text-xs font-semibold tracking-[0.25em] uppercase text-white/80 mb-4">
+          <div className="container-px mx-auto max-w-7xl py-12 md:py-16 relative z-10">
+            {config.logo && (
+              <img
+                src={config.logo}
+                alt={`${config.name} logo`}
+                className="h-32 sm:h-40 md:h-48 w-auto object-contain mb-4"
+              />
+            )}
+            <span className="inline-block text-xs font-semibold tracking-[0.25em] uppercase text-white/80 mb-3">
               {config.eyebrow}
             </span>
             <h1 className="font-display text-4xl md:text-6xl font-bold text-white max-w-3xl">{config.title}</h1>
-            <p className="mt-5 max-w-2xl text-lg text-white/85">{config.subtitle}</p>
-            <div className="mt-7 inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-md px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white border border-white/20">
+            <p className="mt-4 max-w-2xl text-lg text-white/85">{config.subtitle}</p>
+            <div className="mt-5 inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-md px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white border border-white/20">
               <config.TaglineIcon className="h-3.5 w-3.5" /> {config.tagline}
             </div>
           </div>
@@ -171,21 +184,13 @@ function BrandPage() {
         {/* CONTENT & PRODUCT GRID */}
         <section className="py-16 bg-background">
           <div className="container-px mx-auto max-w-7xl">
-            {/* BREADCRUMBS & BACK LINK */}
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
-              <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                <Link to="/products" className="hover:text-primary transition-colors">
-                  Own Brand Products
-                </Link>
-                <span>/</span>
-                <span className="text-secondary">{config.name}</span>
-              </div>
-              <Link
-                to="/products"
-                className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-muted-foreground hover:text-primary transition-colors"
-              >
-                <ArrowLeft className="h-3.5 w-3.5" /> Back to Own Brand Products
+            {/* BREADCRUMBS */}
+            <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-8">
+              <Link to="/products" className="hover:text-primary transition-colors">
+                Own Brand Products
               </Link>
+              <span>/</span>
+              <span className="text-secondary">{config.name}</span>
             </div>
 
             {/* BRAND INTRODUCTION */}
@@ -223,6 +228,15 @@ function BrandPage() {
               {brandProducts.map((p, i) => (
                 <ProductCard key={p.name + i} p={p} i={i} tick={tick} />
               ))}
+            </div>
+
+            <div className="mt-10">
+              <Link
+                to="/products"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-muted-foreground hover:text-primary transition-colors"
+              >
+                <ArrowLeft className="h-3.5 w-3.5" /> Back to Own Brand Products
+              </Link>
             </div>
           </div>
         </section>

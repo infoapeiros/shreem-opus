@@ -2,8 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  ArrowRight, Leaf, Sparkles, ShieldCheck, Truck, HeartHandshake,
-  Award, Recycle, Globe2, Star, Quote,
+  ArrowRight, Sparkles, ShieldCheck, Truck, HeartHandshake,
+  Award, Recycle, Star, Quote, CheckCircle2,
 } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { Counter } from "@/components/site/Counter";
@@ -12,8 +12,6 @@ import arecaSegmentImg from "@/assets/plantin-disposable2.png";
 import amruteySegmentImg from "@/assets/Amrutey_Front_Product.png";
 import cleaningSegmentImg from "@/assets/BLS/chemicals/bright-9-all-purpose-cleaner-cum-sanitizer-concentrate.webp";
 import happikeryImg from "@/assets/happykery/Makhani base gravy.jpg";
-import amruteyShowcaseImg from "@/assets/amrutey.png";
-import plantinBgShowcaseImg from "@/assets/plantin_bg.jpeg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -59,37 +57,6 @@ const testimonials = [
   { name: "Paresh Kumar", role: "Amrutey Premium Tea", text: "Amrutey Tea offers a rich flavour and consistent quality. It's a product I confidently recommend to my customers." },
   { name: "Nirwana Group", role: "Export & Multi-Product Partner", text: "Professional service, reliable documentation, and quality products have made Shreem Eco Ventures a trusted long-term supplier." },
 ];
-
-const aboutShowcaseImages = [
-  { src: amruteyShowcaseImg, alt: "Amrutey Premium Tea" },
-  { src: plantinBgShowcaseImg, alt: "Plant In Areca Tableware" },
-];
-
-function AboutImageShowcase({ className = "" }: { className?: string }) {
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => setIndex((i) => (i + 1) % aboutShowcaseImages.length), 4500);
-    return () => clearInterval(timer);
-  }, []);
-
-  return (
-    <div className={`relative overflow-hidden ${className}`}>
-      <AnimatePresence>
-        <motion.img
-          key={index}
-          src={aboutShowcaseImages[index].src}
-          alt={aboutShowcaseImages[index].alt}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 1 }}
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-      </AnimatePresence>
-    </div>
-  );
-}
 
 function TestimonialsCarousel({ items }: { items: typeof testimonials }) {
   const pageCount = Math.ceil(items.length / 3);
@@ -148,36 +115,38 @@ function HomePage() {
 
       {/* ABOUT PREVIEW */}
       <section className="py-24 bg-background">
-        <div className="container-px mx-auto max-w-7xl grid lg:grid-cols-2 gap-14 items-center">
+        <div className="container-px mx-auto max-w-4xl text-center">
           <motion.div
-            initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
+            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="relative"
-          >
-            <AboutImageShowcase className="aspect-[4/3] w-full rounded-2xl shadow-elegant" />
-            <div className="absolute -bottom-6 -right-6 rounded-2xl gradient-primary p-6 text-white shadow-elegant hidden sm:block">
-              <div className="font-display text-3xl font-bold">15+</div>
-              <div className="text-xs uppercase tracking-widest opacity-80">Years of Trust</div>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.1 }}
           >
             <span className="text-xs font-semibold tracking-[0.25em] uppercase text-secondary">About Shreem</span>
-            <h2 className="mt-3 font-display text-3xl md:text-5xl font-bold text-primary">
+            <h2 className="mt-3 font-display text-3xl md:text-5xl font-bold text-primary text-balance">
               Built on quality. Trusted by businesses and customers everywhere.
             </h2>
-            <p className="mt-5 text-base md:text-lg text-muted-foreground leading-relaxed">
+            <p className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
               From our Ahmedabad facility, Shreem Eco Ventures LLP manufactures and supplies a curated portfolio of eco-friendly tableware, premium tea, gravies and cleaning solutions — crafted for businesses and individual customers who refuse to compromise.
             </p>
-            <ul className="mt-6 grid sm:grid-cols-2 gap-3 text-sm">
-              {["ISO-grade quality control", "End-to-end private labeling", "International packaging norms", "Pan-India distribution network"].map((i) => (
-                <li key={i} className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-secondary" /> {i}</li>
-              ))}
-            </ul>
-            <Link to="/about" className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-primary border-b-2 border-accent pb-1 hover:gap-3 transition-all">
+          </motion.div>
+
+          <motion.ul
+            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="mt-12 grid sm:grid-cols-2 gap-x-10 gap-y-5 text-left border-t border-border pt-10"
+          >
+            {["ISO-grade quality control", "End-to-end private labeling", "International packaging norms", "Pan-India distribution network"].map((i) => (
+              <li key={i} className="flex items-center gap-3 text-sm md:text-base text-foreground/85">
+                <CheckCircle2 className="h-5 w-5 text-secondary shrink-0" /> {i}
+              </li>
+            ))}
+          </motion.ul>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="mt-10"
+          >
+            <Link to="/about" className="inline-flex items-center gap-2 text-sm font-semibold text-primary border-b-2 border-accent pb-1 hover:gap-3 transition-all">
               Learn more about us <ArrowRight className="h-4 w-4" />
             </Link>
           </motion.div>
