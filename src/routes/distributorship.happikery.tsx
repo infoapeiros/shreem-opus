@@ -61,7 +61,7 @@ function HappikeryProductsPage() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {happikeryProducts.map((p, i) => (
-                <ProductTile key={p.id} name={p.name} image={p.image} price={p.price} i={i} />
+                <ProductTile key={p.id} name={p.name} image={p.image} price={p.price} horecaPack={p.horecaPack} i={i} />
               ))}
             </div>
 

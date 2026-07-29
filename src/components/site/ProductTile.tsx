@@ -5,6 +5,7 @@ export function ProductTile({
   image,
   description,
   price,
+  horecaPack,
   i,
 }: {
   name: string;
@@ -13,6 +14,8 @@ export function ProductTile({
   description?: string | null;
   /** Omit entirely to hide the price row (e.g. pricing not published yet). */
   price?: number | null;
+  /** Optional bulk/Horeca pack variant; when set, replaces the single price row with a dual pack-size/MRP row. */
+  horecaPack?: { size: string; price: number };
   i: number;
 }) {
   return (
@@ -43,10 +46,25 @@ export function ProductTile({
         {description && (
           <p className="mt-1.5 text-xs text-muted-foreground leading-relaxed line-clamp-3">{description}</p>
         )}
-        {price !== undefined && (
-          <p className="mt-1.5 text-base font-bold text-secondary">
-            {price != null ? `MRP ₹${price.toLocaleString("en-IN")}` : "Coming Soon"}
-          </p>
+        {horecaPack && price != null ? (
+          <div className="mt-2 space-y-1 text-xs">
+            <div className="flex flex-wrap items-baseline gap-1.5">
+              <span className="font-semibold uppercase tracking-wide text-muted-foreground">Pack Sizes:</span>
+              <span className="text-foreground/80">100 g / {horecaPack.size}</span>
+            </div>
+            <div className="flex flex-wrap items-baseline gap-1.5">
+              <span className="font-semibold uppercase tracking-wide text-muted-foreground">MRP:</span>
+              <span className="text-sm font-bold text-secondary">
+                ₹{price.toLocaleString("en-IN")} / ₹{horecaPack.price.toLocaleString("en-IN")}
+              </span>
+            </div>
+          </div>
+        ) : (
+          price !== undefined && (
+            <p className="mt-1.5 text-base font-bold text-secondary">
+              {price != null ? `MRP ₹${price.toLocaleString("en-IN")}` : "Coming Soon"}
+            </p>
+          )
         )}
       </div>
     </motion.div>
