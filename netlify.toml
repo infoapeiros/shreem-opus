@@ -1,0 +1,13 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Routing (SPA "refresh returns 404") is handled automatically: this app is
+# server-rendered via a Netlify Function (Nitro's "netlify" preset, configured
+# in vite.config.ts), so every route — including a hard refresh on any deep
+# link — is rendered by that function rather than served as a static file.
+# Nitro writes the required Netlify redirect rules into the publish directory
+# at build time; no manual `_redirects` file or [[redirects]] block is needed.

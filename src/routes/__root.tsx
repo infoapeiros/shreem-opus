@@ -7,11 +7,10 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import type { ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import faviconUrl from "../assets/website logo/shreem_logo_icon.png";
-import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
   return (
@@ -38,9 +37,6 @@ function NotFoundComponent() {
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
-  useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
-  }, [error]);
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -80,16 +76,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Shreem Eco Ventures LLP" },
       { name: "description", content: "A premium corporate website for Shreem Eco Ventures LLP, showcasing products and connecting with customers and business partners." },
-      { name: "author", content: "Lovable" },
+      { name: "author", content: "Shreem Eco Ventures LLP" },
       { property: "og:title", content: "Shreem Eco Ventures LLP" },
       { property: "og:description", content: "A premium corporate website for Shreem Eco Ventures LLP, showcasing products and connecting with customers and business partners." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
       { name: "twitter:title", content: "Shreem Eco Ventures LLP" },
       { name: "twitter:description", content: "A premium corporate website for Shreem Eco Ventures LLP, showcasing products and connecting with customers and business partners." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/8dd2a41e-357e-4cf7-8b03-be67a833351c/id-preview-f6ebe6cd--20470bac-146d-4565-99e4-ff52308557b0.lovable.app-1782195521912.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/8dd2a41e-357e-4cf7-8b03-be67a833351c/id-preview-f6ebe6cd--20470bac-146d-4565-99e4-ff52308557b0.lovable.app-1782195521912.png" },
     ],
     links: [
       { rel: "icon", type: "image/png", href: faviconUrl },
