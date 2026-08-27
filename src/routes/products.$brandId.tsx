@@ -10,7 +10,6 @@ import plantinCatalogue from "@/assets/catlog/PlantIn_Product Brochure_Online 1.
 import plantinLogoImg from "@/assets/website logo/plantin_logo.png";
 import puriaraLogoImg from "@/assets/website logo/puriora_logo.png";
 import { InstagramIcon, FacebookIcon } from "@/components/site/SocialIcons";
-import { AMRUTEY_SOCIALS } from "@/data/social-links";
 
 export const Route = createFileRoute("/products/$brandId")({
   head: ({ params }) => {
@@ -83,11 +82,11 @@ const brandConfigs: Record<string, BrandConfig> = {
   },
   amrutey: {
     id: "amrutey",
-    name: "Amrutey Premium Tea",
-    eyebrow: "Own Brand",
-    title: "Amrutey Premium Tea",
-    subtitle: "Hand-picked premium tea blends curated for hotels, lounges, retailers and households.",
-    intro: "Amrutey represents our commitment to the finest tea traditions. Our signature hand-picked premium tea blends are curated to meet the strict quality standards of hospitality lounges, fine dining establishments, retailers, and discerning individual customers.",
+    name: "Our Tea Brands",
+    eyebrow: "Own Brands",
+    title: "Our Tea Brands",
+    subtitle: "Premium tea brands offering carefully selected blends and quality tea products for retailers, hospitality businesses and discerning customers.",
+    intro: "Shreem Eco Ventures LLP offers a portfolio of premium tea brands, each crafted for a distinct market and taste profile. Amrutey Premium Tea delivers hand-picked blends curated for hotels, lounges, and discerning households. Royal Baghan Premium Tea offers a rich aroma and full-bodied flavour for everyday enjoyment. New Annapurna Premium Tea brings consistent taste and refreshing quality for daily use. Together, these brands reflect our commitment to sourcing, blending, and packaging tea to the highest quality standards for retailers, hospitality businesses, and export markets.",
     accentStyles: {
       "--secondary": "oklch(0.38 0.12 45)", // warm tea brown
       "--accent": "oklch(0.82 0.18 78)", // gold
@@ -95,11 +94,10 @@ const brandConfigs: Record<string, BrandConfig> = {
       "--gradient-accent": "linear-gradient(135deg, oklch(0.82 0.18 78), oklch(0.75 0.15 65))",
     } as React.CSSProperties,
     heroGradient: "linear-gradient(135deg, oklch(0.24 0.05 40), oklch(0.42 0.12 58))",
-    socials: AMRUTEY_SOCIALS,
-    tagline: "Premium Tea · Rich Aroma · Hand-Picked Quality",
+    tagline: "Premium Tea · Rich Aroma · Quality Blends",
     TaglineIcon: Coffee,
-    ctaTitle: "Partner with Amrutey Tea",
-    ctaSubtitle: "Discuss wholesale hotel supplies, custom blends, or retail packaging options.",
+    ctaTitle: "Partner with Our Tea Brands",
+    ctaSubtitle: "Discuss wholesale hotel supplies, custom blends, or retail packaging options across our tea portfolio.",
     ctaButtonText: "Request Tea Catalog",
     filterCat: "tea",
   },
