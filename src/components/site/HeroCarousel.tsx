@@ -30,7 +30,7 @@ import amrutey2HeroImg from "@/assets/amrutey2_hero.png";
 import amrutey2HeroBg from "@/assets/amrutey2_herobg.png";
 import happikeryHeroImg from "@/assets/happykery_hero.png";
 import happikeryHeroBg from "@/assets/happykery_herobg.png";
-import cleaningSegmentImg from "@/assets/BLS/chemicals/bright-9-all-purpose-cleaner-cum-sanitizer-concentrate.webp";
+import purioraConcentrateDescalentImg from "@/assets/Puriora/puriora_concentrate_descalent.jpeg";
 import purioraHeroBg from "@/assets/puriora_herobg.png";
 import machineImg from "@/assets/BLS/machines/bls-1200e-auto-scrubber.webp";
 import blsHeroBg from "@/assets/bls_herobg.png";
@@ -54,6 +54,8 @@ export interface HeroSlideData {
     alt: string;
     /** Defaults to "cover"; use "contain" to show the whole image unclipped. */
     fit?: "cover" | "contain";
+    /** Defaults to "center"; use to keep a specific part of a "cover" image (e.g. a logo) from being cropped. */
+    position?: "center" | "top" | "bottom";
   };
   theme: {
     accentHex: string;
@@ -206,8 +208,9 @@ export const HERO_SLIDES: HeroSlideData[] = [
     bgImage: purioraHeroBg,
     bgOverlayClassName: "bg-black/35",
     image: {
-      src: cleaningSegmentImg,
+      src: purioraConcentrateDescalentImg,
       alt: "Puriora Professional Cleaning Chemicals",
+      position: "top",
     },
     theme: {
       accentHex: "#14B8A6",
@@ -626,7 +629,13 @@ export function HeroCarousel() {
                             <img
                               src={currentSlide.image.src}
                               alt={currentSlide.image.alt}
-                              className={`w-full h-auto sm:h-full ${currentSlide.image.fit === "contain" ? "object-contain" : "object-cover"} transform transition-transform duration-700 group-hover:scale-105`}
+                              className={`w-full h-auto sm:h-full ${currentSlide.image.fit === "contain" ? "object-contain" : "object-cover"} ${
+                                currentSlide.image.position === "top"
+                                  ? "object-top"
+                                  : currentSlide.image.position === "bottom"
+                                    ? "object-bottom"
+                                    : "object-center"
+                              } transform transition-transform duration-700 group-hover:scale-105`}
                               loading="eager"
                             />
 
