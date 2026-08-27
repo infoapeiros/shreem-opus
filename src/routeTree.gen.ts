@@ -9,48 +9,23 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as ServicesRouteImport } from './routes/services'
-import { Route as ProductsRouteImport } from './routes/products'
-import { Route as ExportInquiryRouteImport } from './routes/export-inquiry'
-import { Route as DistributorshipRouteImport } from './routes/distributorship'
-import { Route as ContactRouteImport } from './routes/contact'
-import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as ProductsIndexRouteImport } from './routes/products.index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as DistributorshipRouteImport } from './routes/distributorship'
+import { Route as ExportInquiryRouteImport } from './routes/export-inquiry'
+import { Route as ProductsRouteImport } from './routes/products'
+import { Route as ServicesRouteImport } from './routes/services'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as DistributorshipIndexRouteImport } from './routes/distributorship.index'
-import { Route as ProductsBrandIdRouteImport } from './routes/products.$brandId'
-import { Route as DistributorshipHappikeryRouteImport } from './routes/distributorship.happikery'
 import { Route as DistributorshipBlsRouteImport } from './routes/distributorship.bls'
+import { Route as DistributorshipHappikeryRouteImport } from './routes/distributorship.happikery'
+import { Route as ProductsIndexRouteImport } from './routes/products.index'
+import { Route as ProductsBrandIdRouteImport } from './routes/products.$brandId'
 
-const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
-  id: '/sitemap.xml',
-  path: '/sitemap.xml',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ServicesRoute = ServicesRouteImport.update({
-  id: '/services',
-  path: '/services',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProductsRoute = ProductsRouteImport.update({
-  id: '/products',
-  path: '/products',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ExportInquiryRoute = ExportInquiryRouteImport.update({
-  id: '/export-inquiry',
-  path: '/export-inquiry',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DistributorshipRoute = DistributorshipRouteImport.update({
-  id: '/distributorship',
-  path: '/distributorship',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -58,25 +33,45 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ProductsIndexRoute = ProductsIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => ProductsRoute,
+const DistributorshipRoute = DistributorshipRouteImport.update({
+  id: '/distributorship',
+  path: '/distributorship',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExportInquiryRoute = ExportInquiryRouteImport.update({
+  id: '/export-inquiry',
+  path: '/export-inquiry',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsRoute = ProductsRouteImport.update({
+  id: '/products',
+  path: '/products',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const DistributorshipIndexRoute = DistributorshipIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => DistributorshipRoute,
 } as any)
-const ProductsBrandIdRoute = ProductsBrandIdRouteImport.update({
-  id: '/$brandId',
-  path: '/$brandId',
-  getParentRoute: () => ProductsRoute,
+const DistributorshipBlsRoute = DistributorshipBlsRouteImport.update({
+  id: '/bls',
+  path: '/bls',
+  getParentRoute: () => DistributorshipRoute,
 } as any)
 const DistributorshipHappikeryRoute =
   DistributorshipHappikeryRouteImport.update({
@@ -84,10 +79,15 @@ const DistributorshipHappikeryRoute =
     path: '/happikery',
     getParentRoute: () => DistributorshipRoute,
   } as any)
-const DistributorshipBlsRoute = DistributorshipBlsRouteImport.update({
-  id: '/bls',
-  path: '/bls',
-  getParentRoute: () => DistributorshipRoute,
+const ProductsIndexRoute = ProductsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ProductsRoute,
+} as any)
+const ProductsBrandIdRoute = ProductsBrandIdRouteImport.update({
+  id: '/$brandId',
+  path: '/$brandId',
+  getParentRoute: () => ProductsRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -193,46 +193,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/sitemap.xml': {
-      id: '/sitemap.xml'
-      path: '/sitemap.xml'
-      fullPath: '/sitemap.xml'
-      preLoaderRoute: typeof SitemapDotxmlRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/services': {
-      id: '/services'
-      path: '/services'
-      fullPath: '/services'
-      preLoaderRoute: typeof ServicesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/products': {
-      id: '/products'
-      path: '/products'
-      fullPath: '/products'
-      preLoaderRoute: typeof ProductsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/export-inquiry': {
-      id: '/export-inquiry'
-      path: '/export-inquiry'
-      fullPath: '/export-inquiry'
-      preLoaderRoute: typeof ExportInquiryRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/distributorship': {
-      id: '/distributorship'
-      path: '/distributorship'
-      fullPath: '/distributorship'
-      preLoaderRoute: typeof DistributorshipRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -242,19 +207,47 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/products/': {
-      id: '/products/'
-      path: '/'
-      fullPath: '/products/'
-      preLoaderRoute: typeof ProductsIndexRouteImport
-      parentRoute: typeof ProductsRoute
+    '/distributorship': {
+      id: '/distributorship'
+      path: '/distributorship'
+      fullPath: '/distributorship'
+      preLoaderRoute: typeof DistributorshipRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/export-inquiry': {
+      id: '/export-inquiry'
+      path: '/export-inquiry'
+      fullPath: '/export-inquiry'
+      preLoaderRoute: typeof ExportInquiryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products': {
+      id: '/products'
+      path: '/products'
+      fullPath: '/products'
+      preLoaderRoute: typeof ProductsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/distributorship/': {
       id: '/distributorship/'
@@ -263,12 +256,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DistributorshipIndexRouteImport
       parentRoute: typeof DistributorshipRoute
     }
-    '/products/$brandId': {
-      id: '/products/$brandId'
-      path: '/$brandId'
-      fullPath: '/products/$brandId'
-      preLoaderRoute: typeof ProductsBrandIdRouteImport
-      parentRoute: typeof ProductsRoute
+    '/distributorship/bls': {
+      id: '/distributorship/bls'
+      path: '/bls'
+      fullPath: '/distributorship/bls'
+      preLoaderRoute: typeof DistributorshipBlsRouteImport
+      parentRoute: typeof DistributorshipRoute
     }
     '/distributorship/happikery': {
       id: '/distributorship/happikery'
@@ -277,12 +270,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DistributorshipHappikeryRouteImport
       parentRoute: typeof DistributorshipRoute
     }
-    '/distributorship/bls': {
-      id: '/distributorship/bls'
-      path: '/bls'
-      fullPath: '/distributorship/bls'
-      preLoaderRoute: typeof DistributorshipBlsRouteImport
-      parentRoute: typeof DistributorshipRoute
+    '/products/': {
+      id: '/products/'
+      path: '/'
+      fullPath: '/products/'
+      preLoaderRoute: typeof ProductsIndexRouteImport
+      parentRoute: typeof ProductsRoute
+    }
+    '/products/$brandId': {
+      id: '/products/$brandId'
+      path: '/$brandId'
+      fullPath: '/products/$brandId'
+      preLoaderRoute: typeof ProductsBrandIdRouteImport
+      parentRoute: typeof ProductsRoute
     }
   }
 }

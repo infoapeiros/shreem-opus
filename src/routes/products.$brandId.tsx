@@ -9,6 +9,8 @@ import type { Product } from "./products.index";
 import plantinCatalogue from "@/assets/catlog/PlantIn_Product Brochure_Online 1.pdf";
 import plantinLogoImg from "@/assets/website logo/plantin_logo.png";
 import puriaraLogoImg from "@/assets/website logo/puriora_logo.png";
+import { InstagramIcon, FacebookIcon } from "@/components/site/SocialIcons";
+import { AMRUTEY_SOCIALS } from "@/data/social-links";
 
 export const Route = createFileRoute("/products/$brandId")({
   head: ({ params }) => {
@@ -49,6 +51,10 @@ type BrandConfig = {
   catalogueUrl?: string;
   /** Brand logo (transparent PNG) shown in the hero, if available. */
   logo?: string;
+  /** Use dark text on a light hero background instead of the default white-on-dark. */
+  heroLight?: boolean;
+  /** Brand's own social links, shown subtly in the hero when present. */
+  socials?: { facebook: string; instagram: string };
 };
 
 const brandConfigs: Record<string, BrandConfig> = {
@@ -64,7 +70,8 @@ const brandConfigs: Record<string, BrandConfig> = {
       "--gradient-primary": "linear-gradient(135deg, oklch(0.627 0.194 149.24), oklch(0.484 0.163 158))",
       "--gradient-accent": "linear-gradient(135deg, oklch(0.85 0.15 120), oklch(0.75 0.18 135))",
     } as React.CSSProperties,
-    heroGradient: "linear-gradient(135deg, oklch(0.26 0.07 150), oklch(0.42 0.13 152))",
+    heroGradient: "linear-gradient(135deg, #EDF6EA, #E3F0DE)",
+    heroLight: true,
     tagline: "Eco-Friendly · Sustainable · Areca Tableware",
     TaglineIcon: Leaf,
     ctaTitle: "Inquire About Bulk Plantin Orders",
@@ -88,6 +95,7 @@ const brandConfigs: Record<string, BrandConfig> = {
       "--gradient-accent": "linear-gradient(135deg, oklch(0.82 0.18 78), oklch(0.75 0.15 65))",
     } as React.CSSProperties,
     heroGradient: "linear-gradient(135deg, oklch(0.24 0.05 40), oklch(0.42 0.12 58))",
+    socials: AMRUTEY_SOCIALS,
     tagline: "Premium Tea · Rich Aroma · Hand-Picked Quality",
     TaglineIcon: Coffee,
     ctaTitle: "Partner with Amrutey Tea",
@@ -107,7 +115,8 @@ const brandConfigs: Record<string, BrandConfig> = {
       "--gradient-primary": "linear-gradient(135deg, oklch(0.60 0.15 200), oklch(0.45 0.13 210))",
       "--gradient-accent": "linear-gradient(135deg, oklch(0.80 0.10 180), oklch(0.70 0.12 195))",
     } as React.CSSProperties,
-    heroGradient: "linear-gradient(135deg, oklch(0.25 0.06 200), oklch(0.40 0.12 210))",
+    heroGradient: "linear-gradient(135deg, #EAF4F4, #E1EFF2)",
+    heroLight: true,
     tagline: "Hygiene · Disinfection · Professional Cleaners",
     TaglineIcon: Sparkles,
     ctaTitle: "Partner with Puriora",
@@ -160,8 +169,8 @@ function BrandPage() {
       <SiteLayout>
         {/* HERO */}
         <section className="relative overflow-hidden" style={{ backgroundImage: config.heroGradient }}>
-          <div aria-hidden className="absolute top-10 right-10 h-72 w-72 rounded-full bg-white/10 blur-3xl animate-float" />
-          <div aria-hidden className="absolute bottom-10 left-10 h-80 w-80 rounded-full bg-white/10 blur-3xl animate-float" style={{ animationDelay: "1.5s" }} />
+          <div aria-hidden className={`absolute top-10 right-10 h-72 w-72 rounded-full blur-3xl animate-float ${config.heroLight ? "bg-primary/5" : "bg-white/10"}`} />
+          <div aria-hidden className={`absolute bottom-10 left-10 h-80 w-80 rounded-full blur-3xl animate-float ${config.heroLight ? "bg-primary/5" : "bg-white/10"}`} style={{ animationDelay: "1.5s" }} />
           <div className="container-px mx-auto max-w-7xl py-12 md:py-16 relative z-10">
             {config.logo && (
               <img
@@ -170,13 +179,37 @@ function BrandPage() {
                 className="h-32 sm:h-40 md:h-48 w-auto object-contain mb-4"
               />
             )}
-            <span className="inline-block text-xs font-semibold tracking-[0.25em] uppercase text-white/80 mb-3">
+            <span className={`inline-block text-xs font-semibold tracking-[0.25em] uppercase mb-3 ${config.heroLight ? "text-primary/70" : "text-white/80"}`}>
               {config.eyebrow}
             </span>
-            <h1 className="font-display text-4xl md:text-6xl font-bold text-white max-w-3xl">{config.title}</h1>
-            <p className="mt-4 max-w-2xl text-lg text-white/85">{config.subtitle}</p>
-            <div className="mt-5 inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-md px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white border border-white/20">
-              <config.TaglineIcon className="h-3.5 w-3.5" /> {config.tagline}
+            <h1 className={`font-display text-4xl md:text-6xl font-bold max-w-3xl ${config.heroLight ? "text-primary" : "text-white"}`}>{config.title}</h1>
+            <p className={`mt-4 max-w-2xl text-lg ${config.heroLight ? "text-primary/80" : "text-white/85"}`}>{config.subtitle}</p>
+            <div className="mt-5 flex flex-wrap items-center gap-3">
+              <div className={`inline-flex items-center gap-2 rounded-full backdrop-blur-md px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] border ${config.heroLight ? "bg-primary/5 text-primary border-primary/20" : "bg-white/10 text-white border-white/20"}`}>
+                <config.TaglineIcon className="h-3.5 w-3.5" /> {config.tagline}
+              </div>
+              {config.socials && (
+                <span className={`flex items-center gap-2.5 ${config.heroLight ? "text-primary/70" : "text-white/80"}`}>
+                  <a
+                    href={config.socials.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${config.name} on Instagram`}
+                    className="hover:text-accent transition-colors"
+                  >
+                    <InstagramIcon className="h-4 w-4" />
+                  </a>
+                  <a
+                    href={config.socials.facebook}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${config.name} on Facebook`}
+                    className="hover:text-accent transition-colors"
+                  >
+                    <FacebookIcon className="h-4 w-4" />
+                  </a>
+                </span>
+              )}
             </div>
           </div>
         </section>

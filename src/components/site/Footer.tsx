@@ -1,6 +1,33 @@
 import { Link } from "@tanstack/react-router";
 import { Mail, Phone, MapPin, Globe, Send, Share2, AtSign } from "lucide-react";
-import logo from "@/assets/website logo/shreem_logo_cropped.png";
+import logo from "@/assets/website logo/shreem_logo_footer.png";
+import { InstagramIcon, FacebookIcon } from "@/components/site/SocialIcons";
+import { AMRUTEY_SOCIALS, ROYAL_BAGHAN_SOCIALS } from "@/data/social-links";
+
+function BrandSocialLinks({ facebook, instagram, brand }: { facebook: string; instagram: string; brand: string }) {
+  return (
+    <span className="flex items-center gap-2 shrink-0">
+      <a
+        href={instagram}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`${brand} on Instagram`}
+        className="text-primary-foreground/60 hover:text-accent transition-colors"
+      >
+        <InstagramIcon className="h-3.5 w-3.5" />
+      </a>
+      <a
+        href={facebook}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`${brand} on Facebook`}
+        className="text-primary-foreground/60 hover:text-accent transition-colors"
+      >
+        <FacebookIcon className="h-3.5 w-3.5" />
+      </a>
+    </span>
+  );
+}
 
 // Social links not finalized yet — hidden for now, restore when ready.
 // const socials = [Globe, Share2, AtSign, Send];
@@ -51,8 +78,19 @@ export function Footer() {
             <li>
               <Link to="/products/$brandId" params={{ brandId: "plantin" }} className="hover:text-accent transition-colors">Areca - Plant In Disposable</Link>
             </li>
-            <li>
+            <li className="flex items-center justify-between gap-2">
               <Link to="/products/$brandId" params={{ brandId: "amrutey" }} className="hover:text-accent transition-colors">Amrutey Premium Tea</Link>
+              <BrandSocialLinks brand="Amrutey Premium Tea" {...AMRUTEY_SOCIALS} />
+            </li>
+            <li>
+              <Link to="/products" className="hover:text-accent transition-colors">New Annapurna Premium Tea</Link>
+            </li>
+            <li className="flex items-center justify-between gap-2">
+              <Link to="/products" className="hover:text-accent transition-colors">Royal Baghan Premium Tea</Link>
+              <BrandSocialLinks brand="Royal Baghan Premium Tea" {...ROYAL_BAGHAN_SOCIALS} />
+            </li>
+            <li>
+              <Link to="/distributorship/happikery" className="hover:text-accent transition-colors">Happikery - Ready to Eat Gravy</Link>
             </li>
             <li>
               <Link to="/products/$brandId" params={{ brandId: "puriora" }} className="hover:text-accent transition-colors">Puriora Cleaning Solutions</Link>
@@ -61,19 +99,10 @@ export function Footer() {
               <Link to="/distributorship/bls" className="hover:text-accent transition-colors">BLS Cleaning Machines</Link>
             </li>
             <li>
-              <Link to="/distributorship/happikery" className="hover:text-accent transition-colors">Happikery - Ready to Eat Gravy</Link>
-            </li>
-            <li>
               <Link to="/services" className="hover:text-accent transition-colors">Outdoor Catering</Link>
             </li>
             <li>
               <Link to="/services" className="hover:text-accent transition-colors">On Ground Market Activities</Link>
-            </li>
-            <li>
-              <Link to="/products" className="hover:text-accent transition-colors">New Annapurna Premium Tea</Link>
-            </li>
-            <li>
-              <Link to="/products" className="hover:text-accent transition-colors">Royal Baghan Premium Tea</Link>
             </li>
           </ul>
         </div>

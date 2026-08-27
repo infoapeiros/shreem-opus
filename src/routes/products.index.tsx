@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { SiteLayout, PageHero } from "@/components/site/SiteLayout";
+import { InstagramIcon, FacebookIcon } from "@/components/site/SocialIcons";
+import { AMRUTEY_SOCIALS, ROYAL_BAGHAN_SOCIALS } from "@/data/social-links";
 import amruteyFrontImg from "@/assets/Amrutey_Front_Product.png";
 import amruteyBackImg from "@/assets/Amrutey_Back_Product.png";
 import royalBaghanFrontImg from "@/assets/royal_front.jpeg";
@@ -68,6 +70,8 @@ export type Product = {
   features: string[];
   /** "cover" (default) crops to fill the frame; "contain" fits the whole image without cropping. */
   imgFit?: "cover" | "contain";
+  /** Product's own social links, shown subtly on its card when present. */
+  socials?: { facebook: string; instagram: string };
 };
 
 export const products: (Product & { cat: Exclude<Category, "all"> })[] = [
@@ -80,9 +84,9 @@ export const products: (Product & { cat: Exclude<Category, "all"> })[] = [
   },
   {
     cat: "ownbrand",
-    name: "Amrutey Premium Tea",
-    imgs: [amruteyFrontImg, amruteyBackImg],
-    desc: "Our signature hand-picked premium tea brand for hotels, retailers and discerning households.",
+    name: "Our Tea Brands",
+    imgs: [amruteyFrontImg, royalBaghanFrontImg, newAnnapurnaFrontImg],
+    desc: "Our signature hand-picked premium tea brands — Amrutey, Royal Baghan and New Annapurna — for hotels, retailers and discerning households.",
     features: ["Own brand", "Hand-picked leaves", "Rich aroma"],
     imgFit: "contain",
   },
@@ -123,6 +127,7 @@ export const products: (Product & { cat: Exclude<Category, "all"> })[] = [
     desc: "Retail-ready loose leaf and bagged tea in elegant packaging.",
     features: ["Hand-picked leaves", "Rich aroma", "Long shelf life"],
     imgFit: "contain",
+    socials: AMRUTEY_SOCIALS,
   },
   {
     cat: "tea",
@@ -131,6 +136,7 @@ export const products: (Product & { cat: Exclude<Category, "all"> })[] = [
     desc: "Premium tea blend crafted for a rich aroma, full-bodied flavour, and a refreshing tea experience suitable for everyday enjoyment.",
     features: ["Premium tea blend", "Rich aroma", "Strong taste", "Refreshing flavour", "Hygienically packed"],
     imgFit: "contain",
+    socials: ROYAL_BAGHAN_SOCIALS,
   },
   {
     cat: "tea",
@@ -469,12 +475,36 @@ export function ProductCard({ p, i, tick }: { p: Product; i: number; tick: numbe
             </li>
           ))}
         </ul>
-        <Link
-          to="/export-inquiry"
-          className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-secondary hover:gap-2.5 transition-all"
-        >
-          Request Quote <ArrowRight className="h-4 w-4" />
-        </Link>
+        <div className="mt-5 flex items-center justify-between gap-3">
+          <Link
+            to="/export-inquiry"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-secondary hover:gap-2.5 transition-all"
+          >
+            Request Quote <ArrowRight className="h-4 w-4" />
+          </Link>
+          {p.socials && (
+            <span className="flex items-center gap-2.5 text-muted-foreground">
+              <a
+                href={p.socials.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${p.name} on Instagram`}
+                className="hover:text-secondary transition-colors"
+              >
+                <InstagramIcon className="h-4 w-4" />
+              </a>
+              <a
+                href={p.socials.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${p.name} on Facebook`}
+                className="hover:text-secondary transition-colors"
+              >
+                <FacebookIcon className="h-4 w-4" />
+              </a>
+            </span>
+          )}
+        </div>
       </div>
     </motion.div>
   );
@@ -524,7 +554,7 @@ function ProductsIndexPage() {
   }, []);
 
   const plantinBrand = products.find((p) => p.name === "Plantin Disposable")!;
-  const amruteyBrand = products.find((p) => p.name === "Amrutey Premium Tea")!;
+  const amruteyBrand = products.find((p) => p.name === "Our Tea Brands")!;
   const purioraBrand = products.find((p) => p.name === "Puriora - Cleaning Solutions")!;
 
   return (
